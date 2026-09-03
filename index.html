@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Michael Alvarez — Estratega de Contenido Digital</title>
+<meta name="description" content="Portafolio de Michael Alvarez, Social Media Manager y estratega de contenido digital en Bogotá. Casos de Salitre Plaza, Domoticol, Qualiprint, Colegio Champagnat y Yeah Baby.">
+<meta property="og:title" content="Michael Alvarez — Estratega de Contenido Digital">
+<meta property="og:description" content="Cuatro años convirtiendo audiencias digitales en resultados físicos y comerciales medibles.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0A0C0A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0A0C0A;
+  --ink-2:#111510;
+  --ink-3:#171C15;
+  --line:#252B21;
+  --paper:#EDEFE8;
+  --muted:#98A291;
+  --acid:#C9FF3D;
+  --acid-deep:#6E9414;
+  --on-acid:#0A0C0A;
+
+  --f-display:"Manrope","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Manrope","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"JetBrains Mono","SFMono-Regular",Consolas,monospace;
+
+  --pad:clamp(1.15rem,5vw,5.5rem);
+  --maxw:1280px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--paper);
+  font-family:var(--f-body);
+  font-size:17px;
+  line-height:1.62;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+h1,h2,h3{font-family:var(--f-display);font-weight:800;text-wrap:balance;margin:0;line-height:1.03;letter-spacing:-0.035em}
+h1{font-size:clamp(2.25rem,6vw,5rem)}
+h2{font-size:clamp(1.85rem,4vw,3.1rem)}
+h3{font-size:clamp(1.45rem,2.4vw,2.05rem)}
+p{margin:0}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding-inline:max(var(--pad),env(safe-area-inset-left))}
+.eyebrow{
+  font-family:var(--f-mono);font-size:.7rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);line-height:1.5;
+}
+.eyebrow .dot{color:var(--acid)}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:60;
+  background:rgba(10,12,10,.86);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav-in{
+  max-width:var(--maxw);margin:0 auto;padding:.8rem var(--pad);
+  display:flex;align-items:center;gap:1.5rem;
+}
+.brand{font-family:var(--f-display);font-weight:800;letter-spacing:-.035em;font-size:1.02rem;text-decoration:none;margin-right:auto}
+.brand span{color:var(--acid)}
+.nav-links{display:flex;gap:1.5rem;font-size:.88rem;font-weight:500}
+.nav-links a{text-decoration:none;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--paper)}
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:var(--f-mono);font-size:.74rem;letter-spacing:.05em;text-transform:uppercase;
+  padding:.6rem 1.05rem;border-radius:999px;text-decoration:none;
+  border:1px solid var(--acid);color:var(--acid);
+  transition:background .2s,color .2s;white-space:nowrap;
+}
+.btn-solid{background:var(--acid);color:var(--on-acid)}
+@media(hover:hover){
+  .btn:hover{background:var(--acid);color:var(--on-acid)}
+  .btn-solid:hover{background:transparent;color:var(--acid)}
+}
+@media(max-width:860px){.nav-links{display:none}}
+@media(max-width:400px){.btn{font-size:.68rem;padding:.55rem .85rem}}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(3rem,8vw,6.5rem) 0 clamp(2.5rem,5vw,4rem)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:clamp(1.8rem,5vw,4.5rem);align-items:end}
+.hero h1{margin:1.3rem 0 0}
+.hero h1 em{font-style:normal;color:var(--acid)}
+.hero-lede{margin-top:1.5rem;max-width:54ch;color:var(--muted);font-size:1.04rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:2.1rem}
+
+.portrait{position:relative;aspect-ratio:4/5;border:1px solid var(--line);background:var(--ink-2);overflow:hidden}
+.portrait img{width:100%;height:100%;object-fit:cover;position:relative;z-index:1}
+.portrait .mono{
+  position:absolute;inset:0;display:grid;place-items:center;
+  font-family:var(--f-display);font-weight:800;font-size:4.5rem;color:var(--acid);opacity:.2;
+}
+.portrait .tag{
+  position:absolute;left:0;bottom:0;z-index:2;background:var(--acid);color:var(--on-acid);
+  font-family:var(--f-mono);font-size:.64rem;letter-spacing:.09em;text-transform:uppercase;padding:.38rem .7rem;
+}
+@media(max-width:860px){
+  .hero-grid{grid-template-columns:1fr}
+  .portrait{max-width:200px;order:-1}
+}
+
+/* ---------- métricas ---------- */
+.band{background:var(--acid);color:var(--on-acid);padding:clamp(2.1rem,5vw,3.4rem) 0}
+.band .eyebrow{color:rgba(10,12,10,.6)}
+.band .eyebrow .dot{color:var(--on-acid)}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:1.7rem}
+.metric .delta{
+  font-family:var(--f-display);font-weight:800;font-size:clamp(1.4rem,2.2vw,1.85rem);
+  letter-spacing:-.045em;line-height:1.05;font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+.metric .delta .arrow{opacity:.42;padding:0 .1em}
+.metric .what{font-weight:600;margin-top:.45rem;font-size:.94rem;line-height:1.4}
+.metric .where{font-family:var(--f-mono);font-size:.7rem;color:rgba(10,12,10,.58);margin-top:.25rem;line-height:1.45}
+@media(max-width:900px){.metrics{grid-template-columns:repeat(2,1fr);gap:1.5rem}}
+@media(max-width:430px){.metrics{grid-template-columns:1fr;gap:1.3rem}}
+
+/* ---------- secciones ---------- */
+section{scroll-margin-top:66px}
+.sec-head{display:flex;align-items:baseline;gap:1.1rem;flex-wrap:wrap;padding-top:clamp(3.2rem,7vw,5.5rem)}
+.sec-head .count{font-family:var(--f-mono);font-size:.73rem;color:var(--acid)}
+
+/* ---------- casos ---------- */
+.cases{margin-top:1.8rem;border-top:1px solid var(--line)}
+.case{
+  width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);
+  color:inherit;font:inherit;cursor:pointer;padding:1.4rem 0;display:grid;
+  grid-template-columns:112px minmax(0,1.15fr) minmax(0,1fr) 34px;
+  gap:1.4rem;align-items:start;transition:padding-inline .28s ease,background .28s ease;
+}
+.case:focus-visible{background:var(--ink-2);outline:none;box-shadow:inset 0 0 0 1px var(--acid)}
+@media(hover:hover){
+  .case:hover{background:var(--ink-2);padding-inline:1.1rem}
+  .case:hover .go{transform:translateX(4px);border-color:var(--acid);background:rgba(201,255,61,.08)}
+}
+.case .yr{font-family:var(--f-mono);font-size:.74rem;color:var(--muted);line-height:1.5;padding-top:.42rem}
+.case .name{font-family:var(--f-display);font-weight:800;font-size:clamp(1.2rem,2.4vw,1.75rem);letter-spacing:-.035em;display:block}
+.case .role{font-family:var(--f-mono);font-size:.7rem;color:var(--muted);margin-top:.35rem;text-transform:uppercase;letter-spacing:.07em;display:block;line-height:1.5}
+.case .head{color:var(--muted);font-size:.94rem;padding-top:.15rem}
+.case .head b{color:var(--paper);font-weight:700}
+.case .go{
+  justify-self:end;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
+  display:grid;place-items:center;color:var(--acid);transition:transform .28s ease,border-color .28s,background .28s;flex:none;
+  margin-top:.1rem;
+}
+@media(max-width:860px){
+  .case{grid-template-columns:minmax(0,1fr) 34px;gap:.45rem 1rem;padding:1.35rem 0}
+  .case .yr{grid-column:1/-1}
+  .case .go{grid-column:2;grid-row:2;align-self:start}
+  .case .head{grid-column:1/-1;margin-top:.55rem}
+}
+
+/* ---------- trayectoria ---------- */
+.track{margin-top:2.3rem;border-top:1px solid var(--line)}
+.row{
+  border-bottom:1px solid var(--line);padding:1.2rem 0;display:grid;
+  grid-template-columns:112px minmax(0,1fr);gap:1.4rem;align-items:baseline;
+}
+.row .yr{font-family:var(--f-mono);font-size:.76rem;color:var(--muted)}
+.row h4{margin:0;font-family:var(--f-display);font-weight:800;font-size:1.1rem;letter-spacing:-.03em}
+.row .role{font-family:var(--f-mono);font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;display:block;margin-top:.3rem}
+.row p{color:var(--muted);font-size:.92rem;margin-top:.5rem;max-width:70ch}
+.row .more{
+  margin-top:.7rem;background:none;border:0;padding:0;cursor:pointer;color:var(--acid);
+  font-family:var(--f-mono);font-size:.71rem;letter-spacing:.05em;text-transform:uppercase;
+  border-bottom:1px solid rgba(201,255,61,.35);
+}
+@media(hover:hover){.row .more:hover{border-bottom-color:var(--acid)}}
+@media(max-width:640px){.row{grid-template-columns:1fr;gap:.3rem}}
+
+/* ---------- capacidades ---------- */
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:2.1rem;margin-top:2.3rem}
+.skills h4{
+  margin:0 0 .85rem;font-family:var(--f-mono);font-size:.71rem;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--acid);font-weight:500;
+}
+.skills ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.4rem}
+.skills li{font-size:.92rem;color:var(--muted)}
+@media(max-width:900px){.skills{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.skills{grid-template-columns:1fr;gap:1.7rem}}
+
+.edu{margin-top:2.8rem;display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;border-top:1px solid var(--line);padding-top:1.7rem}
+.edu div strong{display:block;font-family:var(--f-display);font-weight:800;font-size:1.02rem;letter-spacing:-.02em}
+.edu div span{font-family:var(--f-mono);font-size:.73rem;color:var(--muted)}
+@media(max-width:640px){.edu{grid-template-columns:1fr}}
+
+/* ---------- contacto ---------- */
+.contact{background:var(--acid);color:var(--on-acid);margin-top:clamp(3.5rem,8vw,7rem);padding:clamp(2.8rem,7vw,5rem) 0 calc(clamp(2.8rem,7vw,5rem) + env(safe-area-inset-bottom))}
+.contact h2{max-width:18ch;margin-top:1.1rem}
+.contact-links{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.9rem}
+.contact .btn{border-color:var(--on-acid);color:var(--on-acid)}
+@media(hover:hover){.contact .btn:hover{background:var(--on-acid);color:var(--acid)}}
+.foot{display:flex;justify-content:space-between;gap:.8rem;flex-wrap:wrap;margin-top:2.8rem;font-family:var(--f-mono);font-size:.7rem;color:rgba(10,12,10,.58);line-height:1.6}
+
+/* ---------- overlay ---------- */
+.scrim{
+  position:fixed;inset:0;z-index:90;background:rgba(6,8,6,.72);
+  opacity:0;pointer-events:none;transition:opacity .3s ease;
+  -webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);
+}
+.scrim.on{opacity:1;pointer-events:auto}
+.panel{
+  position:fixed;top:0;right:0;bottom:0;z-index:100;width:min(820px,100%);
+  background:var(--ink-2);border-left:1px solid var(--line);
+  transform:translateX(102%);transition:transform .38s cubic-bezier(.16,.84,.44,1);
+  overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;
+}
+.panel.on{transform:translateX(0)}
+.panel-in{padding:clamp(1.15rem,4vw,3.2rem);padding-bottom:calc(clamp(1.15rem,4vw,3.2rem) + env(safe-area-inset-bottom))}
+.panel-close{
+  position:sticky;top:0;float:right;z-index:2;margin:-.3rem -.2rem 0 0;
+  width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--ink);
+  color:var(--paper);cursor:pointer;font-size:1.05rem;line-height:1;flex:none;
+}
+@media(hover:hover){.panel-close:hover{border-color:var(--acid);color:var(--acid)}}
+.panel h3{margin-top:.6rem;max-width:22ch}
+.panel .meta{font-family:var(--f-mono);font-size:.72rem;color:var(--muted);margin-top:.65rem;text-transform:uppercase;letter-spacing:.07em;line-height:1.6}
+.block{margin-top:2.1rem}
+.block h5{
+  margin:0 0 .75rem;font-family:var(--f-mono);font-size:.71rem;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--acid);font-weight:500;
+}
+.block p{color:var(--paper);max-width:63ch}
+.block ul{margin:0;padding-left:1.05rem;display:flex;flex-direction:column;gap:.6rem;max-width:63ch}
+.block li{color:var(--paper)}
+.results{list-style:none;padding:0;display:flex;flex-direction:column;gap:.65rem}
+.results li{
+  display:flex;gap:.85rem;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:.65rem;
+}
+.results li b{font-family:var(--f-mono);color:var(--acid);font-size:.92rem;white-space:nowrap;font-variant-numeric:tabular-nums;flex:none}
+.results li span{color:var(--muted);font-size:.93rem}
+@media(max-width:520px){
+  .results li{flex-direction:column;gap:.2rem}
+  .results li b{white-space:normal}
+}
+.media{display:flex;flex-direction:column;gap:1.3rem;margin-top:.9rem}
+.media video{width:100%;background:#000;border:1px solid var(--line);display:block}
+.media figcaption{font-family:var(--f-mono);font-size:.7rem;color:var(--muted);margin-top:.45rem;line-height:1.6}
+.shot{border:1px solid var(--line);background:var(--ink-3)}
+.shot .bar{display:flex;gap:.35rem;padding:.55rem .75rem;border-bottom:1px solid var(--line);align-items:center}
+.shot .bar i{width:8px;height:8px;border-radius:50%;background:var(--line);display:block;flex:none}
+.shot .bar span{font-family:var(--f-mono);font-size:.66rem;color:var(--muted);margin-left:.45rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.shot .view{height:min(50vh,420px);overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+figure{margin:0}
+
+::-webkit-scrollbar{width:9px;height:9px}
+::-webkit-scrollbar-thumb{background:var(--line);border-radius:9px}
+
+:focus-visible{outline:2px solid var(--acid);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top">Michael Alvarez<span>.</span></a>
+    <div class="nav-links">
+      <a href="#casos">Casos</a>
+      <a href="#trayectoria">Trayectoria</a>
+      <a href="#capacidades">Capacidades</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <a class="btn btn-solid" href="Michael-Alvarez-CV-2026.pdf" download>Descargar CV</a>
+  </div>
+</nav>
+
+<header class="hero wrap" id="top">
+  <div class="hero-grid">
+    <div>
+      <p class="eyebrow">Bogotá, Colombia <span class="dot">·</span> Social Media Manager &amp; Estratega de Contenido</p>
+      <h1>Cuatro años convirtiendo audiencias digitales en <em>resultados físicos</em>.</h1>
+      <p class="hero-lede">Profesional en Publicidad y Mercadeo. Manejo la comunicación digital completa de una marca, desde la estrategia y la producción de contenido hasta la pauta, el copywriting y el análisis de métricas. Trabajo con visión 360°, así que lo que escribo para redes también llega al material POP, a las piezas de print y a las campañas de email masivo.</p>
+      <div class="hero-cta">
+        <a class="btn btn-solid" href="#casos">Ver casos</a>
+        <a class="btn" href="Michael-Alvarez-CV-2026.pdf" download>Descargar CV en PDF</a>
+      </div>
+    </div>
+    <div class="portrait">
+      <div class="mono" aria-hidden="true">MA</div>
+      <img src="assets/img/michael.jpg" alt="Retrato de Michael Alvarez" onerror="this.remove()">
+      <div class="tag">Disponible</div>
+    </div>
+  </div>
+</header>
+
+<div class="band">
+  <div class="wrap">
+    <p class="eyebrow">Resultados verificables <span class="dot">·</span> 2023 — 2026</p>
+    <div class="metrics">
+      <div class="metric">
+        <div class="delta">27.000 <span class="arrow">→</span> 53.000</div>
+        <div class="what">Seguidores en Instagram</div>
+        <div class="where">Salitre Plaza · desde oct. 2024</div>
+      </div>
+      <div class="metric">
+        <div class="delta">300 <span class="arrow">→</span> 46.000</div>
+        <div class="what">Seguidores en TikTok</div>
+        <div class="where">Salitre Plaza · desde cero</div>
+      </div>
+      <div class="metric">
+        <div class="delta">+70%</div>
+        <div class="what">Tráfico web tras optimización SEO</div>
+        <div class="where">Qualiprint · 8 meses</div>
+      </div>
+      <div class="metric">
+        <div class="delta">67,3%</div>
+        <div class="what">Alcance en no seguidores</div>
+        <div class="where">Campaña contra el cáncer · reel destacado</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="casos" class="wrap">
+  <div class="sec-head">
+    <h2>Casos</h2>
+    <span class="count">06 proyectos · toca para abrir</span>
+  </div>
+  <div class="cases" id="lista-casos"></div>
+</section>
+
+<section id="trayectoria" class="wrap">
+  <div class="sec-head">
+    <h2>Trayectoria</h2>
+    <span class="count">2018 — 2022</span>
+  </div>
+  <div class="track" id="lista-track"></div>
+</section>
+
+<section id="capacidades" class="wrap">
+  <div class="sec-head">
+    <h2>Capacidades</h2>
+  </div>
+  <div class="skills">
+    <div>
+      <h4>Estrategia y contenido</h4>
+      <ul>
+        <li>Planeación de contenido</li>
+        <li>Copywriting y storytelling</li>
+        <li>Key visuals y campaña sombrilla</li>
+        <li>Guiones de video</li>
+        <li>Dirección de contenidos</li>
+        <li>Comunicación 360°</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Pauta y medición</h4>
+      <ul>
+        <li>Meta Ads</li>
+        <li>Google Ads</li>
+        <li>TikTok Ads</li>
+        <li>Gestión de presupuesto</li>
+        <li>Google Analytics</li>
+        <li>Hotjar</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Comunidad</h4>
+      <ul>
+        <li>Gestión de comunidades</li>
+        <li>Monitoreo de marca</li>
+        <li>Crisis management</li>
+        <li>Meta Business Suite</li>
+        <li>Buffer</li>
+        <li>Clientify (CRM)</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Web y email</h4>
+      <ul>
+        <li>WordPress y Elementor</li>
+        <li>Odoo (e-commerce)</li>
+        <li>Parrillas de email marketing</li>
+        <li>Segmentación y automatización</li>
+        <li>Nociones de UX</li>
+        <li>HTML y CSS básico</li>
+      </ul>
+    </div>
+  </div>
+  <div class="edu">
+    <div>
+      <strong>Publicidad y Mercadeo</strong>
+      <span>Universidad Los Libertadores · 2011 — 2017</span>
+    </div>
+    <div>
+      <strong>Seminario en Comunicación Estratégica</strong>
+      <span>Universidad de Oriente, Cancún · 2017</span>
+    </div>
+  </div>
+</section>
+
+<footer class="contact" id="contacto">
+  <div class="wrap">
+    <p class="eyebrow">Contacto</p>
+    <h2>¿Hablamos de tu ecosistema digital?</h2>
+    <div class="contact-links">
+      <a class="btn" href="mailto:tegustalaidea@gmail.com">tegustalaidea@gmail.com</a>
+      <a class="btn" href="https://wa.me/573164051727" target="_blank" rel="noopener">WhatsApp 316 405 1727</a>
+      <a class="btn" href="Michael-Alvarez-CV-2026.pdf" download>Descargar CV</a>
+    </div>
+    <div class="foot">
+      <span>Michael Alvarez · Social Media Manager &amp; Estratega de Contenido Digital</span>
+      <span>Bogotá, Colombia · 2026</span>
+    </div>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="panel" id="panel" role="dialog" aria-modal="true" aria-labelledby="panel-title" tabindex="-1">
+  <div class="panel-in" id="panel-in"></div>
+</aside>
+
+<script>
+const V = "assets/video/", I = "assets/img/";
+
+const CASOS = [
+  {
+    id:"salitre", yr:"Oct 2024 — Actualidad", name:"Salitre Plaza",
+    role:"Social Media Manager &amp; Copy · Agencia La Sala",
+    head:"Instagram de <b>27.000 a 53.000</b> seguidores y TikTok de <b>300 a 46.000</b>.",
+    reto:"Un centro comercial compite por atención con todo el entretenimiento de una ciudad de ocho millones de personas. Había que sostener una comunidad activa todos los días y convertir esa atención en visitas reales al centro comercial.",
+    hice:[
+      "Manejo el ecosistema digital completo de la marca en Instagram, TikTok, YouTube y LinkedIn, con estrategia, producción de contenido, pauta y comunidad.",
+      "Redacto el key visual mensual, la campaña sombrilla, y los copies de todos los eventos del mes. Esas piezas se distribuyen en digital, en print y en las pantallas físicas del lugar.",
+      "Gestioné el presupuesto de pauta de la campaña de aniversario, la de mayor inversión del año, con más de $5.000.000 COP.",
+      "Dirijo los contenidos, escribo los guiones de video y hago el trafficking de la pauta.",
+      "Produzco parrillas de hasta 15 emails mensuales para Positiva Seguros, con contenido técnico sobre riesgo profesional físico y psicológico, supervisado por profesional en SST y dirigido a bases de datos masivas de empresas afiliadas."
+    ],
+    res:[
+      ["27.000 → 53.000","seguidores en Instagram, con contenido diario sostenido y pauta estratégica"],
+      ["300 → 46.000","seguidores en TikTok, construyendo la presencia de la marca desde cero"],
+      ["+$5.000.000","COP de pauta gestionada en la campaña de aniversario"]
+    ],
+    media:[{t:"video",src:V+"salitre.mp4",poster:V+"salitre.jpg",cap:"Recorrido por el contenido publicado para Salitre Plaza"}]
+  },
+  {
+    id:"cancer", yr:"Febrero 2026", name:"Día Mundial contra el Cáncer",
+    role:"Líder digital de la campaña · Salitre Plaza · Premios CLIC",
+    head:"Un reel con <b>67,3% de alcance en no seguidores</b> y cobertura en vivo de Citytv.",
+    reto:"Convertir un centro comercial en agente activo de bienestar social y atacar de frente el diagnóstico tardío del cáncer. Toda la comunicación tenía que sostenerse como un servicio real de salud pública, con la credibilidad que eso exige.",
+    hice:[
+      "Abanderé toda la comunicación digital de la jornada del 7 de febrero de 2026, junto a la Liga Colombiana Contra el Cáncer, Profamilia y La Roche-Posay.",
+      "Escribí los guiones y produje las piezas de convocatoria, conmemoración y cierre de campaña.",
+      "Coordiné el contenido con los artistas invitados para amplificar el mensaje hacia audiencias fuera de la comunidad habitual de la marca.",
+      "Cubrí una jornada de diez horas con tamizajes, mamografías, antígeno prostático, dermatología, talleres de escritura terapéutica y yoga, y una pasarela con las historias de las sobrevivientes."
+    ],
+    res:[
+      ["3.478","reproducciones del reel de Lina Uribe, con 67,3% de alcance en no seguidores"],
+      ["2.620","reproducciones del reel de Juan Gabriel, con 42,8% de alcance en no seguidores"],
+      ["3.428","reproducciones del video resumen, compartido 16 veces de forma orgánica"],
+      ["Citytv","cobertura en directo de Marcelo Cezán en el programa Bravísimo"]
+    ],
+    media:[
+      {t:"video",src:V+"campana-inicio.mp4",poster:V+"campana-inicio.jpg",cap:"Inicio de campaña"},
+      {t:"video",src:V+"campana-conmemoracion.mp4",poster:V+"campana-conmemoracion.jpg",cap:"Pieza de conmemoración"},
+      {t:"video",src:V+"campana-mujeres.mp4",poster:V+"campana-mujeres.jpg",cap:"Carrete de las sobrevivientes"},
+      {t:"video",src:V+"campana-cierre.mp4",poster:V+"campana-cierre.jpg",cap:"Cierre de campaña"}
+    ]
+  },
+  {
+    id:"domoticol", yr:"2023 — 2024", name:"Domoticol",
+    role:"Community Manager y Estratega Digital · QP Technology",
+    head:"Web, e-commerce y redes operando con <b>una sola voz</b>.",
+    reto:"Vender en línea productos de domótica que la mayoría de la gente todavía no sabe que necesita. Había que explicar la categoría y vender al mismo tiempo, sin perder al usuario en el camino.",
+    hice:[
+      "Organicé toda la web como e-commerce, con su arquitectura, su redacción y su experiencia de compra.",
+      "Grabé, edité y redacté el contenido de redes con un objetivo doble, descubrimiento de la marca y venta directa.",
+      "Produje las piezas de producto y de campaña para todos los canales digitales."
+    ],
+    res:[["360°","web, e-commerce y redes bajo una misma línea de comunicación"]],
+    media:[
+      {t:"video",src:V+"domoticol.mp4",poster:V+"domoticol.jpg",cap:"Contenido de redes producido para Domoticol"},
+      {t:"shot",src:I+"domoticol-home.jpg",cap:"domoticol.com — página principal"},
+      {t:"shot",src:I+"domoticol-ipure.jpg",cap:"Ficha de producto — línea iPure"},
+      {t:"shot",src:I+"domoticol-instagram.jpg",cap:"Feed de Instagram"}
+    ]
+  },
+  {
+    id:"qualiprint", yr:"2023 — 2024", name:"Qualiprint · QP Technology",
+    role:"Community Manager y Estratega Digital",
+    head:"<b>+70% de tráfico</b> en 8 meses y más conversiones hacia WhatsApp.",
+    reto:"Una plataforma de e-commerce montada sobre Odoo que no estaba convirtiendo. El usuario llegaba, no encontraba cómo comprar y tampoco sabía con quién hablar.",
+    hice:[
+      "Rediseñé el flujo de navegación hacia los puntos de contacto comerciales, WhatsApp y llamadas, para reducir la fricción del usuario.",
+      "Redacté la página y reorganicé toda la comunicación de la marca.",
+      "Coordiné con proveedores la mejora de usabilidad móvil sobre la plataforma Odoo.",
+      "Gestioné campañas en Google Ads optimizando la conversión del tráfico pagado."
+    ],
+    res:[
+      ["+70%","de tráfico web en 8 meses tras la optimización SEO"],
+      ["↑ conversión","medida en clics al botón de WhatsApp y volumen de llamadas entrantes"]
+    ],
+    media:[
+      {t:"shot",src:I+"qp-home.jpg",cap:"Qualiprint — página principal"},
+      {t:"shot",src:I+"qp-pantum.jpg",cap:"Landing de marca aliada — Pantum"}
+    ]
+  },
+  {
+    id:"champagnat", yr:"2022 — 2023", name:"Colegio Champagnat Bogotá",
+    role:"Community Manager",
+    head:"Página web <b>construida desde cero</b> y más padres llegando al Open House.",
+    reto:"Un colegio tradicional con matrículas por llenar y una comunicación que no reflejaba nada de lo que se vivía adentro. Todo el trabajo apuntaba a llevar padres al Open House, el momento donde la propuesta educativa se vuelve irresistible.",
+    hice:[
+      "Construí la página web del colegio desde cero en WordPress con Elementor, con redacción y diseño completos.",
+      "Implementé y operé el CRM Clientify para la gestión de prospectos y el seguimiento del proceso de matrículas.",
+      "Cambié la imagen del colegio y el tipo de contenido para que se sintiera cómo se respiraba adentro.",
+      "Diseñé y ejecuté la estrategia de redes sociales, email marketing y landing pages orientada a captación de nuevos estudiantes."
+    ],
+    res:[
+      ["Web","redactada, diseñada y publicada desde cero"],
+      ["↑ tráfico","de la web al Open House, y de ahí al proceso de matrícula"]
+    ],
+    media:[
+      {t:"video",src:V+"champagnat.mp4",poster:V+"champagnat.jpg",cap:"Contenido de redes producido para el Colegio Champagnat"},
+      {t:"shot",src:I+"champagnat.jpg",cap:"Página web del Colegio Champagnat Bogotá"}
+    ]
+  },
+  {
+    id:"yeahbaby", yr:"2019", name:"Yeah Baby",
+    role:"Creativo Digital · Dirty Kitchen",
+    head:"Canal <b>monetizado</b> convirtiendo la paternidad primeriza en entretenimiento.",
+    reto:"Mi punto de partida como creador de contenido. Había que tomar el trauma de ser padres primerizos y darle la vuelta, volverlo divertido, capturar una audiencia real y hacerla lo bastante atractiva para que las marcas quisieran colaborar.",
+    hice:[
+      "Creé y sostuve la cuenta en Instagram, Facebook y sobre todo YouTube.",
+      "Desarrollé los procesos creativos para contenido de entretenimiento, seleccionando ideas bajo criterios de MVP.",
+      "Construí el proceso creativo del equipo desde cero."
+    ],
+    res:[
+      ["Monetizado","el canal generó ingresos por contenido"],
+      ["Comunidad","audiencia de padres primerizos con interés comercial para marcas aliadas"]
+    ],
+    media:[{t:"video",src:V+"yeah-baby.mp4",poster:V+"yeah-baby.jpg",cap:"Contenido de la cuenta Yeah Baby"}]
+  }
+];
+
+const TRACK = [
+  {
+    yr:"2022", name:"Open Media", role:"Community Manager",
+    desc:"Agencia. Manejé varias cuentas en paralelo, entre ellas Grupo Pharmaris. Social selling adaptado al embudo de cada cliente, monitoreo de marca y protocolos de gestión de crisis con Buffer y Google Alerts.",
+    id:"pharmaris",
+    detalle:{
+      id:"pharmaris", yr:"2022", name:"Grupo Pharmaris", role:"Cuenta gestionada desde Open Media",
+      reto:"El cliente quería vender vitaminas sin poder prometer que curaran o aliviaran nada. Había que hablar de un producto que evidentemente le hace bien al organismo, sin usar ninguna de las promesas de salud que solo pueden hacer las marcas con registro sanitario. Todo el peso del mensaje tenía que caer en el terreno legal disponible.",
+      hice:[
+        "Construí la línea de comunicación dentro del margen regulatorio, apoyada en el beneficio percibido, el hábito y el contexto de uso.",
+        "Ejecuté la estrategia de contenido orgánico y de pauta para la cuenta.",
+        "Monitoreé comentarios y respondí consultas de salud sin exceder lo permitido."
+      ],
+      res:[["Sin riesgo legal","comunicación comercial sostenida dentro del margen regulatorio"]],
+      media:[{t:"video",src:V+"pharmaris.mp4",poster:V+"pharmaris.jpg",cap:"Contenido de redes para Grupo Pharmaris"}]
+    }
+  },
+  { yr:"2021", name:"Grupo Gesth", role:"Community Manager",
+    desc:"Ejecución de la estrategia digital en redes con calendarios de contenido y automatización de publicaciones. Gestión de comunidad por mensajes directos y comentarios." },
+  {
+    yr:"2019 — 2020", name:"Avan-c Leyendo", role:"Community Manager",
+    desc:"Programa de lectura rápida, mil palabras por minuto con comprensión total. Estrategia orgánica y de pauta, monitoreo de KPIs y ajuste de estrategia según resultados.",
+    id:"avanc",
+    detalle:{
+      id:"avanc", yr:"2019 — 2020", name:"Avan-c Leyendo", role:"Community Manager",
+      reto:"Vender el programa de lectura era apenas la mitad del trabajo. La otra mitad era construir comunidad alrededor de temas de conversación que le importaran a la audiencia, en una época anterior a la inteligencia artificial, donde el recurso disponible era el ingenio.",
+      hice:[
+        "Ejecuté la estrategia digital con contenido orgánico y pauta.",
+        "Construí una línea editorial apoyada en memes y referencias culturales para sostener la conversación más allá del producto.",
+        "Monitoreé KPIs y ajusté la estrategia según resultados."
+      ],
+      res:[["Comunidad","conversación sostenida alrededor del hábito de leer, más allá del programa"]],
+      media:[{t:"video",src:V+"avanc.mp4",poster:V+"avanc.jpg",cap:"Contenido de redes para Avan-c Leyendo"}]
+    }
+  },
+  { yr:"2018", name:"Universidad Sergio Arboleda", role:"Auxiliar de Marketing",
+    desc:"CRM de la Escuela de Posgrados para optimizar la captación y matrícula en 24 programas simultáneos. Campañas personalizadas por programa." }
+];
+
+/* ---------- render ---------- */
+const esc = s => String(s).replace(/&(?![a-z#]+;)/g,"&amp;").replace(/</g,"&lt;");
+
+document.getElementById("lista-casos").innerHTML = CASOS.map(c => `
+  <button class="case" data-id="${c.id}">
+    <span class="yr">${c.yr}</span>
+    <span>
+      <span class="name">${c.name}</span>
+      <span class="role">${c.role}</span>
+    </span>
+    <span class="head">${c.head}</span>
+    <span class="go" aria-hidden="true">→</span>
+  </button>`).join("");
+
+document.getElementById("lista-track").innerHTML = TRACK.map(t => `
+  <div class="row">
+    <span class="yr">${t.yr}</span>
+    <div>
+      <h4>${t.name}</h4>
+      <span class="role">${t.role}</span>
+      <p>${t.desc}</p>
+      ${t.id ? `<button class="more" data-id="${t.id}">Ver el caso →</button>` : ""}
+    </div>
+  </div>`).join("");
+
+const TODOS = {};
+CASOS.forEach(c => TODOS[c.id] = c);
+TRACK.forEach(t => { if (t.detalle) TODOS[t.detalle.id] = t.detalle; });
+
+const panel = document.getElementById("panel");
+const panelIn = document.getElementById("panel-in");
+const scrim = document.getElementById("scrim");
+let ultimoFoco = null;
+
+function mediaHTML(m){
+  if (m.t === "video") return `
+    <figure>
+      <video controls preload="none" playsinline poster="${m.poster}"><source src="${m.src}" type="video/mp4"></video>
+      <figcaption>${esc(m.cap)}</figcaption>
+    </figure>`;
+  return `
+    <figure>
+      <div class="shot">
+        <div class="bar"><i></i><i></i><i></i><span>${esc(m.cap)}</span></div>
+        <div class="view"><img src="${m.src}" alt="${esc(m.cap)}" loading="lazy"></div>
+      </div>
+      <figcaption>Desplázate dentro del marco para recorrer la página completa</figcaption>
+    </figure>`;
+}
+
+function abrir(id, conHash){
+  const c = TODOS[id];
+  if (!c) return;
+  ultimoFoco = document.activeElement;
+  panelIn.innerHTML = `
+    <button class="panel-close" id="cerrar" aria-label="Cerrar">✕</button>
+    <p class="eyebrow">${c.yr}</p>
+    <h3 id="panel-title">${c.name}</h3>
+    <p class="meta">${c.role}</p>
+    <div class="block"><h5>El reto</h5><p>${c.reto}</p></div>
+    <div class="block"><h5>Qué hice</h5><ul>${c.hice.map(h=>`<li>${h}</li>`).join("")}</ul></div>
+    <div class="block"><h5>Resultado</h5><ul class="results">${c.res.map(r=>`<li><b>${r[0]}</b><span>${r[1]}</span></li>`).join("")}</ul></div>
+    <div class="block"><h5>Material</h5><div class="media">${c.media.map(mediaHTML).join("")}</div></div>`;
+  panel.classList.add("on");
+  scrim.classList.add("on");
+  document.body.style.overflow = "hidden";
+  panel.scrollTop = 0;
+  panel.focus();
+  document.getElementById("cerrar").addEventListener("click", cerrar);
+  if (conHash !== false) history.replaceState(null, "", "#caso-" + id);
+}
+
+function cerrar(){
+  panel.classList.remove("on");
+  scrim.classList.remove("on");
+  document.body.style.overflow = "";
+  panel.querySelectorAll("video").forEach(v => v.pause());
+  history.replaceState(null, "", location.pathname);
+  if (ultimoFoco) ultimoFoco.focus();
+}
+
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-id]");
+  if (b) abrir(b.dataset.id);
+});
+scrim.addEventListener("click", cerrar);
+document.addEventListener("keydown", e => { if (e.key === "Escape" && panel.classList.contains("on")) cerrar(); });
+
+if (location.hash.startsWith("#caso-")) abrir(location.hash.slice(6), false);
+</script>
+</body>
+</html>

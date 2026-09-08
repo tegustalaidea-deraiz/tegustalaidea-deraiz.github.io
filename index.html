@@ -6,7 +6,7 @@
 <title>Michael Alvarez — Estratega de Contenido Digital</title>
 <meta name="description" content="Portafolio de Michael Alvarez, Social Media Manager y estratega de contenido digital en Bogotá. Casos de Salitre Plaza, Domoticol, Qualiprint, Colegio Champagnat y Yeah Baby.">
 <meta property="og:title" content="Michael Alvarez — Estratega de Contenido Digital">
-<meta property="og:description" content="Cuatro años convirtiendo audiencias digitales en resultados físicos y comerciales medibles.">
+<meta property="og:description" content="Más de cinco años convirtiendo audiencias digitales en resultados físicos y comerciales medibles.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0A0C0A">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -115,20 +115,23 @@ p{margin:0}
   .portrait{max-width:200px;order:-1}
 }
 
-/* ---------- métricas ---------- */
-.band{background:var(--acid);color:var(--on-acid);padding:clamp(2.1rem,5vw,3.4rem) 0}
+/* ---------- franja de perfiles ---------- */
+.band{background:var(--acid);color:var(--on-acid);padding:clamp(2.1rem,5vw,3.2rem) 0}
 .band .eyebrow{color:rgba(10,12,10,.6)}
 .band .eyebrow .dot{color:var(--on-acid)}
-.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:2.4rem;margin-top:1.7rem}
-.metric .delta{
-  font-family:var(--f-display);font-weight:800;font-size:clamp(1.4rem,2.2vw,1.85rem);
-  letter-spacing:-.045em;line-height:1.05;font-variant-numeric:tabular-nums;white-space:nowrap;
+.skills-band{display:grid;grid-template-columns:repeat(5,1fr);gap:2rem 1.8rem;margin-top:1.7rem}
+.skill .rol{
+  font-family:var(--f-display);font-weight:800;font-size:clamp(1rem,1.35vw,1.16rem);
+  letter-spacing:-.03em;line-height:1.15;
 }
-.metric .delta .arrow{opacity:.42;padding:0 .1em}
-.metric .what{font-weight:600;margin-top:.45rem;font-size:.94rem;line-height:1.4}
-.metric .where{font-family:var(--f-mono);font-size:.7rem;color:rgba(10,12,10,.58);margin-top:.25rem;line-height:1.45}
-@media(max-width:900px){.metrics{grid-template-columns:repeat(2,1fr);gap:1.5rem}}
-@media(max-width:430px){.metrics{grid-template-columns:1fr;gap:1.3rem}}
+.skill .det{
+  font-family:var(--f-mono);font-size:.71rem;color:rgba(10,12,10,.66);
+  margin-top:.5rem;line-height:1.55;
+}
+.skill{border-top:1.5px solid rgba(10,12,10,.28);padding-top:.85rem}
+@media(max-width:1080px){.skills-band{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:720px){.skills-band{grid-template-columns:repeat(2,1fr);gap:1.5rem 1.4rem}}
+@media(max-width:430px){.skills-band{grid-template-columns:1fr;gap:1.2rem}}
 
 /* ---------- secciones ---------- */
 section{scroll-margin-top:66px}
@@ -287,7 +290,7 @@ figure{margin:0}
   <div class="hero-grid">
     <div>
       <p class="eyebrow">Bogotá, Colombia <span class="dot">·</span> Social Media Manager &amp; Estratega de Contenido</p>
-      <h1>Cuatro años convirtiendo audiencias digitales en <em>resultados físicos</em>.</h1>
+      <h1>Más de cinco años convirtiendo audiencias digitales en <em>resultados físicos</em>.</h1>
       <p class="hero-lede">Profesional en Publicidad y Mercadeo. Manejo la comunicación digital completa de una marca, desde la estrategia y la producción de contenido hasta la pauta, el copywriting y el análisis de métricas. Trabajo con visión 360°, así que lo que escribo para redes también llega al material POP, a las piezas de print y a las campañas de email masivo.</p>
       <div class="hero-cta">
         <a class="btn btn-solid" href="#casos">Ver casos</a>
@@ -304,22 +307,27 @@ figure{margin:0}
 
 <div class="band">
   <div class="wrap">
-    <p class="eyebrow">Resultados verificables <span class="dot">·</span> 2023 — 2026</p>
-    <div class="metrics">
-      <div class="metric">
-        <div class="delta">27.000 <span class="arrow">→</span> 53.000</div>
-        <div class="what">Seguidores en Instagram</div>
-        <div class="where">Salitre Plaza · desde oct. 2024</div>
+    <p class="eyebrow">Lo que hago <span class="dot">·</span> Más de cinco años de experiencia</p>
+    <div class="skills-band">
+      <div class="skill">
+        <div class="rol">Community Manager</div>
+        <div class="det">Gestión de comunidad, monitoreo de marca y manejo de crisis</div>
       </div>
-      <div class="metric">
-        <div class="delta">300 <span class="arrow">→</span> 46.000</div>
-        <div class="what">Seguidores en TikTok</div>
-        <div class="where">Salitre Plaza · desde cero</div>
+      <div class="skill">
+        <div class="rol">Trafficker digital</div>
+        <div class="det">Meta Ads, Google Ads y TikTok Ads con gestión de presupuesto</div>
       </div>
-      <div class="metric">
-        <div class="delta">67,3%</div>
-        <div class="what">Alcance en no seguidores</div>
-        <div class="where">Campaña contra el cáncer · reel destacado</div>
+      <div class="skill">
+        <div class="rol">Redactor publicitario</div>
+        <div class="det">Copy para páginas web, campañas y piezas de marca</div>
+      </div>
+      <div class="skill">
+        <div class="rol">Comunicación 360°</div>
+        <div class="det">Del contenido digital al material POP, print y divisiones de campaña</div>
+      </div>
+      <div class="skill">
+        <div class="rol">Analítica</div>
+        <div class="det">Google Analytics, Search Console y Meta Business Suite</div>
       </div>
     </div>
   </div>

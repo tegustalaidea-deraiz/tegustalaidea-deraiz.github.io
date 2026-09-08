@@ -1,0 +1,17 @@
+SITIO PORTAFOLIO — MICHAEL ALVAREZ
+
+Esta carpeta es el sitio completo. Para publicarlo en GitHub Pages:
+
+1. Crea un repositorio nuevo en github.com (por ejemplo: portafolio).
+   Marca "Public".
+2. Sube el CONTENIDO de esta carpeta (no la carpeta en si):
+   index.html, .nojekyll, Michael-Alvarez-CV-2026.pdf y la carpeta assets.
+   Puedes arrastrarlos en "uploading an existing file".
+3. En el repositorio: Settings > Pages > Source: "Deploy from a branch",
+   Branch: main, carpeta: / (root). Guardar.
+4. En 1-2 minutos el sitio queda en:
+   https://TUUSUARIO.github.io/portafolio/
+
+PENDIENTE: pon tu foto en assets/img/michael.jpg
+(vertical o cuadrada, fondo liso, luz pareja, de pecho hacia arriba).
+Si el archivo no existe, la pagina muestra un monograma "MA" en su lugar.

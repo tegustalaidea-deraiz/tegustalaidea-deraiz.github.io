@@ -202,6 +202,23 @@ section{scroll-margin-top:66px}
 .edu div span{font-family:var(--f-mono);font-size:.73rem;color:var(--muted)}
 @media(max-width:640px){.edu{grid-template-columns:1fr}}
 
+/* ---------- certificaciones ---------- */
+.certs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:2rem;background:var(--line);border:1px solid var(--line)}
+.cert{background:var(--ink);padding:1.35rem 1.3rem 1.5rem}
+.cert-top{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.85rem}
+.plat{
+  font-family:var(--f-display);font-weight:800;font-size:.72rem;letter-spacing:-.02em;
+  background:var(--acid);color:var(--on-acid);padding:.2rem .5rem .25rem;border-radius:3px;
+}
+.cert-yr{font-family:var(--f-mono);font-size:.7rem;color:var(--muted)}
+.cert h4{
+  margin:0;font-family:var(--f-display);font-weight:800;font-size:1rem;
+  letter-spacing:-.025em;line-height:1.25;text-wrap:balance;
+}
+.cert p{margin-top:.55rem;font-size:.88rem;color:var(--muted);line-height:1.5}
+@media(max-width:900px){.certs{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.certs{grid-template-columns:1fr}}
+
 /* ---------- contacto ---------- */
 .contact{background:var(--acid);color:var(--on-acid);margin-top:clamp(3.5rem,8vw,7rem);padding:clamp(2.8rem,7vw,5rem) 0 calc(clamp(2.8rem,7vw,5rem) + env(safe-area-inset-bottom))}
 .contact h2{max-width:18ch;margin-top:1.1rem}
@@ -280,6 +297,7 @@ figure{margin:0}
       <a href="#casos">Casos</a>
       <a href="#trayectoria">Trayectoria</a>
       <a href="#capacidades">Capacidades</a>
+      <a href="#certificaciones">Certificaciones</a>
       <a href="#contacto">Contacto</a>
     </div>
     <a class="btn btn-solid" href="Michael-Alvarez-CV-2026.pdf" download>Descargar CV</a>
@@ -408,6 +426,76 @@ figure{margin:0}
       <strong>Seminario en Comunicación Estratégica</strong>
       <span>Universidad de Oriente, Cancún · 2017</span>
     </div>
+  </div>
+</section>
+
+
+<section id="certificaciones" class="wrap">
+  <div class="sec-head">
+    <h2>Licencias y certificaciones</h2>
+    <span class="count">12 cursos · Platzi</span>
+  </div>
+  <div class="certs">
+      <article class="cert">
+        <div class="cert-top"><span class="plat">Platzi</span><span class="cert-yr">Jun 2024</span></div>
+        <h4>Las 5 leyes de UX/UI para startups</h4>
+        <p>Diseño de flujos y jerarquía visual a partir de cómo decide el usuario.</p>
+      </article>
+      <article class="cert">
+        <div class="cert-top"><span class="plat">Platzi</span><span class="cert-yr">2022</span></div>
+        <h4>Curso práctico de creación de comunidad</h4>
+        <p>Construcción de comunidad activa alrededor de una marca.</p>
+      </article>
+      <article class="cert">
+        <div class="cert-top"><span class="plat">Platzi</span><span class="cert-yr">Ago 2022</span></div>
+        <h4>Hacks para redactar titulares</h4>
+        <p>Titulares que ganan el primer segundo de atención.</p>
+      </article>
+      <article class="cert">
+        <div class="cert-top"><span class="plat">Platzi</span><span class="cert-yr">2021</span></div>
+        <h4>Community Manager</h4>
+        <p>Gestión diaria de comunidad, tono de marca y respuesta.</p>
+      </article>
+      <article class="cert">
+        <div class="cert-top"><span class="plat">Platzi</span><span class="cert-yr">2021</span></div>
+        <h4>Estrategias de marketing en redes sociales</h4>
+        <p>Planeación de campañas por objetivo y por canal.</p>
+      </article>
+      <article class="cert">
+        <div class="cert-top"><span class="plat">Platzi</span><span class="cert-yr">2021</span></div>
+        <h4>Email marketing</h4>
+        <p>Parrillas, segmentación y automatización de envíos masivos.</p>
+      </article>
+      <article class="cert">
+        <div class="cert-top"><span class="plat">Platzi</span><span class="cert-yr">2021</span></div>
+        <h4>Marketing online y estrategia digital</h4>
+        <p>Estrategia digital completa, del objetivo al canal.</p>
+      </article>
+      <article class="cert">
+        <div class="cert-top"><span class="plat">Platzi</span><span class="cert-yr">2021</span></div>
+        <h4>Planeación y medición de campañas digitales</h4>
+        <p>Definición de KPIs y lectura de resultados para ajustar.</p>
+      </article>
+      <article class="cert">
+        <div class="cert-top"><span class="plat">Platzi</span><span class="cert-yr">2021</span></div>
+        <h4>Content marketing</h4>
+        <p>Contenido que atrae y sostiene audiencia sin vender de frente.</p>
+      </article>
+      <article class="cert">
+        <div class="cert-top"><span class="plat">Platzi</span><span class="cert-yr">2021</span></div>
+        <h4>Copywriting con técnicas de storytelling</h4>
+        <p>Estructura narrativa aplicada a piezas que venden.</p>
+      </article>
+      <article class="cert">
+        <div class="cert-top"><span class="plat">Platzi</span><span class="cert-yr">2021</span></div>
+        <h4>Facebook Ads</h4>
+        <p>Pauta en Meta, segmentación y optimización de presupuesto.</p>
+      </article>
+      <article class="cert">
+        <div class="cert-top"><span class="plat">Platzi</span><span class="cert-yr">2021</span></div>
+        <h4>Introducción al marketing digital</h4>
+        <p>Fundamentos del ecosistema digital y sus canales.</p>
+      </article>
   </div>
 </section>
 

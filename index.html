@@ -213,6 +213,48 @@ section{scroll-margin-top:66px}
 .edu div span{font-family:var(--f-mono);font-size:.73rem;color:var(--muted)}
 @media(max-width:640px){.edu{grid-template-columns:1fr}}
 
+/* ---------- piezas de video ---------- */
+.reels{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:2rem}
+.reel{
+  background:none;border:0;padding:0;cursor:pointer;color:inherit;font:inherit;text-align:left;
+  display:flex;flex-direction:column;gap:.85rem;
+}
+.reel .thumb{
+  position:relative;aspect-ratio:9/16;overflow:hidden;background:var(--ink-2);
+  border:1px solid var(--line);transition:border-color .25s;
+}
+.reel .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.reel .play{
+  position:absolute;inset:0;display:grid;place-items:center;
+  background:linear-gradient(to top,rgba(6,8,6,.55),rgba(6,8,6,0) 55%);
+}
+.reel .play i{
+  width:46px;height:46px;border-radius:50%;background:var(--acid);color:var(--on-acid);
+  display:grid;place-items:center;font-style:normal;font-size:.85rem;padding-left:3px;
+  transition:transform .25s;
+}
+.reel .marca{
+  position:absolute;top:.6rem;left:.6rem;background:var(--acid);color:var(--on-acid);
+  font-family:var(--f-mono);font-size:.6rem;letter-spacing:.09em;text-transform:uppercase;padding:.25rem .5rem;
+}
+.reel .tit{display:block;font-family:var(--f-display);font-weight:800;font-size:1.02rem;letter-spacing:-.025em;line-height:1.25}
+.reel .sub{display:block;font-family:var(--f-mono);font-size:.68rem;color:var(--muted);margin-top:.4rem;line-height:1.5}
+.reel:focus-visible .thumb{border-color:var(--acid);outline:none}
+@media(hover:hover){
+  .reel:hover .thumb{border-color:var(--acid)}
+  .reel:hover .thumb img{transform:scale(1.04)}
+  .reel:hover .play i{transform:scale(1.12)}
+}
+@media(max-width:900px){.reels{grid-template-columns:repeat(2,1fr);gap:1.2rem}}
+@media(max-width:420px){.reels{grid-template-columns:1fr}}
+
+.media video.vert{max-height:68vh;width:auto;max-width:100%;margin:0 auto}
+.copy-pieza{
+  white-space:pre-line;color:var(--paper);max-width:58ch;
+  border-left:2px solid var(--acid);padding-left:1.1rem;
+}
+.tags{font-family:var(--f-mono);font-size:.78rem;color:var(--acid);margin-top:1rem;line-height:1.7;word-spacing:.2em}
+
 /* ---------- certificaciones ---------- */
 .certs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:2rem;background:var(--line);border:1px solid var(--line)}
 .cert{background:var(--ink);padding:1.35rem 1.3rem 1.5rem}
@@ -306,6 +348,7 @@ figure{margin:0}
     <a class="brand" href="#top">Michael Alvarez<span>.</span></a>
     <div class="nav-links">
       <a href="#casos" data-t="nav1">Casos</a>
+      <a href="#piezas" data-t="navIa">Video con IA</a>
       <a href="#trayectoria" data-t="nav2">Trayectoria</a>
       <a href="#capacidades" data-t="nav3">Capacidades</a>
       <a href="#certificaciones" data-t="nav4">Certificaciones</a>
@@ -351,6 +394,15 @@ figure{margin:0}
     <span class="count" data-t="cntCasos">06 proyectos · toca para abrir</span>
   </div>
   <div class="cases" id="lista-casos"></div>
+</section>
+
+<section id="piezas" class="wrap">
+  <div class="sec-head">
+    <h2 data-t="h2ia">Video con inteligencia artificial</h2>
+    <span class="count" data-t="cntIa">Piezas de concepto · en crecimiento</span>
+  </div>
+  <p class="hero-lede" style="margin-top:1.1rem;max-width:62ch" data-t="ledeIa">Piezas que genero y edito con herramientas de inteligencia artificial, con su copy y su objetivo. Nacieron como ejercicios para pruebas creativas, así que no se publicaron en los canales de la marca.</p>
+  <div class="reels" id="lista-ia"></div>
 </section>
 
 <section id="trayectoria" class="wrap">
@@ -404,7 +456,7 @@ const V = "assets/video/", I = "assets/img/";
 /* ============ textos de interfaz ============ */
 const UI = {
  es:{nav1:"Casos",nav2:"Trayectoria",nav3:"Capacidades",nav4:"Certificaciones",nav5:"Contacto",
-  cv:"Descargar CV",cvPdf:"Descargar CV en PDF",verCasos:"Ver casos",disponible:"Disponible",
+  cv:"Descargar CV",cvPdf:"Descargar CV en PDF",verCasos:"Ver casos",disponible:"Disponible",navIa:"Video con IA",h2ia:"Video con inteligencia artificial",cntIa:"Piezas de concepto · en crecimiento",ledeIa:"Piezas que genero y edito con herramientas de inteligencia artificial, con su copy y su objetivo. Nacieron como ejercicios para pruebas creativas, así que no se publicaron en los canales de la marca.",objetivo:"Objetivo",copyPieza:"Copy de la pieza",verPieza:"Ver la pieza",concepto:"Concepto",
   heroEyebrow:'Bogotá, Colombia <span class="dot">·</span> Social Media Manager &amp; Estratega de Contenido',
   heroH1:'Más de cinco años convirtiendo audiencias digitales en <em>resultados físicos</em>.',
   heroLede:"Profesional en Publicidad y Mercadeo. Manejo la comunicación digital completa de una marca, desde la estrategia y la producción de contenido hasta la pauta, el copywriting y el análisis de métricas. Trabajo con visión 360°, así que lo que escribo para redes también llega al material POP, a las piezas de print y a las campañas de email masivo.",
@@ -418,7 +470,7 @@ const UI = {
   scrollShot:"Desplázate dentro del marco para recorrer la página completa",
   titulo:"Michael Alvarez — Estratega de Contenido Digital"},
  en:{nav1:"Work",nav2:"Career",nav3:"Skills",nav4:"Certifications",nav5:"Contact",
-  cv:"Download CV",cvPdf:"Download CV as PDF",verCasos:"See the work",disponible:"Available",
+  cv:"Download CV",cvPdf:"Download CV as PDF",verCasos:"See the work",disponible:"Available",navIa:"AI video",h2ia:"AI-generated video",cntIa:"Concept pieces · growing",ledeIa:"Pieces I generate and edit with artificial intelligence tools, each with its copy and its objective. They started as exercises for creative tests, so they were never published on the brand\u2019s channels.",objetivo:"Objective",copyPieza:"Piece copy (Spanish)",verPieza:"View the piece",concepto:"Concept",
   heroEyebrow:'Bogotá, Colombia <span class="dot">·</span> Social Media Manager &amp; Content Strategist',
   heroH1:'Over five years turning digital audiences into <em>real-world results</em>.',
   heroLede:"Advertising and Marketing professional. I run a brand's entire digital communication, from strategy and content production to paid media, copywriting and analytics. I work with a 360° view, so what I write for social also reaches point-of-sale material, print pieces and mass email campaigns.",
@@ -636,6 +688,52 @@ const CASOS = [
   media:[{t:"video",src:V+"yeah-baby.mp4",poster:V+"yeah-baby.jpg",cap:{es:"Contenido de la cuenta Yeah Baby",en:"Content from the Yeah Baby account"}}]}
 ];
 
+
+/* ============ piezas de video con IA ============ */
+const PIEZAS = [
+ {id:"ia-velez", ia:true, marca:"tuplús",
+  poster:V+"ia-velez.jpg",
+  es:{yr:"2026",name:"Cartera Vélez",role:"Pieza de concepto · tuplús · Grupo Aval",
+   sub:"Generación y edición con IA · 23 s",
+   reto:"Aumentar seguidores mediante tendencia y beneficio tangible.",
+   hice:["Generé las imágenes y el video con herramientas de inteligencia artificial.",
+    "Edité el montaje, el ritmo y los textos en pantalla.",
+    "Redacté el copy de publicación y los hashtags."],
+   copy:"Cuando estrenas algo que te costó cero pesos pero representa cada café, cada mercado y cada esfuerzo del mes, se cuida con el alma entera\n\nEse bolso Vélez que viste tantas veces en la vitrina ya te lo ganaste con las compras que haces a diario con tus tarjetas de crédito de las entidades del Grupo Aval, ya sea con Banco de Bogotá, Banco de Occidente, Banco Popular o AV Villas.\n\nTus puntos están hechos para disfrutarse hoy, no para dejarlos acumulando polvo en una cuenta olvidada.\n\nDate una vuelta por los canales oficiales de tuplús, revisa tu saldo y llévate ese gusto que ya es tuyo",
+   tags:"#Tuplús #CueroVélez #PuntosTuplús #GrupoAval #ModaColombia"},
+  en:{yr:"2026",name:"Vélez Handbag",role:"Concept piece · tuplús · Grupo Aval",
+   sub:"AI generation and editing · 23 s",
+   reto:"Grow followers through a trend and a tangible benefit.",
+   hice:["I generated the images and the video with artificial intelligence tools.",
+    "I edited the cut, the pacing and the on-screen text.",
+    "I wrote the publication copy and the hashtags."],
+   copy:"Cuando estrenas algo que te costó cero pesos pero representa cada café, cada mercado y cada esfuerzo del mes, se cuida con el alma entera\n\nEse bolso Vélez que viste tantas veces en la vitrina ya te lo ganaste con las compras que haces a diario con tus tarjetas de crédito de las entidades del Grupo Aval, ya sea con Banco de Bogotá, Banco de Occidente, Banco Popular o AV Villas.\n\nTus puntos están hechos para disfrutarse hoy, no para dejarlos acumulando polvo en una cuenta olvidada.\n\nDate una vuelta por los canales oficiales de tuplús, revisa tu saldo y llévate ese gusto que ya es tuyo",
+   tags:"#Tuplús #CueroVélez #PuntosTuplús #GrupoAval #ModaColombia"},
+  media:[{t:"video",vert:true,src:V+"ia-velez.mp4",poster:V+"ia-velez.jpg",
+   cap:{es:"Pieza vertical para redes · generada y editada con IA",en:"Vertical social piece · generated and edited with AI"}}]},
+
+ {id:"ia-jetsmart", ia:true, marca:"tuplús",
+  poster:V+"ia-jetsmart.jpg",
+  es:{yr:"2026",name:"Vuelos y viajes con JetSMART",role:"Pieza de concepto · tuplús · Grupo Aval",
+   sub:"Generación y edición con IA · 30 s",
+   reto:"Explicar cómo usar los puntos tuplús para viajar.",
+   hice:["Generé las imágenes y el video con herramientas de inteligencia artificial.",
+    "Edité el montaje y ajusté el ritmo para que la mecánica se entendiera en treinta segundos.",
+    "Redacté el copy de publicación con la promoción, el cupón y la fecha límite."],
+   copy:"Ese viaje que vienes aplazando no necesita que te ganes la lotería, solo que te acuerdes de los puntos que tienes ahí guardados\n\nCada vez que haces mercado, pagas una salida o compras con las tarjetas de crédito de Banco de Bogotá, Banco de Occidente, Banco Popular o AV Villas, estás sumando puntos en tuplús. Y esos puntos se convierten en millas, playa y momentos que sí valen la pena.\n\nAprovecha vuelos nacionales desde $50.000 con el cupón PLUS50JA en JetSMART, hasta 70% de descuento en hospedaje y paquetes a 3 cuotas sin interés.\n\nTienes hasta el 30 de septiembre para armar maleta. Entra a los canales de tuplús y mira hasta dónde te llevan hoy tus puntos",
+   tags:"#Tuplús #ViajarPorColombia #JetSMARTColombia #PuntosTuplús #GrupoAval"},
+  en:{yr:"2026",name:"Flights and travel with JetSMART",role:"Concept piece · tuplús · Grupo Aval",
+   sub:"AI generation and editing · 30 s",
+   reto:"Explain how to use tuplús points to travel.",
+   hice:["I generated the images and the video with artificial intelligence tools.",
+    "I edited the cut and tuned the pacing so the mechanic lands in thirty seconds.",
+    "I wrote the publication copy with the promotion, the coupon and the deadline."],
+   copy:"Ese viaje que vienes aplazando no necesita que te ganes la lotería, solo que te acuerdes de los puntos que tienes ahí guardados\n\nCada vez que haces mercado, pagas una salida o compras con las tarjetas de crédito de Banco de Bogotá, Banco de Occidente, Banco Popular o AV Villas, estás sumando puntos en tuplús. Y esos puntos se convierten en millas, playa y momentos que sí valen la pena.\n\nAprovecha vuelos nacionales desde $50.000 con el cupón PLUS50JA en JetSMART, hasta 70% de descuento en hospedaje y paquetes a 3 cuotas sin interés.\n\nTienes hasta el 30 de septiembre para armar maleta. Entra a los canales de tuplús y mira hasta dónde te llevan hoy tus puntos",
+   tags:"#Tuplús #ViajarPorColombia #JetSMARTColombia #PuntosTuplús #GrupoAval"},
+  media:[{t:"video",vert:true,src:V+"ia-jetsmart.mp4",poster:V+"ia-jetsmart.jpg",
+   cap:{es:"Pieza vertical para redes · generada y editada con IA",en:"Vertical social piece · generated and edited with AI"}}]}
+];
+
 /* ============ trayectoria ============ */
 const TRACK = [
  {yr:"2022",id:"pharmaris",
@@ -727,6 +825,19 @@ function pintar(){
       <span class="go" aria-hidden="true">→</span>
     </button>`).join("");
 
+  document.getElementById("lista-ia").innerHTML = PIEZAS.map(x => `
+    <button class="reel" data-id="${x.id}">
+      <span class="thumb">
+        <img src="${x.poster}" alt="${x[L].name}" loading="lazy">
+        <span class="marca">${x.marca}</span>
+        <span class="play"><i>▶</i></span>
+      </span>
+      <span>
+        <span class="tit">${x[L].name}</span>
+        <span class="sub">${x[L].sub}</span>
+      </span>
+    </button>`).join("");
+
   document.getElementById("lista-track").innerHTML = TRACK.map(k => `
     <div class="row">
       <span class="yr">${k.yr}</span>
@@ -743,6 +854,7 @@ function pintar(){
 
 const TODOS = {};
 CASOS.forEach(c => TODOS[c.id] = c);
+PIEZAS.forEach(x => TODOS[x.id] = x);
 TRACK.forEach(k => { if (k.detalle) TODOS[k.detalle.id] = k.detalle; });
 
 const panel = document.getElementById("panel");
@@ -754,7 +866,7 @@ function mediaHTML(m){
   const cap = m.cap[L];
   if (m.t === "video") return `
     <figure>
-      <video controls preload="none" playsinline poster="${m.poster}"><source src="${m.src}" type="video/mp4"></video>
+      <video class="${m.vert ? 'vert' : ''}" controls preload="none" playsinline poster="${m.poster}"><source src="${m.src}" type="video/mp4"></video>
       <figcaption>${esc(cap)}</figcaption>
     </figure>`;
   return `
@@ -778,9 +890,10 @@ function abrir(id, conHash){
     <p class="eyebrow">${d.yr}</p>
     <h3 id="panel-title">${d.name}</h3>
     <p class="meta">${d.role}</p>
-    <div class="block"><h5>${t("elReto")}</h5><p>${d.reto}</p></div>
+    <div class="block"><h5>${c.ia ? t("objetivo") : t("elReto")}</h5><p>${d.reto}</p></div>
     <div class="block"><h5>${t("queHice")}</h5><ul>${d.hice.map(h=>`<li>${h}</li>`).join("")}</ul></div>
-    <div class="block"><h5>${t("resultado")}</h5><ul class="results">${d.res.map(r=>`<li><b>${r[0]}</b><span>${r[1]}</span></li>`).join("")}</ul></div>
+    ${d.res ? `<div class="block"><h5>${t("resultado")}</h5><ul class="results">${d.res.map(r=>`<li><b>${r[0]}</b><span>${r[1]}</span></li>`).join("")}</ul></div>` : ""}
+    ${d.copy ? `<div class="block"><h5>${t("copyPieza")}</h5><p class="copy-pieza">${d.copy}</p><p class="tags">${d.tags}</p></div>` : ""}
     <div class="block"><h5>${t("material")}</h5><div class="media">${c.media.map(mediaHTML).join("")}</div></div>`;
   panel.classList.add("on");
   scrim.classList.add("on");

@@ -6,7 +6,7 @@
 <title>Michael Alvarez — Estratega de Contenido Digital</title>
 <meta name="description" content="Portafolio de Michael Alvarez, Social Media Manager y estratega de contenido digital en Bogotá. Casos de Salitre Plaza, Domoticol, Qualiprint, Colegio Champagnat y Yeah Baby.">
 <meta property="og:title" content="Michael Alvarez — Estratega de Contenido Digital">
-<meta property="og:description" content="Más de cinco años convirtiendo audiencias digitales en resultados físicos y comerciales medibles.">
+<meta property="og:description" content="Cinco años liderando el marketing digital de marcas de sectores muy distintos.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0A0C0A">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -131,16 +131,50 @@ p{margin:0}
 .band{background:var(--acid);color:var(--on-acid);padding:clamp(2.1rem,5vw,3.2rem) 0}
 .band .eyebrow{color:rgba(10,12,10,.6)}
 .band .eyebrow .dot{color:var(--on-acid)}
-.skills-band{display:grid;grid-template-columns:repeat(3,1fr);gap:1.9rem 2.4rem;margin-top:1.7rem}
+.skills-band{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem 2.4rem;margin-top:1.7rem;align-items:start}
+.skill{
+  border-top:1.5px solid rgba(10,12,10,.28);padding:.85rem 0 0;margin:0;
+  background:none;border-left:0;border-right:0;border-bottom:0;text-align:left;
+  font:inherit;color:inherit;cursor:pointer;display:block;width:100%;
+}
 .skill .rol{
-  font-family:var(--f-display);font-weight:800;font-size:clamp(1rem,1.35vw,1.16rem);
+  display:block;font-family:var(--f-display);font-weight:800;font-size:clamp(1rem,1.35vw,1.16rem);
   letter-spacing:-.03em;line-height:1.15;
 }
 .skill .det{
-  font-family:var(--f-mono);font-size:.71rem;color:rgba(10,12,10,.66);
+  display:block;font-family:var(--f-mono);font-size:.71rem;color:rgba(10,12,10,.66);
   margin-top:.5rem;line-height:1.55;
 }
-.skill{border-top:1.5px solid rgba(10,12,10,.28);padding-top:.85rem}
+.skill .abrir{
+  display:inline-flex;align-items:center;gap:.4rem;margin-top:.7rem;
+  font-family:var(--f-mono);font-size:.65rem;letter-spacing:.09em;text-transform:uppercase;
+  color:rgba(10,12,10,.72);border-bottom:1px solid rgba(10,12,10,.3);padding-bottom:1px;
+}
+.skill .abrir i{
+  font-style:normal;font-size:.82rem;line-height:1;transition:transform .3s ease;display:inline-block;
+}
+.skill .tareas{
+  display:block;overflow:hidden;max-height:0;opacity:0;
+  transition:max-height .4s ease,opacity .3s ease,margin-top .4s ease;
+}
+.skill .tareas ul{
+  margin:0;padding-left:1rem;display:flex;flex-direction:column;gap:.42rem;
+  font-size:.82rem;line-height:1.45;color:rgba(10,12,10,.82);
+}
+.skill .tareas li::marker{color:rgba(10,12,10,.45)}
+.skill[aria-expanded="true"] .tareas{max-height:340px;opacity:1;margin-top:.9rem}
+.skill[aria-expanded="true"] .abrir i{transform:rotate(45deg)}
+@media(hover:hover){
+  .skill:hover .tareas{max-height:340px;opacity:1;margin-top:.9rem}
+  .skill:hover .abrir i{transform:rotate(45deg)}
+  .skill:hover .abrir{color:var(--on-acid);border-bottom-color:var(--on-acid)}
+}
+.skill *{pointer-events:none}
+.sectores{
+  margin-top:2.2rem;padding-top:1.1rem;border-top:1.5px solid rgba(10,12,10,.28);
+  font-family:var(--f-mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;
+  color:rgba(10,12,10,.66);line-height:1.7;
+}
 @media(max-width:720px){.skills-band{grid-template-columns:repeat(2,1fr);gap:1.5rem 1.4rem}}
 @media(max-width:430px){.skills-band{grid-template-columns:1fr;gap:1.2rem}}
 
@@ -366,8 +400,8 @@ figure{margin:0}
   <div class="hero-grid">
     <div>
       <p class="eyebrow" data-t="heroEyebrow">Bogotá, Colombia <span class="dot">·</span> Social Media Manager &amp; Estratega de Contenido</p>
-      <h1 data-t="heroH1">Más de cinco años convirtiendo audiencias digitales en <em>resultados físicos</em>.</h1>
-      <p class="hero-lede" data-t="heroLede">Profesional en Publicidad y Mercadeo. Manejo la comunicación digital completa de una marca, desde la estrategia y la producción de contenido hasta la pauta, el copywriting y el análisis de métricas. Trabajo con visión 360°, así que lo que escribo para redes también llega al material POP, a las piezas de print y a las campañas de email masivo.</p>
+      <h1 data-t="heroH1">Cinco años liderando el marketing digital de marcas de <em>sectores muy distintos</em>.</h1>
+      <p class="hero-lede" data-t="heroLede">He trabajado con un centro comercial, un colegio, una tienda de domótica, una marca de vitaminas y un canal de entretenimiento. Cada uno vendía algo distinto y cada red social se portaba distinto con ellos. Ahí aprendí a leer cómo funciona el algoritmo de cada plataforma según el negocio y según lo que se busque, ya sea traer clientes interesados, hacer crecer una comunidad o vender de una vez. Me encargo de todo el camino, la estrategia, el contenido, la pauta, los textos y los números.</p>
       <div class="hero-cta">
         <a class="btn btn-solid" href="#casos" data-t="verCasos">Ver casos</a>
         <a class="btn" href="Michael-Alvarez-CV-2026.pdf" download data-t="cvPdf">Descargar CV en PDF</a>
@@ -383,8 +417,9 @@ figure{margin:0}
 
 <div class="band">
   <div class="wrap">
-    <p class="eyebrow" data-t="bandEyebrow">Lo que hago <span class="dot">·</span> Más de cinco años de experiencia</p>
+    <p class="eyebrow" data-t="bandEyebrow">Lo que hago <span class="dot">·</span> toca cada frente para ver las tareas</p>
     <div class="skills-band" id="franja"></div>
+    <p class="sectores" data-t="sectores">Sectores en los que he trabajado · centro comercial, colegio, tecnología y domótica, salud y bienestar, lectura y educación, entretenimiento</p>
   </div>
 </div>
 
@@ -458,9 +493,9 @@ const UI = {
  es:{nav1:"Casos",nav2:"Trayectoria",nav3:"Capacidades",nav4:"Certificaciones",nav5:"Contacto",
   cv:"Descargar CV",cvPdf:"Descargar CV en PDF",verCasos:"Ver casos",disponible:"Disponible",navIa:"Video con IA",h2ia:"Video con inteligencia artificial",cntIa:"Muestras de mi trabajo · en crecimiento",ledeIa:"Aquí muestro cómo genero y edito video con inteligencia artificial. Ninguna de estas piezas está programada ni publicada, y ninguna tiene un fin comercial. Cada vez que aparece la oportunidad de mostrar lo que hago la aprovecho, así que estas no van a ser las últimas.",objetivo:"Objetivo",copyPieza:"Copy de la pieza",verPieza:"Ver la pieza",concepto:"Concepto",
   heroEyebrow:'Bogotá, Colombia <span class="dot">·</span> Social Media Manager &amp; Estratega de Contenido',
-  heroH1:'Más de cinco años convirtiendo audiencias digitales en <em>resultados físicos</em>.',
-  heroLede:"Profesional en Publicidad y Mercadeo. Manejo la comunicación digital completa de una marca, desde la estrategia y la producción de contenido hasta la pauta, el copywriting y el análisis de métricas. Trabajo con visión 360°, así que lo que escribo para redes también llega al material POP, a las piezas de print y a las campañas de email masivo.",
-  bandEyebrow:'Lo que hago <span class="dot">·</span> Más de cinco años de experiencia',
+  heroH1:'Cinco años liderando el marketing digital de marcas de <em>sectores muy distintos</em>.',
+  heroLede:"He trabajado con un centro comercial, un colegio, una tienda de domótica, una marca de vitaminas y un canal de entretenimiento. Cada uno vendía algo distinto y cada red social se portaba distinto con ellos. Ahí aprendí a leer cómo funciona el algoritmo de cada plataforma según el negocio y según lo que se busque, ya sea traer clientes interesados, hacer crecer una comunidad o vender de una vez. Me encargo de todo el camino, la estrategia, el contenido, la pauta, los textos y los números.",
+  bandEyebrow:'Lo que hago <span class="dot">·</span> toca cada frente para ver las tareas',verTareas:"Ver tareas",sectores:"Sectores en los que he trabajado · centro comercial, colegio, tecnología y domótica, salud y bienestar, lectura y educación, entretenimiento",
   h2casos:"Casos",cntCasos:"06 proyectos · toca para abrir",h2tray:"Trayectoria",h2cap:"Capacidades",
   h2cert:"Licencias y certificaciones",cntCert:"12 cursos · Platzi",
   contactoEyebrow:"Contacto",contactoH2:"¿Hablamos de tu ecosistema digital?",
@@ -472,9 +507,9 @@ const UI = {
  en:{nav1:"Work",nav2:"Career",nav3:"Skills",nav4:"Certifications",nav5:"Contact",
   cv:"Download CV",cvPdf:"Download CV as PDF",verCasos:"See the work",disponible:"Available",navIa:"AI video",h2ia:"AI-generated video",cntIa:"Work samples · growing",ledeIa:"This is where I show how I generate and edit video with artificial intelligence. None of these pieces is scheduled or published, and none of them has a commercial purpose. Every time a chance to show my work comes up I take it, so these will not be the last ones.",objetivo:"Objective",copyPieza:"Piece copy (Spanish)",verPieza:"View the piece",concepto:"Concept",
   heroEyebrow:'Bogotá, Colombia <span class="dot">·</span> Social Media Manager &amp; Content Strategist',
-  heroH1:'Over five years turning digital audiences into <em>real-world results</em>.',
-  heroLede:"Advertising and Marketing professional. I run a brand's entire digital communication, from strategy and content production to paid media, copywriting and analytics. I work with a 360° view, so what I write for social also reaches point-of-sale material, print pieces and mass email campaigns.",
-  bandEyebrow:'What I do <span class="dot">·</span> Over five years of experience',
+  heroH1:'Five years leading digital marketing for brands in <em>very different sectors</em>.',
+  heroLede:"I have worked with a shopping mall, a school, a home automation store, a vitamin brand and an entertainment channel. Each one sold something different and each platform behaved differently with them. That is where I learned to read how every algorithm works depending on the business and on the goal, whether it is bringing in interested customers, growing a community or selling right away. I handle the whole path, the strategy, the content, the paid media, the copy and the numbers.",
+  bandEyebrow:'What I do <span class="dot">·</span> tap any area to see the tasks',verTareas:"See tasks",sectores:"Sectors I have worked in · shopping mall, school, technology and home automation, health and wellness, reading and education, entertainment",
   h2casos:"Selected work",cntCasos:"06 projects · tap to open",h2tray:"Career",h2cap:"Skills",
   h2cert:"Licenses and certifications",cntCert:"12 courses · Platzi",
   contactoEyebrow:"Contact",contactoH2:"Let's talk about your digital ecosystem.",
@@ -487,18 +522,83 @@ const UI = {
 
 /* ============ franja de perfiles ============ */
 const PERFILES = [
- {es:["Community Manager","Gestión de comunidad, monitoreo de marca y manejo de crisis"],
-  en:["Community Manager","Community management, brand monitoring and crisis handling"]},
- {es:["Trafficker digital","Meta Ads, Google Ads y TikTok Ads con gestión de presupuesto"],
-  en:["Media Buyer","Meta Ads, Google Ads and TikTok Ads with budget management"]},
- {es:["Redactor publicitario","Copy para páginas web, campañas y piezas de marca"],
-  en:["Copywriter","Copy for websites, campaigns and brand assets"]},
- {es:["Comunicación 360°","Del contenido digital al material POP, print y divisiones de campaña"],
-  en:["360° Communication","From digital content to point-of-sale material, print and campaign splits"]},
- {es:["Analítica","Google Analytics, Search Console y Meta Business Suite"],
-  en:["Analytics","Google Analytics, Search Console and Meta Business Suite"]},
- {es:["Desarrollo WordPress","Themes, child themes, plugins, WooCommerce y Core Web Vitals"],
-  en:["WordPress Development","Themes, child themes, plugins, WooCommerce and Core Web Vitals"]}
+ {es:["Community Manager","Gestión de comunidad, monitoreo de marca y manejo de crisis",
+   ["Plan de contenido mensual armado por objetivo y por red",
+    "Publicación diaria y manejo de la conversación",
+    "Respuesta a mensajes, comentarios y reseñas",
+    "Monitoreo de lo que se dice de la marca y protocolo de crisis",
+    "Informe mensual con lo que funcionó y lo que hay que cambiar"]],
+  en:["Community Manager","Community management, brand monitoring and crisis handling",
+   ["Monthly content plan built by goal and by platform",
+    "Daily publishing and conversation management",
+    "Replies to messages, comments and reviews",
+    "Brand listening and crisis protocol",
+    "Monthly report with what worked and what needs to change"]]},
+
+ {es:["Trafficker digital","Meta Ads, Google Ads y TikTok Ads con gestión de presupuesto",
+   ["Armado de campañas en Meta, Google y TikTok",
+    "Segmentación de públicos y pruebas para encontrar el que responde",
+    "Reparto del presupuesto y control del gasto diario",
+    "Optimización según el costo por resultado",
+    "Campañas para vender, para traer clientes interesados o para dar a conocer la marca"]],
+  en:["Media Buyer","Meta Ads, Google Ads and TikTok Ads with budget management",
+   ["Campaign setup across Meta, Google and TikTok",
+    "Audience targeting and testing to find the one that responds",
+    "Budget allocation and daily spend control",
+    "Optimization based on cost per result",
+    "Campaigns to sell, to bring in interested customers or to build awareness"]]},
+
+ {es:["Redactor publicitario","Copy para páginas web, campañas y piezas de marca",
+   ["Textos para publicaciones, campañas y piezas de marca",
+    "Titulares y llamados a la acción",
+    "Guiones para video corto",
+    "Textos para páginas web y páginas de aterrizaje",
+    "Correos masivos y boletines"]],
+  en:["Copywriter","Copy for websites, campaigns and brand assets",
+   ["Copy for posts, campaigns and brand assets",
+    "Headlines and calls to action",
+    "Scripts for short-form video",
+    "Copy for websites and landing pages",
+    "Mass emails and newsletters"]]},
+
+ {es:["Comunicación 360°","Del contenido digital al material POP, print y divisiones de campaña",
+   ["Una sola idea aplicada a digital, impreso y pantallas físicas",
+    "Material POP y piezas para punto de venta",
+    "División de una campaña grande en piezas por canal",
+    "Coordinación con diseño, producción e imprenta",
+    "Calendario de campaña mes a mes"]],
+  en:["360° Communication","From digital content to point-of-sale material, print and campaign splits",
+   ["One idea carried across digital, print and physical screens",
+    "Point-of-sale material and in-store pieces",
+    "Splitting a large campaign into channel-specific pieces",
+    "Coordination with design, production and print vendors",
+    "Month-by-month campaign calendar"]]},
+
+ {es:["Analítica","Google Analytics, Search Console y Meta Business Suite",
+   ["Lectura de Google Analytics y Google Search Console",
+    "Métricas de Meta Business Suite y TikTok",
+    "Informes claros que terminan en una decisión",
+    "Seguimiento de objetivos y comparación mes a mes",
+    "Ajuste de la estrategia con lo que muestran los datos"]],
+  en:["Analytics","Google Analytics, Search Console and Meta Business Suite",
+   ["Reading Google Analytics and Google Search Console",
+    "Metrics from Meta Business Suite and TikTok",
+    "Clear reports that end in a decision",
+    "Goal tracking and month-over-month comparison",
+    "Strategy adjustments based on what the data shows"]]},
+
+ {es:["Desarrollo WordPress","Themes, child themes, plugins, WooCommerce y Core Web Vitals",
+   ["Montaje de sitios y tiendas en línea",
+    "Temas, temas hijos y plantillas a la medida",
+    "Ajustes con PHP, HTML, CSS y JavaScript",
+    "Conexión del sitio con otras plataformas y servicios",
+    "Velocidad de carga y salud técnica del sitio"]],
+  en:["WordPress Development","Themes, child themes, plugins, WooCommerce and Core Web Vitals",
+   ["Building websites and online stores",
+    "Themes, child themes and custom templates",
+    "Tweaks with PHP, HTML, CSS and JavaScript",
+    "Connecting the site to other platforms and services",
+    "Loading speed and the site's technical health"]]}
 ];
 
 /* ============ capacidades ============ */
@@ -801,8 +901,13 @@ function pintar(){
   document.querySelectorAll(".lang button").forEach(b =>
     b.setAttribute("aria-pressed", String(b.dataset.lang === L)));
 
-  document.getElementById("franja").innerHTML = PERFILES.map(p => `
-    <div class="skill"><div class="rol">${p[L][0]}</div><div class="det">${p[L][1]}</div></div>`).join("");
+  document.getElementById("franja").innerHTML = PERFILES.map((p,i) => `
+    <button class="skill" type="button" aria-expanded="false" data-frente="${i}">
+      <span class="rol">${p[L][0]}</span>
+      <span class="det">${p[L][1]}</span>
+      <span class="abrir"><i>+</i>${t("verTareas")}</span>
+      <span class="tareas"><ul>${p[L][2].map(x=>`<li>${x}</li>`).join("")}</ul></span>
+    </button>`).join("");
 
   document.getElementById("lista-cap").innerHTML = CAP.map(c => `
     <div><h4>${c[L][0]}</h4><ul>${c[L][1].map(i=>`<li>${i}</li>`).join("")}</ul></div>`).join("");
@@ -917,6 +1022,8 @@ function cerrar(){
 document.addEventListener("click", e => {
   const b = e.target.closest("[data-id]");
   if (b) { abrir(b.dataset.id); return; }
+  const f = e.target.closest(".skill");
+  if (f) { f.setAttribute("aria-expanded", f.getAttribute("aria-expanded") === "true" ? "false" : "true"); return; }
   const l = e.target.closest(".lang button");
   if (l && l.dataset.lang !== L) {
     L = l.dataset.lang;

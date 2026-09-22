@@ -141,6 +141,19 @@ p{margin:0}
   display:block;font-family:var(--f-display);font-weight:800;font-size:clamp(1rem,1.35vw,1.16rem);
   letter-spacing:-.03em;line-height:1.15;
 }
+.skill .nivel{display:flex;align-items:center;gap:.6rem;margin-top:.6rem}
+.skill .barra{
+  flex:1;height:3px;background:rgba(10,12,10,.18);display:block;position:relative;overflow:hidden;
+}
+.skill .barra span{
+  position:absolute;left:0;top:0;bottom:0;background:var(--on-acid);display:block;
+  transform-origin:left;animation:crece .7s cubic-bezier(.2,.8,.3,1) both;
+}
+@keyframes crece{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.skill .pct{
+  font-family:var(--f-mono);font-size:.66rem;color:rgba(10,12,10,.7);
+  font-variant-numeric:tabular-nums;flex:none;
+}
 .skill .det{
   display:block;font-family:var(--f-mono);font-size:.71rem;color:rgba(10,12,10,.66);
   margin-top:.5rem;line-height:1.55;
@@ -401,7 +414,7 @@ figure{margin:0}
     <div>
       <p class="eyebrow" data-t="heroEyebrow">Bogotá, Colombia <span class="dot">·</span> Social media manager <span class="dot">·</span> Contenido, pauta y analítica</p>
       <h1 data-t="heroH1">Social media manager. Antes de publicar, <em>averiguo quién es la marca</em>.</h1>
-      <p class="hero-lede" data-t="heroLede">Cinco años manejando la presencia diaria de marcas en Instagram, TikTok, Facebook, YouTube y LinkedIn. Manejo la cuenta completa, desde el plan del mes hasta el informe que lo cierra. Estrategia, contenido, comunidad, pauta y métricas en una sola mano. He trabajado con un centro comercial, un colegio, una tienda de domótica, una marca de vitaminas y un canal de entretenimiento. En todos el trabajo empezó igual, averiguando quién era la marca y qué andaba buscando la gente que la sigue.</p>
+      <p class="hero-lede" data-t="heroLede">Más de tres años manejando la presencia diaria de marcas en Instagram, TikTok, Facebook, YouTube y LinkedIn. He trabajado en comercio, educación, tecnología, salud y entretenimiento. Cada sector tiene su propio idioma y ya sé entrar en el de cada uno. Manejo la cuenta completa, desde el plan del mes hasta el informe que lo cierra. Cuando la marca tiene claro quién es, el contenido deja de ser relleno de calendario.</p>
       <div class="hero-cta">
         <a class="btn btn-solid" href="#casos" data-t="verCasos">Ver casos</a>
         <a class="btn" href="Michael-Alvarez-CV-2026.pdf" download data-t="cvPdf">Descargar CV en PDF</a>
@@ -419,7 +432,6 @@ figure{margin:0}
   <div class="wrap">
     <p class="eyebrow" data-t="bandEyebrow">Lo que hago <span class="dot">·</span> toca cada frente para ver las tareas</p>
     <div class="skills-band" id="franja"></div>
-    <p class="sectores" data-t="sectores">Sectores en los que he trabajado · centro comercial, colegio, tecnología y domótica, salud y bienestar, lectura y educación, entretenimiento</p>
   </div>
 </div>
 
@@ -467,7 +479,7 @@ figure{margin:0}
 <footer class="contact" id="contacto">
   <div class="wrap">
     <p class="eyebrow" data-t="contactoEyebrow">Contacto</p>
-    <h2 data-t="contactoH2">¿Hablamos de tu ecosistema digital?</h2>
+    <h2 data-t="contactoH2">Cuéntame qué necesita tu marca. Con tus palabras.</h2>
     <div class="contact-links">
       <a class="btn" href="mailto:tegustalaidea@gmail.com">tegustalaidea@gmail.com</a>
       <a class="btn" href="https://wa.me/573164051727" target="_blank" rel="noopener">WhatsApp 316 405 1727</a>
@@ -494,11 +506,11 @@ const UI = {
   cv:"Descargar CV",cvPdf:"Descargar CV en PDF",verCasos:"Ver casos",disponible:"Disponible",navIa:"Video con IA",h2ia:"Video con inteligencia artificial",cntIa:"Muestras de mi trabajo · en crecimiento",ledeIa:"Aquí muestro cómo genero y edito video con inteligencia artificial. Ninguna de estas piezas está programada ni publicada, y ninguna tiene un fin comercial. Cada vez que aparece la oportunidad de mostrar lo que hago la aprovecho, así que estas no van a ser las últimas.",objetivo:"Objetivo",copyPieza:"Copy de la pieza",verPieza:"Ver la pieza",concepto:"Concepto",
   heroEyebrow:'Bogotá, Colombia <span class="dot">·</span> Social media manager <span class="dot">·</span> Contenido, pauta y analítica',
   heroH1:'Social media manager. Antes de publicar, <em>averiguo quién es la marca</em>.',
-  heroLede:"Cinco años manejando la presencia diaria de marcas en Instagram, TikTok, Facebook, YouTube y LinkedIn. Manejo la cuenta completa, desde el plan del mes hasta el informe que lo cierra. Estrategia, contenido, comunidad, pauta y métricas en una sola mano. He trabajado con un centro comercial, un colegio, una tienda de domótica, una marca de vitaminas y un canal de entretenimiento. En todos el trabajo empezó igual, averiguando quién era la marca y qué andaba buscando la gente que la sigue.",
-  bandEyebrow:'Lo que hago <span class="dot">·</span> toca cada frente para ver las tareas',verTareas:"Ver tareas",sectores:"Sectores en los que he trabajado · centro comercial, colegio, tecnología y domótica, salud y bienestar, lectura y educación, entretenimiento",
+  heroLede:"Más de tres años manejando la presencia diaria de marcas en Instagram, TikTok, Facebook, YouTube y LinkedIn. He trabajado en comercio, educación, tecnología, salud y entretenimiento. Cada sector tiene su propio idioma y ya sé entrar en el de cada uno. Manejo la cuenta completa, desde el plan del mes hasta el informe que lo cierra. Cuando la marca tiene claro quién es, el contenido deja de ser relleno de calendario.",
+  bandEyebrow:'Lo que hago <span class="dot">·</span> toca cada frente para ver las tareas',verTareas:"Ver tareas",nivelLabel:"Nivel de dominio",
   h2casos:"Casos",cntCasos:"06 proyectos · toca para abrir",h2tray:"Trayectoria",h2cap:"Capacidades",
   h2cert:"Licencias y certificaciones",cntCert:"12 cursos · Platzi",
-  contactoEyebrow:"Contacto",contactoH2:"¿Hablamos de tu ecosistema digital?",
+  contactoEyebrow:"Contacto",contactoH2:"Cuéntame qué necesita tu marca. Con tus palabras.",
   footRol:"Michael Alvarez · Social media manager, community manager y copywriter",
   elReto:"El reto",queHice:"Qué hice",resultado:"Resultado",material:"Material",
   verCaso:"Ver el caso →",cerrar:"Cerrar",
@@ -508,11 +520,11 @@ const UI = {
   cv:"Download CV",cvPdf:"Download CV as PDF",verCasos:"See the work",disponible:"Available",navIa:"AI video",h2ia:"AI-generated video",cntIa:"Work samples · growing",ledeIa:"This is where I show how I generate and edit video with artificial intelligence. None of these pieces is scheduled or published, and none of them has a commercial purpose. Every time a chance to show my work comes up I take it, so these will not be the last ones.",objetivo:"Objective",copyPieza:"Piece copy (Spanish)",verPieza:"View the piece",concepto:"Concept",
   heroEyebrow:'Bogotá, Colombia <span class="dot">·</span> Social media manager <span class="dot">·</span> Content, paid media and analytics',
   heroH1:'Social media manager. Before posting, <em>I find out who the brand is</em>.',
-  heroLede:"Five years running the day-to-day social presence of brands on Instagram, TikTok, Facebook, YouTube and LinkedIn. I run the whole account, from the monthly plan to the report that closes it. Strategy, content, community, paid media and metrics, all in one pair of hands. I have worked with a shopping mall, a school, a home automation store, a vitamin brand and an entertainment channel. In every one the work started the same way, finding out who the brand was and what the people following it were after.",
-  bandEyebrow:'What I do <span class="dot">·</span> tap any area to see the tasks',verTareas:"See tasks",sectores:"Sectors I have worked in · shopping mall, school, technology and home automation, health and wellness, reading and education, entertainment",
+  heroLede:"More than three years running the day-to-day social presence of brands on Instagram, TikTok, Facebook, YouTube and LinkedIn. I have worked in retail, education, technology, health and entertainment. Every sector has its own language and I already know how to speak each one. I run the whole account, from the monthly plan to the report that closes it. When a brand is clear about who it is, content stops being filler on a calendar.",
+  bandEyebrow:'What I do <span class="dot">·</span> tap any area to see the tasks',verTareas:"See tasks",nivelLabel:"Level of command",
   h2casos:"Selected work",cntCasos:"06 projects · tap to open",h2tray:"Career",h2cap:"Skills",
   h2cert:"Licenses and certifications",cntCert:"12 courses · Platzi",
-  contactoEyebrow:"Contact",contactoH2:"Let's talk about your digital ecosystem.",
+  contactoEyebrow:"Contact",contactoH2:"Tell me what your brand needs. In your own words.",
   footRol:"Michael Alvarez · Social media manager, community manager and copywriter",
   elReto:"The challenge",queHice:"What I did",resultado:"Results",material:"Material",
   verCaso:"See the case →",cerrar:"Close",
@@ -522,7 +534,7 @@ const UI = {
 
 /* ============ franja de perfiles ============ */
 const PERFILES = [
- {es:["Gestión de comunidad","Contenido diario, conversación y monitoreo de marca",
+ {nivel:95, es:["Gestión de comunidad","Contenido diario, conversación y monitoreo de marca",
    ["Plan de contenido mensual armado por objetivo y por red",
     "Publicación diaria y manejo de la conversación",
     "Respuesta a mensajes, comentarios y reseñas",
@@ -535,7 +547,7 @@ const PERFILES = [
     "Brand listening and crisis protocol",
     "Monthly report with what worked and what needs to change"]]},
 
- {es:["Pauta digital","Meta Ads, Google Ads y TikTok Ads con gestión de presupuesto",
+ {nivel:85, es:["Pauta digital","Meta Ads, Google Ads y TikTok Ads con gestión de presupuesto",
    ["Armado de campañas en Meta, Google y TikTok",
     "Segmentación de públicos y pruebas para encontrar el que responde",
     "Reparto del presupuesto y control del gasto diario",
@@ -548,7 +560,7 @@ const PERFILES = [
     "Optimization based on cost per result",
     "Campaigns to sell, to bring in interested customers or to build awareness"]]},
 
- {es:["Redacción publicitaria","Copy para páginas web, campañas y piezas de marca",
+ {nivel:90, es:["Redacción publicitaria","Copy para páginas web, campañas y piezas de marca",
    ["Textos para publicaciones, campañas y piezas de marca",
     "Titulares y llamados a la acción",
     "Guiones para video corto",
@@ -561,7 +573,7 @@ const PERFILES = [
     "Copy for websites and landing pages",
     "Mass emails and newsletters"]]},
 
- {es:["Comunicación 360°","Del contenido digital al material POP, print y divisiones de campaña",
+ {nivel:80, es:["Comunicación 360°","Del contenido digital al material POP, print y divisiones de campaña",
    ["Una sola idea aplicada a digital, impreso y pantallas físicas",
     "Material POP y piezas para punto de venta",
     "División de una campaña grande en piezas por canal",
@@ -574,7 +586,7 @@ const PERFILES = [
     "Coordination with design, production and print vendors",
     "Month-by-month campaign calendar"]]},
 
- {es:["Analítica y medición","Google Analytics, Search Console y Meta Business Suite",
+ {nivel:90, es:["Analítica y medición","Google Analytics, Search Console y Meta Business Suite",
    ["Lectura de Google Analytics y Google Search Console",
     "Métricas de Meta Business Suite y TikTok",
     "Informes claros que terminan en una decisión",
@@ -587,7 +599,7 @@ const PERFILES = [
     "Goal tracking and month-over-month comparison",
     "Strategy adjustments based on what the data shows"]]},
 
- {es:["Desarrollo WordPress","Themes, child themes, plugins, WooCommerce y Core Web Vitals",
+ {nivel:40, es:["Desarrollo WordPress","Themes, child themes, plugins, WooCommerce y Core Web Vitals",
    ["Montaje de sitios y tiendas en línea",
     "Temas, temas hijos y plantillas a la medida",
     "Ajustes con PHP, HTML, CSS y JavaScript",
@@ -609,7 +621,7 @@ const CAP = [
   en:["Paid media and measurement",["Meta Ads","Google Ads","TikTok Ads","Budget management","Google Analytics","Google Search Console","Hotjar"]]},
  {es:["Comunidad y email",["Gestión de comunidades","Monitoreo de marca","Crisis management","Meta Business Suite","Buffer","Clientify (CRM)","Parrillas de email marketing","Segmentación y automatización"]],
   en:["Community and email",["Community management","Brand monitoring","Crisis management","Meta Business Suite","Buffer","Clientify (CRM)","Email marketing calendars","Segmentation and automation"]]},
- {es:["Desarrollo WordPress",["Desarrollo y mantenimiento de sitios","Themes y child themes","Personalización y desarrollo de plugins","PHP, HTML, CSS y JavaScript","WooCommerce","Integración de APIs y servicios externos","Administración y configuración avanzada","Velocidad, rendimiento y Core Web Vitals","Elementor y Odoo","Nociones de UX"]],
+ {nivel:40, es:["Desarrollo WordPress",["Desarrollo y mantenimiento de sitios","Themes y child themes","Personalización y desarrollo de plugins","PHP, HTML, CSS y JavaScript","WooCommerce","Integración de APIs y servicios externos","Administración y configuración avanzada","Velocidad, rendimiento y Core Web Vitals","Elementor y Odoo","Nociones de UX"]],
   en:["WordPress development",["Site development and maintenance","Themes and child themes","Plugin customization and development","PHP, HTML, CSS and JavaScript","WooCommerce","API and third-party integrations","Advanced administration and setup","Speed, performance and Core Web Vitals","Elementor and Odoo","UX fundamentals"]]}
 ];
 
@@ -904,6 +916,10 @@ function pintar(){
   document.getElementById("franja").innerHTML = PERFILES.map((p,i) => `
     <button class="skill" type="button" aria-expanded="false" data-frente="${i}">
       <span class="rol">${p[L][0]}</span>
+      <span class="nivel" title="${t("nivelLabel")}">
+        <span class="barra"><span style="width:${p.nivel}%"></span></span>
+        <span class="pct">${p.nivel}%</span>
+      </span>
       <span class="det">${p[L][1]}</span>
       <span class="abrir"><i>+</i>${t("verTareas")}</span>
       <span class="tareas"><ul>${p[L][2].map(x=>`<li>${x}</li>`).join("")}</ul></span>

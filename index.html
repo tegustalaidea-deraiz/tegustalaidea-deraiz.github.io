@@ -105,7 +105,7 @@ p{margin:0}
 @media(max-width:400px){.btn{font-size:.68rem;padding:.55rem .85rem}}
 
 /* ---------- hero ---------- */
-.hero{padding:clamp(3rem,8vw,6.5rem) 0 clamp(2.5rem,5vw,4rem)}
+.hero{padding-block:clamp(3rem,8vw,6.5rem) clamp(2.5rem,5vw,4rem)}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:clamp(1.8rem,5vw,4.5rem);align-items:end}
 .hero h1{margin:1.3rem 0 0}
 .hero h1 em{font-style:normal;color:var(--acid)}
@@ -386,6 +386,8 @@ figure{margin:0}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
 }
+.cursos{margin-top:1.8rem;color:var(--muted);font-size:.92rem;line-height:1.6;max-width:90ch}
+.cursos b{color:var(--paper);font-weight:700}
 </style>
 </head>
 <body>
@@ -397,8 +399,7 @@ figure{margin:0}
       <a href="#casos" data-t="nav1">Casos</a>
       <a href="#piezas" data-t="navIa">Video con IA</a>
       <a href="#trayectoria" data-t="nav2">Trayectoria</a>
-      <a href="#capacidades" data-t="nav3">Capacidades</a>
-      <a href="#certificaciones" data-t="nav4">Certificaciones</a>
+      <a href="#capacidades" data-t="nav3">Habilidades</a>
       <a href="#contacto" data-t="nav5">Contacto</a>
     </div>
     <div class="lang" role="group" aria-label="Idioma">
@@ -412,9 +413,9 @@ figure{margin:0}
 <header class="hero wrap" id="top">
   <div class="hero-grid">
     <div>
-      <p class="eyebrow" data-t="heroEyebrow">Bogotá, Colombia <span class="dot">·</span> Social media manager <span class="dot">·</span> Contenido, pauta y analítica</p>
+      <p class="eyebrow" data-t="heroEyebrow">Bogotá, Colombia <span class="dot">·</span> Social media manager <span class="dot">·</span> Estrategia de contenido, pauta digital y web</p>
       <h1 data-t="heroH1">Social media manager. Antes de publicar, <em>averiguo quién es la marca</em>.</h1>
-      <p class="hero-lede" data-t="heroLede">Más de tres años manejando la presencia diaria de marcas en Instagram, TikTok, Facebook, YouTube y LinkedIn. En la última cuenta que manejé, Instagram pasó de 27.000 a 53.000 seguidores y TikTok de 300 a 46.000 desde cero. He trabajado en comercio, educación, tecnología, salud y entretenimiento. Tengo facilidad para entender de qué habla la audiencia de cada sector y escribirle en su idioma. Escribo, grabo, edito, pauto y leo los números. Eso suele repartirse entre cuatro personas.</p>
+      <p class="hero-lede" data-t="heroLede"></p>
       <div class="hero-cta">
         <a class="btn btn-solid" href="#casos" data-t="verCasos">Ver casos</a>
         <a class="btn" href="Michael-Alvarez-CV-2026.pdf" download data-t="cvPdf">Descargar CV en PDF</a>
@@ -422,23 +423,16 @@ figure{margin:0}
     </div>
     <div class="portrait">
       <div class="mono" aria-hidden="true">MA</div>
-      <img src="assets/img/michael.jpg" alt="Michael Alvarez" onerror="this.remove()">
+      <img src="assets/img/michael-cv.jpg" alt="Michael Alvarez" onerror="this.remove()">
       <div class="tag" data-t="disponible">Disponible</div>
     </div>
   </div>
 </header>
 
-<div class="band">
-  <div class="wrap">
-    <p class="eyebrow" data-t="bandEyebrow">Lo que hago <span class="dot">·</span> toca cada frente para ver las tareas</p>
-    <div class="skills-band" id="franja"></div>
-  </div>
-</div>
-
 <section id="casos" class="wrap">
   <div class="sec-head">
     <h2 data-t="h2casos">Casos</h2>
-    <span class="count" data-t="cntCasos">06 proyectos · toca para abrir</span>
+    <span class="count" data-t="cntCasos">06 proyectos · toque para abrir</span>
   </div>
   <div class="cases" id="lista-casos"></div>
 </section>
@@ -446,9 +440,9 @@ figure{margin:0}
 <section id="piezas" class="wrap">
   <div class="sec-head">
     <h2 data-t="h2ia">Video con inteligencia artificial</h2>
-    <span class="count" data-t="cntIa">Muestras de mi trabajo · en crecimiento</span>
+    <span class="count" data-t="cntIa">Piezas de concepto</span>
   </div>
-  <p class="hero-lede" style="margin-top:1.1rem;max-width:62ch" data-t="ledeIa">Aquí muestro cómo genero y edito video con inteligencia artificial. Ninguna de estas piezas está programada ni publicada, y ninguna tiene un fin comercial. Cada vez que aparece la oportunidad de mostrar lo que hago la aprovecho, así que estas no van a ser las últimas.</p>
+  <p class="hero-lede" style="margin-top:1.1rem;max-width:62ch" data-t="ledeIa"></p>
   <div class="reels" id="lista-ia"></div>
 </section>
 
@@ -462,31 +456,24 @@ figure{margin:0}
 
 <section id="capacidades" class="wrap">
   <div class="sec-head">
-    <h2 data-t="h2cap">Capacidades</h2>
+    <h2 data-t="h2cap">Habilidades</h2>
   </div>
   <div class="skills" id="lista-cap"></div>
   <div class="edu" id="lista-edu"></div>
-</section>
-
-<section id="certificaciones" class="wrap">
-  <div class="sec-head">
-    <h2 data-t="h2cert">Licencias y certificaciones</h2>
-    <span class="count" data-t="cntCert">12 cursos · Platzi</span>
-  </div>
-  <div class="certs" id="lista-certs"></div>
+  <p class="cursos" data-t="cursos"></p>
 </section>
 
 <footer class="contact" id="contacto">
   <div class="wrap">
     <p class="eyebrow" data-t="contactoEyebrow">Contacto</p>
-    <h2 data-t="contactoH2">Cuéntame qué necesita tu marca. Con tus palabras.</h2>
+    <h2 data-t="contactoH2"></h2>
     <div class="contact-links">
       <a class="btn" href="mailto:tegustalaidea@gmail.com">tegustalaidea@gmail.com</a>
       <a class="btn" href="https://wa.me/573164051727" target="_blank" rel="noopener">WhatsApp 316 405 1727</a>
       <a class="btn" href="Michael-Alvarez-CV-2026.pdf" download data-t="cv">Descargar CV</a>
     </div>
     <div class="foot">
-      <span data-t="footRol">Michael Alvarez · Social media manager, community manager y copywriter</span>
+      <span data-t="footRol"></span>
       <span>Bogotá, Colombia · 2026</span>
     </div>
   </div>
@@ -502,127 +489,48 @@ const V = "assets/video/", I = "assets/img/";
 
 /* ============ textos de interfaz ============ */
 const UI = {
- es:{nav1:"Casos",nav2:"Trayectoria",nav3:"Capacidades",nav4:"Certificaciones",nav5:"Contacto",
-  cv:"Descargar CV",cvPdf:"Descargar CV en PDF",verCasos:"Ver casos",disponible:"Disponible",navIa:"Video con IA",h2ia:"Video con inteligencia artificial",cntIa:"Muestras de mi trabajo · en crecimiento",ledeIa:"Aquí muestro cómo genero y edito video con inteligencia artificial. Ninguna de estas piezas está programada ni publicada, y ninguna tiene un fin comercial. Cada vez que aparece la oportunidad de mostrar lo que hago la aprovecho, así que estas no van a ser las últimas.",objetivo:"Objetivo",copyPieza:"Copy de la pieza",verPieza:"Ver la pieza",concepto:"Concepto",
-  heroEyebrow:'Bogotá, Colombia <span class="dot">·</span> Social media manager <span class="dot">·</span> Contenido, pauta y analítica',
+ es:{nav1:"Casos",nav2:"Trayectoria",nav3:"Habilidades",nav4:"Cursos",nav5:"Contacto",
+  cv:"Descargar CV",cvPdf:"Descargar CV en PDF",verCasos:"Ver casos",disponible:"Disponible",navIa:"Video con IA",h2ia:"Video con inteligencia artificial",cntIa:"Piezas de concepto",
+  ledeIa:"Estas piezas las generé y las edité con inteligencia artificial. Son ejercicios de concepto. Ninguna está publicada ni tiene un fin comercial.",
+  objetivo:"Objetivo",copyPieza:"Texto de la publicación",verPieza:"Ver la pieza",concepto:"Concepto",
+  heroEyebrow:'Bogotá, Colombia <span class="dot">·</span> Social media manager <span class="dot">·</span> Estrategia de contenido, pauta digital y web',
   heroH1:'Social media manager. Antes de publicar, <em>averiguo quién es la marca</em>.',
-  heroLede:"Más de tres años manejando la presencia diaria de marcas en Instagram, TikTok, Facebook, YouTube y LinkedIn. En la última cuenta que manejé, Instagram pasó de 27.000 a 53.000 seguidores y TikTok de 300 a 46.000 desde cero. He trabajado en comercio, educación, tecnología, salud y entretenimiento. Tengo facilidad para entender de qué habla la audiencia de cada sector y escribirle en su idioma. Escribo, grabo, edito, pauto y leo los números. Eso suele repartirse entre cuatro personas.",
-  bandEyebrow:'Lo que hago <span class="dot">·</span> toca cada frente para ver las tareas',verTareas:"Ver tareas",nivelLabel:"Nivel de dominio",
-  h2casos:"Casos",cntCasos:"06 proyectos · toca para abrir",h2tray:"Trayectoria",h2cap:"Capacidades",
-  h2cert:"Licencias y certificaciones",cntCert:"12 cursos · Platzi",
-  contactoEyebrow:"Contacto",contactoH2:"Cuéntame qué necesita tu marca. Con tus palabras.",
-  footRol:"Michael Alvarez · Social media manager, community manager y copywriter",
+  heroLede:"Aquí está el trabajo detrás de mi hoja de vida. Cada caso cuenta qué había que resolver, qué hice y qué pasó, con el material publicado para que usted lo vea.",
+  h2casos:"Casos",cntCasos:"06 proyectos · toque cada uno para abrirlo",h2tray:"Trayectoria",h2cap:"Habilidades",
+  cursos:"<b>Cursos en Platzi</b> · Copywriting con storytelling · Planeación y medición de campañas digitales · Facebook Ads · Email marketing · Las 5 leyes de UX/UI para startups",
+  contactoEyebrow:"Contacto",contactoH2:"Si está buscando social media manager, escríbame.",
+  footRol:"Michael Alvarez · Social media manager y estratega de contenido digital",
   elReto:"El reto",queHice:"Qué hice",resultado:"Resultado",material:"Material",
   verCaso:"Ver el caso →",cerrar:"Cerrar",
-  scrollShot:"Desplázate dentro del marco para recorrer la página completa",
+  scrollShot:"Desplácese dentro del marco para recorrer la página completa",
   titulo:"Michael Alvarez — Social Media Manager"},
- en:{nav1:"Work",nav2:"Career",nav3:"Skills",nav4:"Certifications",nav5:"Contact",
-  cv:"Download CV",cvPdf:"Download CV as PDF",verCasos:"See the work",disponible:"Available",navIa:"AI video",h2ia:"AI-generated video",cntIa:"Work samples · growing",ledeIa:"This is where I show how I generate and edit video with artificial intelligence. None of these pieces is scheduled or published, and none of them has a commercial purpose. Every time a chance to show my work comes up I take it, so these will not be the last ones.",objetivo:"Objective",copyPieza:"Piece copy (Spanish)",verPieza:"View the piece",concepto:"Concept",
-  heroEyebrow:'Bogotá, Colombia <span class="dot">·</span> Social media manager <span class="dot">·</span> Content, paid media and analytics',
+ en:{nav1:"Work",nav2:"Career",nav3:"Skills",nav4:"Courses",nav5:"Contact",
+  cv:"Download CV",cvPdf:"Download CV as PDF",verCasos:"See the work",disponible:"Available",navIa:"AI video",h2ia:"AI-generated video",cntIa:"Concept pieces",
+  ledeIa:"I generated and edited these pieces with artificial intelligence. They are concept exercises. None of them has been published or has a commercial purpose.",
+  objetivo:"Objective",copyPieza:"Post copy (Spanish)",verPieza:"View the piece",concepto:"Concept",
+  heroEyebrow:'Bogotá, Colombia <span class="dot">·</span> Social media manager <span class="dot">·</span> Content strategy, paid media and web',
   heroH1:'Social media manager. Before posting, <em>I find out who the brand is</em>.',
-  heroLede:"More than three years running the day-to-day social presence of brands on Instagram, TikTok, Facebook, YouTube and LinkedIn. On the last account I ran, Instagram went from 27,000 to 53,000 followers and TikTok from 300 to 46,000 from scratch. I have worked in retail, education, technology, health and entertainment. I read what each sector's audience talks about with ease and write to them in their own language. I write, shoot, edit, buy the media and read the numbers. That usually gets split between four people.",
-  bandEyebrow:'What I do <span class="dot">·</span> tap any area to see the tasks',verTareas:"See tasks",nivelLabel:"Level of command",
-  h2casos:"Selected work",cntCasos:"06 projects · tap to open",h2tray:"Career",h2cap:"Skills",
-  h2cert:"Licenses and certifications",cntCert:"12 courses · Platzi",
-  contactoEyebrow:"Contact",contactoH2:"Tell me what your brand needs. In your own words.",
-  footRol:"Michael Alvarez · Social media manager, community manager and copywriter",
+  heroLede:"This is the work behind my résumé. Each case shows what had to be solved, what I did and what happened, with the published material so you can see it for yourself.",
+  h2casos:"Selected work",cntCasos:"06 projects · tap each one to open it",h2tray:"Career",h2cap:"Skills",
+  cursos:"<b>Platzi courses</b> · Copywriting with storytelling · Digital campaign planning and measurement · Facebook Ads · Email marketing · The 5 laws of UX/UI for startups",
+  contactoEyebrow:"Contact",contactoH2:"If you are looking for a social media manager, write to me.",
+  footRol:"Michael Alvarez · Social media manager and digital content strategist",
   elReto:"The challenge",queHice:"What I did",resultado:"Results",material:"Material",
   verCaso:"See the case →",cerrar:"Close",
   scrollShot:"Scroll inside the frame to browse the full page",
   titulo:"Michael Alvarez — Social Media Manager"}
 };
 
-/* ============ franja de perfiles ============ */
-const PERFILES = [
- {nivel:95, es:["Gestión de comunidad","Contenido diario, conversación y monitoreo de marca",
-   ["Plan de contenido mensual armado por objetivo y por red",
-    "Publicación diaria y manejo de la conversación",
-    "Respuesta a mensajes, comentarios y reseñas",
-    "Monitoreo de lo que se dice de la marca y protocolo de crisis",
-    "Informe mensual con lo que funcionó y lo que hay que cambiar"]],
-  en:["Community management","Daily content, conversation and brand monitoring",
-   ["Monthly content plan built by goal and by platform",
-    "Daily publishing and conversation management",
-    "Replies to messages, comments and reviews",
-    "Brand listening and crisis protocol",
-    "Monthly report with what worked and what needs to change"]]},
-
- {nivel:85, es:["Pauta digital","Meta Ads, Google Ads y TikTok Ads con gestión de presupuesto",
-   ["Armado de campañas en Meta, Google y TikTok",
-    "Segmentación de públicos y pruebas para encontrar el que responde",
-    "Reparto del presupuesto y control del gasto diario",
-    "Optimización según el costo por resultado",
-    "Campañas para vender, para traer clientes interesados o para dar a conocer la marca"]],
-  en:["Paid media","Meta Ads, Google Ads and TikTok Ads with budget management",
-   ["Campaign setup across Meta, Google and TikTok",
-    "Audience targeting and testing to find the one that responds",
-    "Budget allocation and daily spend control",
-    "Optimization based on cost per result",
-    "Campaigns to sell, to bring in interested customers or to build awareness"]]},
-
- {nivel:90, es:["Redacción publicitaria","Copy para páginas web, campañas y piezas de marca",
-   ["Textos para publicaciones, campañas y piezas de marca",
-    "Titulares y llamados a la acción",
-    "Guiones para video corto",
-    "Textos para páginas web y páginas de aterrizaje",
-    "Correos masivos y boletines"]],
-  en:["Advertising copy","Copy for websites, campaigns and brand assets",
-   ["Copy for posts, campaigns and brand assets",
-    "Headlines and calls to action",
-    "Scripts for short-form video",
-    "Copy for websites and landing pages",
-    "Mass emails and newsletters"]]},
-
- {nivel:80, es:["Comunicación 360°","Del contenido digital al material POP, print y divisiones de campaña",
-   ["Una sola idea aplicada a digital, impreso y pantallas físicas",
-    "Material POP y piezas para punto de venta",
-    "División de una campaña grande en piezas por canal",
-    "Coordinación con diseño, producción e imprenta",
-    "Calendario de campaña mes a mes"]],
-  en:["360° Communication","From digital content to point-of-sale material, print and campaign splits",
-   ["One idea carried across digital, print and physical screens",
-    "Point-of-sale material and in-store pieces",
-    "Splitting a large campaign into channel-specific pieces",
-    "Coordination with design, production and print vendors",
-    "Month-by-month campaign calendar"]]},
-
- {nivel:90, es:["Analítica y medición","Google Analytics, Search Console y Meta Business Suite",
-   ["Lectura de Google Analytics y Google Search Console",
-    "Métricas de Meta Business Suite y TikTok",
-    "Informes claros que terminan en una decisión",
-    "Seguimiento de objetivos y comparación mes a mes",
-    "Ajuste de la estrategia con lo que muestran los datos"]],
-  en:["Analytics and measurement","Google Analytics, Search Console and Meta Business Suite",
-   ["Reading Google Analytics and Google Search Console",
-    "Metrics from Meta Business Suite and TikTok",
-    "Clear reports that end in a decision",
-    "Goal tracking and month-over-month comparison",
-    "Strategy adjustments based on what the data shows"]]},
-
- {nivel:40, es:["Desarrollo WordPress","Themes, child themes, plugins, WooCommerce y Core Web Vitals",
-   ["Montaje de sitios y tiendas en línea",
-    "Temas, temas hijos y plantillas a la medida",
-    "Ajustes con PHP, HTML, CSS y JavaScript",
-    "Conexión del sitio con otras plataformas y servicios",
-    "Velocidad de carga y salud técnica del sitio"]],
-  en:["WordPress Development","Themes, child themes, plugins, WooCommerce and Core Web Vitals",
-   ["Building websites and online stores",
-    "Themes, child themes and custom templates",
-    "Tweaks with PHP, HTML, CSS and JavaScript",
-    "Connecting the site to other platforms and services",
-    "Loading speed and the site's technical health"]]}
-];
-
-/* ============ capacidades ============ */
+/* ============ habilidades ============ */
 const CAP = [
- {es:["Estrategia y contenido",["Planeación de contenido","Copywriting y storytelling","Key visuals y campaña sombrilla","Guiones de video","Dirección de contenidos","Comunicación 360°"]],
-  en:["Strategy and content",["Content planning","Copywriting and storytelling","Key visuals and umbrella campaigns","Video scripts","Content direction","360° communication"]]},
- {es:["Pauta y medición",["Meta Ads","Google Ads","TikTok Ads","Gestión de presupuesto","Google Analytics","Google Search Console","Hotjar"]],
-  en:["Paid media and measurement",["Meta Ads","Google Ads","TikTok Ads","Budget management","Google Analytics","Google Search Console","Hotjar"]]},
- {es:["Comunidad y email",["Gestión de comunidades","Monitoreo de marca","Crisis management","Meta Business Suite","Buffer","Clientify (CRM)","Parrillas de email marketing","Segmentación y automatización"]],
-  en:["Community and email",["Community management","Brand monitoring","Crisis management","Meta Business Suite","Buffer","Clientify (CRM)","Email marketing calendars","Segmentation and automation"]]},
- {nivel:40, es:["Desarrollo WordPress",["Desarrollo y mantenimiento de sitios","Themes y child themes","Personalización y desarrollo de plugins","PHP, HTML, CSS y JavaScript","WooCommerce","Integración de APIs y servicios externos","Administración y configuración avanzada","Velocidad, rendimiento y Core Web Vitals","Elementor y Odoo","Nociones de UX"]],
-  en:["WordPress development",["Site development and maintenance","Themes and child themes","Plugin customization and development","PHP, HTML, CSS and JavaScript","WooCommerce","API and third-party integrations","Advanced administration and setup","Speed, performance and Core Web Vitals","Elementor and Odoo","UX fundamentals"]]}
+ {es:["Estrategia y contenido",["Estrategia de contenidos","Planeación de contenido","Copywriting y storytelling","Guiones de video","Ideas gráficas de campaña","Comunicación en todos los canales"]],
+  en:["Strategy and content",["Content strategy","Content planning","Copywriting and storytelling","Video scripts","Campaign visual concepts","Communication across every channel"]]},
+ {es:["Pauta y medición",["Meta Ads","Google Ads","TikTok Ads","Manejo de presupuesto","Google Analytics","Google Search Console","Hotjar","SEO"]],
+  en:["Paid media and measurement",["Meta Ads","Google Ads","TikTok Ads","Budget management","Google Analytics","Google Search Console","Hotjar","SEO"]]},
+ {es:["Comunidad, CRM y email",["Community management","Monitoreo de marca","Manejo de crisis","Meta Business Suite","Buffer","Clientify (CRM)","Email marketing con segmentación y automatización"]],
+  en:["Community, CRM and email",["Community management","Brand monitoring","Crisis management","Meta Business Suite","Buffer","Clientify (CRM)","Email marketing with segmentation and automation"]]},
+ {es:["Páginas web y producción",["WordPress y Elementor","WooCommerce y Odoo","HTML y CSS","Experiencia de usuario (UX)","Velocidad de carga","Grabación y edición de video","Fotografía de producto","Video con inteligencia artificial"]],
+  en:["Websites and production",["WordPress and Elementor","WooCommerce and Odoo","HTML and CSS","User experience (UX)","Page speed","Video shooting and editing","Product photography","AI-generated video"]]}
 ];
 
 const EDU = [
@@ -633,170 +541,143 @@ const EDU = [
 ];
 
 /* ============ certificaciones ============ */
-const CERTS = [
- ["Jun 2024",["Las 5 leyes de UX/UI para startups","Diseño de flujos y jerarquía visual a partir de cómo decide el usuario."],
-  ["The 5 laws of UX/UI for startups","Flow design and visual hierarchy based on how users actually decide."]],
- ["2022",["Curso práctico de creación de comunidad","Construcción de comunidad activa alrededor de una marca."],
-  ["Practical community building","Building an active community around a brand."]],
- ["Ago 2022",["Hacks para redactar titulares","Titulares que ganan el primer segundo de atención."],
-  ["Headline writing hacks","Headlines that win the first second of attention."]],
- ["2021",["Community Manager","Gestión diaria de comunidad, tono de marca y respuesta."],
-  ["Community Manager","Daily community management, brand tone and response."]],
- ["2021",["Estrategias de marketing en redes sociales","Planeación de campañas por objetivo y por canal."],
-  ["Social media marketing strategy","Campaign planning by objective and channel."]],
- ["2021",["Email marketing","Parrillas, segmentación y automatización de envíos masivos."],
-  ["Email marketing","Calendars, segmentation and automation of mass sends."]],
- ["2021",["Marketing online y estrategia digital","Estrategia digital completa, del objetivo al canal."],
-  ["Online marketing and digital strategy","End-to-end digital strategy, from objective to channel."]],
- ["2021",["Planeación y medición de campañas digitales","Definición de KPIs y lectura de resultados para ajustar."],
-  ["Digital campaign planning and measurement","Setting KPIs and reading results to adjust."]],
- ["2021",["Content marketing","Contenido que atrae y sostiene audiencia sin vender de frente."],
-  ["Content marketing","Content that attracts and holds an audience without a hard sell."]],
- ["2021",["Copywriting con técnicas de storytelling","Estructura narrativa aplicada a piezas que venden."],
-  ["Copywriting with storytelling techniques","Narrative structure applied to pieces that sell."]],
- ["2021",["Facebook Ads","Pauta en Meta, segmentación y optimización de presupuesto."],
-  ["Facebook Ads","Meta paid media, targeting and budget optimization."]],
- ["2021",["Introducción al marketing digital","Fundamentos del ecosistema digital y sus canales."],
-  ["Introduction to digital marketing","Fundamentals of the digital ecosystem and its channels."]]
-];
-
 /* ============ casos ============ */
 const CASOS = [
  {id:"salitre",
-  es:{yr:"Oct 2024 — Sep 2026",name:"Salitre Plaza",role:"Social Media Manager &amp; Copy · Agencia La Sala",
+  es:{yr:"Oct 2024 — Sep 2026",name:"Salitre Plaza",role:"Social Media Manager · Agencia La Sala",
    head:"Instagram de <b>27.000 a 53.000</b> seguidores y TikTok de <b>300 a 46.000</b>.",
-   reto:"Un centro comercial compite por atención con todo el entretenimiento de una ciudad de ocho millones de personas. Había que sostener una comunidad activa todos los días y convertir esa atención en visitas reales al centro comercial.",
-   hice:["Manejo el ecosistema digital completo de la marca en Instagram, TikTok, YouTube y LinkedIn, con estrategia, producción de contenido, pauta y comunidad.",
-    "Redacto el key visual mensual, la campaña sombrilla, y los copies de todos los eventos del mes. Esas piezas se distribuyen en digital, en print y en las pantallas físicas del lugar.",
-    "Gestioné el presupuesto de pauta de la campaña de aniversario, la de mayor inversión del año, con más de $5.000.000 COP.",
-    "Dirijo los contenidos, escribo los guiones de video y hago el trafficking de la pauta.",
-    "Produzco parrillas de hasta 15 emails mensuales para Positiva Seguros, con contenido técnico sobre riesgo profesional físico y psicológico, supervisado por profesional en SST."],
-   res:[["27.000 → 53.000","seguidores en Instagram, con contenido diario sostenido y pauta estratégica"],
-    ["300 → 46.000","seguidores en TikTok, construyendo la presencia de la marca desde cero"],
-    ["+$5.000.000","COP de pauta gestionada en la campaña de aniversario"]]},
-  en:{yr:"Oct 2024 — Sep 2026",name:"Salitre Plaza",role:"Social Media Manager &amp; Copy · La Sala Agency",
+   reto:"Salitre Plaza compite por la atención de la gente con todo lo que ofrece Bogotá un fin de semana. La comunicación tenía un trabajo concreto, que la gente registrara sus facturas en el programa de fidelización y volviera.",
+   hice:["Manejé la comunicación digital del centro comercial en su página web, Facebook, Instagram, LinkedIn y TikTok.",
+    "Planeé y escribí la comunicación de las rifas, premios y actividades que invitaban a registrar las facturas.",
+    "Cambié las publicaciones fijas por reels y fotografía propia, y escribí los guiones de los videos.",
+    "Escribí cada mes la idea gráfica de la campaña y los textos de los eventos, para redes, impresos y las pantallas del centro comercial.",
+    "Dirigí la pauta hacia Fontibón, Puente Aranda y los barrios vecinos. En la campaña de aniversario, la de más presupuesto del año, manejé 5.000.000 de pesos.",
+    "Desde la misma agencia escribí para Positiva Seguros parrillas de quince correos al mes sobre riesgo laboral, revisadas por un profesional en seguridad y salud en el trabajo."],
+   res:[["27.000 → 53.000","seguidores en Instagram"],
+    ["300 → 46.000","seguidores en TikTok"],
+    ["$5.000.000","de pauta en la campaña de aniversario"]]},
+  en:{yr:"Oct 2024 — Sep 2026",name:"Salitre Plaza",role:"Social Media Manager · La Sala Agency",
    head:"Instagram from <b>27,000 to 53,000</b> followers and TikTok from <b>300 to 46,000</b>.",
-   reto:"A shopping mall competes for attention with every other form of entertainment in a city of eight million people. The job was to keep a community active every single day and turn that attention into real foot traffic.",
-   hice:["I run the brand's entire digital ecosystem across Instagram, TikTok, YouTube and LinkedIn, covering strategy, content production, paid media and community.",
-    "I write the monthly key visual, the umbrella campaign, and the copy for every event of the month. Those pieces run across digital, print and the mall's physical screens.",
-    "I managed the paid media budget for the anniversary campaign, the largest investment of the year, over COP $5,000,000.",
-    "I direct content, write the video scripts and handle media buying.",
-    "I produce up to 15 monthly emails for Positiva Seguros, with technical content on physical and psychological occupational risk, reviewed by an occupational health professional."],
-   res:[["27,000 → 53,000","Instagram followers, through sustained daily content and strategic paid media"],
-    ["300 → 46,000","TikTok followers, building the brand's presence from scratch"],
-    ["COP $5,000,000+","in paid media managed for the anniversary campaign"]]},
+   reto:"Salitre Plaza competes for people's attention with everything Bogotá has to offer on a weekend. Communication had a concrete job, getting people to register their receipts in the loyalty program and come back.",
+   hice:["I ran the mall's digital communication across its website, Facebook, Instagram, LinkedIn and TikTok.",
+    "I planned and wrote the communication for the raffles, prizes and activities that invited people to register their receipts.",
+    "I replaced static posts with reels and original photography, and wrote the video scripts.",
+    "Every month I wrote the campaign's visual concept and the copy for each event, for social media, print and the mall's screens.",
+    "I targeted paid media at Fontibón, Puente Aranda and the surrounding neighborhoods. For the anniversary campaign, the largest budget of the year, I managed COP 5,000,000.",
+    "From the same agency I wrote fifteen emails a month on occupational risk for Positiva Seguros, reviewed by an occupational health and safety professional."],
+   res:[["27,000 → 53,000","Instagram followers"],
+    ["300 → 46,000","TikTok followers"],
+    ["COP 5,000,000","in paid media for the anniversary campaign"]]},
   media:[{t:"video",src:V+"salitre.mp4",poster:V+"salitre.jpg",
    cap:{es:"Recorrido por el contenido publicado para Salitre Plaza",en:"A walk through the content published for Salitre Plaza"}}]},
 
  {id:"cancer",
-  es:{yr:"Febrero 2026",name:"Día Mundial contra el Cáncer",role:"Líder digital de la campaña · Salitre Plaza · Premios CLIC",
-   head:"Un reel con <b>67,3% de alcance en no seguidores</b> y cobertura en vivo de Citytv.",
-   reto:"Convertir un centro comercial en agente activo de bienestar social y atacar de frente el diagnóstico tardío del cáncer. Toda la comunicación tenía que sostenerse como un servicio real de salud pública, con la credibilidad que eso exige.",
-   hice:["Abanderé toda la comunicación digital de la jornada del 7 de febrero de 2026, junto a la Liga Colombiana Contra el Cáncer, Profamilia y La Roche-Posay.",
-    "Escribí los guiones y produje las piezas de convocatoria, conmemoración y cierre de campaña.",
-    "Coordiné el contenido con los artistas invitados para amplificar el mensaje hacia audiencias fuera de la comunidad habitual de la marca.",
-    "Cubrí una jornada de diez horas con tamizajes, mamografías, antígeno prostático, dermatología, talleres de escritura terapéutica y yoga, y una pasarela con las historias de las sobrevivientes."],
+  es:{yr:"Febrero 2026",name:"Día Mundial contra el Cáncer",role:"Líder digital de la campaña · Salitre Plaza",
+   head:"Un reel con <b>67,3% de alcance en no seguidores</b> y cubrimiento en directo de Citytv.",
+   reto:"El 7 de febrero de 2026 Salitre Plaza abrió una jornada de salud de diez horas, con tamizajes, mamografías, prueba de antígeno prostático, dermatología, talleres y una pasarela con historias de sobrevivientes. La comunicación tenía que convocar a la gente y sostener la seriedad de un servicio de salud real.",
+   hice:["Lideré la comunicación digital de la jornada, junto a la Liga Colombiana Contra el Cáncer, Profamilia y La Roche-Posay.",
+    "Escribí los guiones y produje las piezas de convocatoria, conmemoración y cierre.",
+    "Coordiné el contenido con los artistas invitados para llevar el mensaje a gente que no seguía al centro comercial.",
+    "Trabajé con los medios en la difusión. La jornada tuvo cubrimiento en directo de Citytv y la presentamos a los Premios CLIC."],
    res:[["3.478","reproducciones del reel de Lina Uribe, con 67,3% de alcance en no seguidores"],
     ["2.620","reproducciones del reel de Juan Gabriel, con 42,8% de alcance en no seguidores"],
-    ["3.428","reproducciones del video resumen, compartido 16 veces de forma orgánica"],
-    ["Citytv","cobertura en directo de Marcelo Cezán en el programa Bravísimo"]]},
-  en:{yr:"February 2026",name:"World Cancer Day",role:"Campaign digital lead · Salitre Plaza · CLIC Awards",
-   head:"A reel reaching <b>67.3% non-followers</b> and live national TV coverage.",
-   reto:"Turn a shopping mall into an active agent of public wellbeing and confront late cancer diagnosis head on. Every piece of communication had to hold up as a genuine public health service, with the credibility that demands.",
-   hice:["I led all digital communication for the February 7, 2026 event, alongside the Colombian League Against Cancer, Profamilia and La Roche-Posay.",
+    ["3.428","reproducciones del video resumen, compartido 16 veces"],
+    ["Citytv","cubrimiento en directo en el programa Bravísimo"]]},
+  en:{yr:"February 2026",name:"World Cancer Day",role:"Campaign digital lead · Salitre Plaza",
+   head:"A reel reaching <b>67.3% non-followers</b> and live coverage on Citytv.",
+   reto:"On February 7, 2026 Salitre Plaza hosted a ten-hour health day, with screenings, mammograms, prostate testing, dermatology, workshops and a runway show with survivors' stories. Communication had to bring people in and hold the seriousness of a real health service.",
+   hice:["I led the event's digital communication, alongside the Colombian League Against Cancer, Profamilia and La Roche-Posay.",
     "I wrote the scripts and produced the announcement, commemoration and closing pieces.",
-    "I coordinated content with guest artists to carry the message beyond the brand's usual audience.",
-    "I covered a ten-hour event with screenings, mammograms, prostate testing, dermatology, therapeutic writing and yoga workshops, and a runway show built around survivors' stories."],
+    "I coordinated content with the guest artists to carry the message to people who did not follow the mall.",
+    "I worked with the media on getting the word out. The event had live coverage on Citytv and we entered it in the CLIC Awards."],
    res:[["3,478","views on Lina Uribe's reel, with 67.3% reach among non-followers"],
     ["2,620","views on Juan Gabriel's reel, with 42.8% reach among non-followers"],
-    ["3,428","views on the recap video, shared 16 times organically"],
-    ["Citytv","live coverage by Marcelo Cezán on the show Bravísimo"]]},
+    ["3,428","views on the recap video, shared 16 times"],
+    ["Citytv","live coverage on the show Bravísimo"]]},
   media:[{t:"video",src:V+"campana-inicio.mp4",poster:V+"campana-inicio.jpg",cap:{es:"Inicio de campaña",en:"Campaign launch"}},
    {t:"video",src:V+"campana-conmemoracion.mp4",poster:V+"campana-conmemoracion.jpg",cap:{es:"Pieza de conmemoración",en:"Commemoration piece"}},
    {t:"video",src:V+"campana-mujeres.mp4",poster:V+"campana-mujeres.jpg",cap:{es:"Carrete de las sobrevivientes",en:"Survivors' reel"}},
    {t:"video",src:V+"campana-cierre.mp4",poster:V+"campana-cierre.jpg",cap:{es:"Cierre de campaña",en:"Campaign closing"}}]},
 
  {id:"domoticol",
-  es:{yr:"2023 — 2024",name:"Domoticol",role:"Community Manager y Estratega Digital · QP Technology",
-   head:"Web, e-commerce y redes operando con <b>una sola voz</b>.",
-   reto:"Vender en línea productos de domótica que la mayoría de la gente todavía no sabe que necesita. Había que explicar la categoría y vender al mismo tiempo, sin perder al usuario en el camino.",
-   hice:["Organicé toda la web como e-commerce, con su arquitectura, su redacción y su experiencia de compra.",
-    "Grabé, edité y redacté el contenido de redes con un objetivo doble, descubrimiento de la marca y venta directa.",
-    "Produje las piezas de producto y de campaña para todos los canales digitales."],
-   res:[["360°","web, e-commerce y redes bajo una misma línea de comunicación"]]},
-  en:{yr:"2023 — 2024",name:"Domoticol",role:"Community Manager and Digital Strategist · QP Technology",
-   head:"Website, e-commerce and social running with <b>one single voice</b>.",
-   reto:"Selling home automation products online that most people do not yet know they need. The work had to explain the category and sell at the same time, without losing the user along the way.",
-   hice:["I organized the whole site as an e-commerce, covering architecture, copy and purchase experience.",
-    "I shot, edited and wrote the social content with a double objective, brand discovery and direct sales.",
-    "I produced the product and campaign pieces for every digital channel."],
-   res:[["360°","website, e-commerce and social under one line of communication"]]},
+  es:{yr:"2023 — 2024",name:"Domoticol",role:"Estratega digital y tienda en línea · QP Technology",
+   head:"Página, tienda en línea y redes <b>construidas desde cero</b> con una misma voz.",
+   reto:"Vender en línea productos de domótica que mucha gente todavía no sabe que necesita. Había que explicar la categoría y vender al mismo tiempo.",
+   hice:["Construí desde cero la página con su tienda en línea. Organicé las secciones, escribí los textos y armé el camino de compra.",
+    "Grabé, edité y escribí el contenido de redes, una parte para dar a conocer la marca y otra para vender.",
+    "Produje las piezas de producto y de campaña para todos los canales."],
+   res:[["Desde cero","página y tienda en línea construidas y escritas por mí"]]},
+  en:{yr:"2023 — 2024",name:"Domoticol",role:"Digital strategist and online store · QP Technology",
+   head:"Website, online store and social media <b>built from scratch</b> with one voice.",
+   reto:"Selling home automation products online that many people do not yet know they need. The work had to explain the category and sell at the same time.",
+   hice:["I built the website and its online store from scratch. I organized the sections, wrote the copy and set up the path to purchase.",
+    "I shot, edited and wrote the social content, part of it to make the brand known and part of it to sell.",
+    "I produced the product and campaign pieces for every channel."],
+   res:[["From scratch","website and online store built and written by me"]]},
   media:[{t:"video",src:V+"domoticol.mp4",poster:V+"domoticol.jpg",cap:{es:"Contenido de redes producido para Domoticol",en:"Social content produced for Domoticol"}},
    {t:"shot",src:I+"domoticol-home.jpg",cap:{es:"domoticol.com — página principal",en:"domoticol.com — home page"}},
    {t:"shot",src:I+"domoticol-ipure.jpg",cap:{es:"Ficha de producto — línea iPure",en:"Product page — iPure line"}},
    {t:"shot",src:I+"domoticol-instagram.jpg",cap:{es:"Feed de Instagram",en:"Instagram feed"}}]},
 
  {id:"qualiprint",
-  es:{yr:"2023 — 2024",name:"Qualiprint · QP Technology",role:"Community Manager y Estratega Digital",
-   head:"Navegación rediseñada hacia WhatsApp, con <b>más conversiones</b>.",
-   reto:"Una plataforma de e-commerce montada sobre Odoo que no estaba convirtiendo. El usuario llegaba, no encontraba cómo comprar y tampoco sabía con quién hablar.",
-   hice:["Rediseñé el flujo de navegación hacia los puntos de contacto comerciales, WhatsApp y llamadas, para reducir la fricción del usuario.",
-    "Redacté la página, optimicé el SEO y reorganicé toda la comunicación de la marca.",
-    "Coordiné con proveedores la mejora de usabilidad móvil sobre la plataforma Odoo.",
-    "Gestioné campañas en Google Ads optimizando la conversión del tráfico pagado."],
-   res:[["↑ conversión","medida en clics al botón de WhatsApp y volumen de llamadas entrantes"],
-    ["↑ tráfico","tras la optimización SEO de la plataforma"]]},
-  en:{yr:"2023 — 2024",name:"Qualiprint · QP Technology",role:"Community Manager and Digital Strategist",
-   head:"Navigation redesigned toward WhatsApp, with <b>more conversions</b>.",
-   reto:"An e-commerce platform built on Odoo that was not converting. Users landed, could not find how to buy and had no idea who to talk to.",
-   hice:["I redesigned the navigation flow toward the commercial contact points, WhatsApp and phone, to reduce user friction.",
-    "I wrote the site copy, optimized SEO and reorganized the brand's entire communication.",
-    "I coordinated with vendors on mobile usability improvements across the Odoo platform.",
-    "I ran Google Ads campaigns optimizing paid traffic conversion."],
-   res:[["↑ conversion","measured in WhatsApp button clicks and inbound call volume"],
-    ["↑ traffic","following the platform's SEO optimization"]]},
+  es:{yr:"2023 — 2024",name:"Qualiprint",role:"Estratega digital y tienda en línea · QP Technology",
+   head:"Tienda reorganizada para llevar a la gente a <b>WhatsApp y a las llamadas</b>.",
+   reto:"La tienda en línea, montada en Odoo, recibía visitas que no compraban. La gente llegaba, no encontraba cómo comprar y no sabía con quién hablar.",
+   hice:["Construí la página y reorganicé el camino de la gente hasta WhatsApp y las llamadas.",
+    "Escribí los textos de la página y trabajé su SEO.",
+    "Coordiné con los proveedores los arreglos para que la tienda funcionara bien en el celular.",
+    "Manejé las campañas de Google Ads y bajé el costo por resultado del tráfico pagado."],
+   res:[["Más conversiones","medidas en clics al botón de WhatsApp y en llamadas entrantes"],
+    ["Ocho meses","de crecimiento seguido del tráfico después del trabajo de SEO"]]},
+  en:{yr:"2023 — 2024",name:"Qualiprint",role:"Digital strategist and online store · QP Technology",
+   head:"Store reorganized to lead people to <b>WhatsApp and phone calls</b>.",
+   reto:"The online store, built on Odoo, got visits that did not buy. People arrived, could not find how to buy and did not know who to talk to.",
+   hice:["I built the website and reorganized the path that takes people to WhatsApp and phone calls.",
+    "I wrote the site copy and worked on its SEO.",
+    "I coordinated with vendors on the fixes that made the store work well on mobile.",
+    "I ran the Google Ads campaigns and lowered the cost per result of paid traffic."],
+   res:[["More conversions","measured in WhatsApp button clicks and inbound calls"],
+    ["Eight months","of steady traffic growth after the SEO work"]]},
   media:[{t:"shot",src:I+"qp-home.jpg",cap:{es:"Qualiprint — página principal",en:"Qualiprint — home page"}},
-   {t:"shot",src:I+"qp-pantum.jpg",cap:{es:"Landing de marca aliada — Pantum",en:"Partner brand landing page — Pantum"}}]},
+   {t:"shot",src:I+"qp-pantum.jpg",cap:{es:"Página de marca aliada — Pantum",en:"Partner brand page — Pantum"}}]},
 
  {id:"champagnat",
-  es:{yr:"2022 — 2023",name:"Colegio Champagnat Bogotá",role:"Community Manager",
-   head:"Página web <b>construida desde cero</b> y más padres llegando al Open House.",
-   reto:"Un colegio tradicional con matrículas por llenar y una comunicación que no reflejaba nada de lo que se vivía adentro. Todo el trabajo apuntaba a llevar padres al Open House, el momento donde la propuesta educativa se vuelve irresistible.",
-   hice:["Construí la página web del colegio desde cero en WordPress con Elementor, con redacción y diseño completos.",
-    "Implementé y operé el CRM Clientify para la gestión de prospectos y el seguimiento del proceso de matrículas.",
-    "Cambié la imagen del colegio y el tipo de contenido para que se sintiera cómo se respiraba adentro.",
-    "Diseñé y ejecuté la estrategia de redes sociales, email marketing y landing pages orientada a captación de nuevos estudiantes."],
-   res:[["Web","redactada, diseñada y publicada desde cero"],
-    ["↑ tráfico","de la web al Open House, y de ahí al proceso de matrícula"]]},
-  en:{yr:"2022 — 2023",name:"Colegio Champagnat Bogotá",role:"Community Manager",
-   head:"Website <b>built from scratch</b> and more parents reaching the Open House.",
-   reto:"A traditional school with enrollment places to fill and communication that reflected none of what was happening inside. Everything pointed toward one goal, bringing parents to the Open House, the moment where the school's offer becomes irresistible.",
-   hice:["I built the school's website from scratch in WordPress with Elementor, handling both copy and design.",
-    "I implemented and ran the Clientify CRM for lead management and enrollment tracking.",
-    "I changed the school's image and content approach so it felt like what you actually breathe inside.",
-    "I designed and executed the social media, email marketing and landing page strategy aimed at new student acquisition."],
-   res:[["Website","written, designed and published from scratch"],
-    ["↑ traffic","from the website to the Open House, and from there into enrollment"]]},
+  es:{yr:"2022 — 2023",name:"Colegio Champagnat Bogotá",role:"Community manager y desarrollo web",
+   head:"Página web <b>construida desde cero</b> y más familias en el Open House.",
+   reto:"Un colegio con cupos por llenar y una comunicación que no mostraba lo que se vive adentro. El objetivo era llevar a las familias al Open House, el evento donde se decide la matrícula.",
+   hice:["Construí desde cero la página del colegio en WordPress con Elementor y escribí sus textos, pensada para la comunidad del colegio y para las familias que llegan por primera vez.",
+    "Monté Clientify y lo usé para seguir a cada familia interesada hasta la matrícula.",
+    "Cambié la línea de contenido para mostrar el colegio como se vive adentro.",
+    "Armé las redes, los correos y las páginas de inscripción para traer estudiantes nuevos."],
+   res:[["Desde cero","página escrita, diseñada y publicada"],
+    ["Más familias","en el Open House, el paso previo a la matrícula"]]},
+  en:{yr:"2022 — 2023",name:"Colegio Champagnat Bogotá",role:"Community manager and web development",
+   head:"Website <b>built from scratch</b> and more families at the Open House.",
+   reto:"A school with places to fill and communication that did not show what life inside was like. The goal was to bring families to the Open House, the event where enrollment is decided.",
+   hice:["I built the school's website from scratch in WordPress with Elementor and wrote its copy, designed for the school community and for families visiting for the first time.",
+    "I set up Clientify and used it to follow each interested family all the way to enrollment.",
+    "I changed the content approach to show the school the way it is lived inside.",
+    "I put together the social media, emails and sign-up pages to bring in new students."],
+   res:[["From scratch","website written, designed and published"],
+    ["More families","at the Open House, the step before enrollment"]]},
   media:[{t:"video",src:V+"champagnat.mp4",poster:V+"champagnat.jpg",cap:{es:"Contenido de redes producido para el Colegio Champagnat",en:"Social content produced for Colegio Champagnat"}},
    {t:"shot",src:I+"champagnat.jpg",cap:{es:"Página web del Colegio Champagnat Bogotá",en:"Colegio Champagnat Bogotá website"}}]},
 
  {id:"yeahbaby",
-  es:{yr:"2019",name:"Yeah Baby",role:"Creativo Digital · Dirty Kitchen",
-   head:"Canal <b>monetizado</b> convirtiendo la paternidad primeriza en entretenimiento.",
-   reto:"Mi punto de partida como creador de contenido. Había que tomar el trauma de ser padres primerizos y darle la vuelta, volverlo divertido, capturar una audiencia real y hacerla lo bastante atractiva para que las marcas quisieran colaborar.",
-   hice:["Creé y sostuve la cuenta en Instagram, Facebook y sobre todo YouTube.",
-    "Desarrollé los procesos creativos para contenido de entretenimiento, seleccionando ideas bajo criterios de MVP.",
-    "Construí el proceso creativo del equipo desde cero."],
-   res:[["Monetizado","el canal generó ingresos por contenido"],
-    ["Comunidad","audiencia de padres primerizos con interés comercial para marcas aliadas"]]},
-  en:{yr:"2019",name:"Yeah Baby",role:"Digital Creative · Dirty Kitchen",
-   head:"A <b>monetized</b> channel turning first-time parenting into entertainment.",
-   reto:"My starting point as a content creator. The job was to take the shock of becoming first-time parents and flip it, make it funny, capture a real audience and make it attractive enough for brands to want in.",
-   hice:["I created and sustained the account on Instagram, Facebook and above all YouTube.",
-    "I developed the creative processes for entertainment content, selecting ideas under MVP criteria.",
-    "I built the team's creative process from scratch."],
-   res:[["Monetized","the channel generated revenue from content"],
-    ["Community","an audience of first-time parents with commercial appeal for partner brands"]]},
+  es:{yr:"2019",name:"Yeah Baby",role:"Creativo digital · Dirty Kitchen",
+   head:"Un canal <b>monetizado</b> con humor sobre ser papás por primera vez.",
+   reto:"Mi punto de partida como creador de contenido. Tomar el susto de ser papás por primera vez, volverlo divertido y armar una audiencia que les interesara a las marcas.",
+   hice:["Creé la cuenta y la sostuve en Instagram, Facebook y sobre todo YouTube.",
+    "Armé desde cero el proceso creativo del equipo, y con él escogíamos qué ideas valía la pena grabar."],
+   res:[["Monetizado","el canal generó ingresos por su contenido"],
+    ["Comunidad","papás primerizos, una audiencia que les interesa a las marcas"]]},
+  en:{yr:"2019",name:"Yeah Baby",role:"Digital creative · Dirty Kitchen",
+   head:"A <b>monetized</b> channel with humor about becoming parents for the first time.",
+   reto:"My starting point as a content creator. Taking the shock of becoming first-time parents, making it funny and building an audience that brands would care about.",
+   hice:["I created the account and kept it going on Instagram, Facebook and above all YouTube.",
+    "I built the team's creative process from scratch, and we used it to choose which ideas were worth shooting."],
+   res:[["Monetized","the channel earned revenue from its content"],
+    ["Community","first-time parents, an audience brands care about"]]},
   media:[{t:"video",src:V+"yeah-baby.mp4",poster:V+"yeah-baby.jpg",cap:{es:"Contenido de la cuenta Yeah Baby",en:"Content from the Yeah Baby account"}}]}
 ];
 
@@ -849,56 +730,56 @@ const PIEZAS = [
 /* ============ trayectoria ============ */
 const TRACK = [
  {yr:"2022",id:"pharmaris",
-  es:{name:"Open Media",role:"Community Manager",
-   desc:"Agencia. Manejé varias cuentas en paralelo, entre ellas Grupo Pharmaris. Social selling adaptado al embudo de cada cliente, monitoreo de marca y protocolos de gestión de crisis con Buffer y Google Alerts."},
-  en:{name:"Open Media",role:"Community Manager",
-   desc:"Agency work. I handled several accounts in parallel, Grupo Pharmaris among them. Social selling adapted to each client's funnel, brand monitoring and crisis protocols with Buffer and Google Alerts."},
+  es:{name:"Open Media",role:"Community manager · Agencia",
+   desc:"Manejé al mismo tiempo varias cuentas de la agencia, entre ellas Grupo Pharmaris. Monté el monitoreo de marca y el plan para manejar crisis con Buffer y Google Alerts."},
+  en:{name:"Open Media",role:"Community manager · Agency",
+   desc:"I handled several agency accounts at the same time, Grupo Pharmaris among them. I set up brand monitoring and the crisis plan with Buffer and Google Alerts."},
   detalle:{id:"pharmaris",
-   es:{yr:"2022",name:"Grupo Pharmaris",role:"Cuenta gestionada desde Open Media",
-    reto:"El cliente quería vender vitaminas sin poder prometer que curaran o aliviaran nada. Había que hablar de un producto que evidentemente le hace bien al organismo, sin usar ninguna de las promesas de salud que solo pueden hacer las marcas con registro sanitario. Todo el peso del mensaje tenía que caer en el terreno legal disponible.",
-    hice:["Construí la línea de comunicación dentro del margen regulatorio, apoyada en el beneficio percibido, el hábito y el contexto de uso.",
-     "Ejecuté la estrategia de contenido orgánico y de pauta para la cuenta.",
-     "Monitoreé comentarios y respondí consultas de salud sin exceder lo permitido."],
-    res:[["Sin riesgo legal","comunicación comercial sostenida dentro del margen regulatorio"]]},
-   en:{yr:"2022",name:"Grupo Pharmaris",role:"Account managed from Open Media",
-    reto:"The client wanted to sell vitamins without being able to promise they cured or relieved anything. The work meant talking about a product that clearly does the body good, without using any of the health claims reserved for brands with sanitary registration. The whole weight of the message had to land inside the legal ground available.",
-    hice:["I built the communication line within the regulatory margin, leaning on perceived benefit, habit and context of use.",
-     "I executed the organic and paid content strategy for the account.",
-     "I monitored comments and answered health questions without crossing what was allowed."],
-    res:[["Zero legal risk","sustained commercial communication inside the regulatory margin"]]},
+   es:{yr:"2022",name:"Grupo Pharmaris",role:"Cuenta manejada desde Open Media",
+    reto:"El cliente quería vender vitaminas sin poder prometer que curaran o aliviaran algo. Esas promesas solo las pueden hacer las marcas con registro sanitario, así que todo el mensaje tenía que caber en lo que permite la ley.",
+    hice:["Construí la línea de comunicación dentro de lo que permite la regulación, apoyada en el hábito y el momento de uso.",
+     "Manejé el contenido orgánico y la pauta de la cuenta.",
+     "Respondí comentarios y preguntas de salud dentro de lo permitido."],
+    res:[["Dentro de la norma","comunicación de venta sostenida sin promesas de salud"]]},
+   en:{yr:"2022",name:"Grupo Pharmaris",role:"Account handled from Open Media",
+    reto:"The client wanted to sell vitamins without being able to promise they cured or relieved anything. Only brands with a sanitary registration can make those claims, so the whole message had to fit inside what the law allows.",
+    hice:["I built the communication line within the regulatory limits, leaning on habit and moment of use.",
+     "I ran the account's organic content and paid media.",
+     "I answered comments and health questions within what was allowed."],
+    res:[["Within the rules","sustained sales communication with no health claims"]]},
    media:[{t:"video",src:V+"pharmaris.mp4",poster:V+"pharmaris.jpg",cap:{es:"Contenido de redes para Grupo Pharmaris",en:"Social content for Grupo Pharmaris"}}]}},
 
  {yr:"2021",
-  es:{name:"Grupo Gesth",role:"Community Manager",
-   desc:"Ejecución de la estrategia digital en redes con calendarios de contenido y automatización de publicaciones. Gestión de comunidad por mensajes directos y comentarios."},
-  en:{name:"Grupo Gesth",role:"Community Manager",
-   desc:"Execution of the social media strategy with content calendars and post automation. Community management through direct messages and comments."}},
+  es:{name:"Grupo Gesth",role:"Community manager",
+   desc:"Llevé el día a día de las redes con calendario propio y publicaciones programadas. Respondí mensajes y comentarios."},
+  en:{name:"Grupo Gesth",role:"Community manager",
+   desc:"I ran day-to-day social media with my own content calendar and scheduled posts. I answered messages and comments."}},
 
  {yr:"2019 — 2020",id:"avanc",
-  es:{name:"Avan-c Leyendo",role:"Community Manager",
-   desc:"Programa de lectura rápida, mil palabras por minuto con comprensión total. Estrategia orgánica y de pauta, monitoreo de KPIs y ajuste de estrategia según resultados."},
-  en:{name:"Avan-c Leyendo",role:"Community Manager",
-   desc:"A speed reading program, a thousand words per minute with full comprehension. Organic and paid strategy, KPI monitoring and strategy adjustment based on results."},
+  es:{name:"Avan-c Leyendo",role:"Community manager",
+   desc:"Programa de lectura rápida. Manejé el contenido orgánico y la pauta, y armé una línea de contenido con memes y referencias culturales."},
+  en:{name:"Avan-c Leyendo",role:"Community manager",
+   desc:"A speed reading program. I ran organic content and paid media, and built a content line around memes and cultural references."},
   detalle:{id:"avanc",
-   es:{yr:"2019 — 2020",name:"Avan-c Leyendo",role:"Community Manager",
-    reto:"Vender el programa de lectura era apenas la mitad del trabajo. La otra mitad era construir comunidad alrededor de temas de conversación que le importaran a la audiencia, en una época anterior a la inteligencia artificial, donde el recurso disponible era el ingenio.",
-    hice:["Ejecuté la estrategia digital con contenido orgánico y pauta.",
-     "Construí una línea editorial apoyada en memes y referencias culturales para sostener la conversación más allá del producto.",
-     "Monitoreé KPIs y ajusté la estrategia según resultados."],
-    res:[["Comunidad","conversación sostenida alrededor del hábito de leer, más allá del programa"]]},
-   en:{yr:"2019 — 2020",name:"Avan-c Leyendo",role:"Community Manager",
-    reto:"Selling the reading program was barely half the job. The other half was building a community around conversation topics the audience actually cared about, in an era before artificial intelligence, where the only resource available was wit.",
-    hice:["I executed the digital strategy with organic content and paid media.",
-     "I built an editorial line leaning on memes and cultural references to sustain conversation beyond the product.",
-     "I monitored KPIs and adjusted the strategy based on results."],
-    res:[["Community","sustained conversation around the habit of reading, beyond the program"]]},
+   es:{yr:"2019 — 2020",name:"Avan-c Leyendo",role:"Community manager",
+    reto:"Vender el programa era la mitad del trabajo. La otra mitad era armar comunidad alrededor de temas que le importaran a la gente, en una época sin inteligencia artificial, donde lo único disponible era el ingenio.",
+    hice:["Manejé el contenido orgánico y la pauta.",
+     "Armé una línea de contenido con memes y referencias culturales que mantuvo la conversación más allá del programa.",
+     "Revisé los números cada mes y ajusté el plan."],
+    res:[["Comunidad","conversación sostenida alrededor del hábito de leer"]]},
+   en:{yr:"2019 — 2020",name:"Avan-c Leyendo",role:"Community manager",
+    reto:"Selling the program was half the job. The other half was building a community around topics people cared about, in a time before artificial intelligence, when wit was the only resource available.",
+    hice:["I ran organic content and paid media.",
+     "I built a content line around memes and cultural references that kept the conversation going beyond the program.",
+     "I reviewed the numbers every month and adjusted the plan."],
+    res:[["Community","sustained conversation around the habit of reading"]]},
    media:[{t:"video",src:V+"avanc.mp4",poster:V+"avanc.jpg",cap:{es:"Contenido de redes para Avan-c Leyendo",en:"Social content for Avan-c Leyendo"}}]}},
 
  {yr:"2018",
-  es:{name:"Universidad Sergio Arboleda",role:"Auxiliar de Marketing",
-   desc:"CRM de la Escuela de Posgrados para optimizar la captación y matrícula en 24 programas simultáneos. Campañas personalizadas por programa."},
-  en:{name:"Universidad Sergio Arboleda",role:"Marketing Assistant",
-   desc:"Graduate School CRM to optimize lead capture and enrollment across 24 simultaneous programs. Campaigns personalized by program."}}
+  es:{name:"Universidad Sergio Arboleda",role:"Auxiliar de marketing",
+   desc:"Manejé el CRM de la Escuela de Posgrados para la inscripción a 24 programas al mismo tiempo, con campañas para cada programa."},
+  en:{name:"Universidad Sergio Arboleda",role:"Marketing assistant",
+   desc:"I ran the Graduate School CRM for enrollment across 24 programs at once, with campaigns for each program."}}
 ];
 
 /* ============ render ============ */
@@ -913,30 +794,11 @@ function pintar(){
   document.querySelectorAll(".lang button").forEach(b =>
     b.setAttribute("aria-pressed", String(b.dataset.lang === L)));
 
-  document.getElementById("franja").innerHTML = PERFILES.map((p,i) => `
-    <button class="skill" type="button" aria-expanded="false" data-frente="${i}">
-      <span class="rol">${p[L][0]}</span>
-      <span class="nivel" title="${t("nivelLabel")}">
-        <span class="barra"><span style="width:${p.nivel}%"></span></span>
-        <span class="pct">${p.nivel}%</span>
-      </span>
-      <span class="det">${p[L][1]}</span>
-      <span class="abrir"><i>+</i>${t("verTareas")}</span>
-      <span class="tareas"><ul>${p[L][2].map(x=>`<li>${x}</li>`).join("")}</ul></span>
-    </button>`).join("");
-
   document.getElementById("lista-cap").innerHTML = CAP.map(c => `
     <div><h4>${c[L][0]}</h4><ul>${c[L][1].map(i=>`<li>${i}</li>`).join("")}</ul></div>`).join("");
 
   document.getElementById("lista-edu").innerHTML = EDU.map(e => `
     <div><strong>${e[L][0]}</strong><span>${e[L][1]}</span></div>`).join("");
-
-  document.getElementById("lista-certs").innerHTML = CERTS.map(c => {
-    const d = L === "es" ? c[1] : c[2];
-    return `<article class="cert">
-      <div class="cert-top"><span class="plat">Platzi</span><span class="cert-yr">${c[0]}</span></div>
-      <h4>${d[0]}</h4><p>${d[1]}</p></article>`;
-  }).join("");
 
   document.getElementById("lista-casos").innerHTML = CASOS.map(c => `
     <button class="case" data-id="${c.id}">
@@ -950,7 +812,7 @@ function pintar(){
     <button class="reel" data-id="${x.id}">
       <span class="thumb">
         <img src="${x.poster}" alt="${x[L].name}" loading="lazy">
-        <span class="marca">${x.marca}</span>
+        <span class="marca">${t("concepto")}</span>
         <span class="play"><i>▶</i></span>
       </span>
       <span>

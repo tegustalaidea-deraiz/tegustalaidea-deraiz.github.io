@@ -388,6 +388,7 @@ figure{margin:0}
 }
 .cursos{margin-top:1.8rem;color:var(--muted);font-size:.92rem;line-height:1.6;max-width:90ch}
 .cursos b{color:var(--paper);font-weight:700}
+.hero-tools{margin-top:1.4rem;font-family:var(--f-mono);font-size:.74rem;letter-spacing:.03em;color:var(--muted);line-height:1.7;max-width:62ch}
 </style>
 </head>
 <body>
@@ -397,9 +398,9 @@ figure{margin:0}
     <a class="brand" href="#top">Michael Alvarez<span>.</span></a>
     <div class="nav-links">
       <a href="#casos" data-t="nav1">Casos</a>
-      <a href="#piezas" data-t="navIa">Video con IA</a>
-      <a href="#trayectoria" data-t="nav2">Trayectoria</a>
       <a href="#capacidades" data-t="nav3">Habilidades</a>
+      <a href="#trayectoria" data-t="nav2">Trayectoria</a>
+      <a href="#piezas" data-t="navIa">Video con IA</a>
       <a href="#contacto" data-t="nav5">Contacto</a>
     </div>
     <div class="lang" role="group" aria-label="Idioma">
@@ -420,6 +421,7 @@ figure{margin:0}
         <a class="btn btn-solid" href="#casos" data-t="verCasos">Ver casos</a>
         <a class="btn" href="Michael-Alvarez-CV-2026.pdf" download data-t="cvPdf">Descargar CV en PDF</a>
       </div>
+      <p class="hero-tools" data-t="heroTools"></p>
     </div>
     <div class="portrait">
       <div class="mono" aria-hidden="true">MA</div>
@@ -437,13 +439,13 @@ figure{margin:0}
   <div class="cases" id="lista-casos"></div>
 </section>
 
-<section id="piezas" class="wrap">
+<section id="capacidades" class="wrap">
   <div class="sec-head">
-    <h2 data-t="h2ia">Video con inteligencia artificial</h2>
-    <span class="count" data-t="cntIa">Piezas de concepto</span>
+    <h2 data-t="h2cap">Habilidades</h2>
   </div>
-  <p class="hero-lede" style="margin-top:1.1rem;max-width:62ch" data-t="ledeIa"></p>
-  <div class="reels" id="lista-ia"></div>
+  <div class="skills" id="lista-cap"></div>
+  <div class="edu" id="lista-edu"></div>
+  <p class="cursos" data-t="cursos"></p>
 </section>
 
 <section id="trayectoria" class="wrap">
@@ -454,13 +456,13 @@ figure{margin:0}
   <div class="track" id="lista-track"></div>
 </section>
 
-<section id="capacidades" class="wrap">
+<section id="piezas" class="wrap">
   <div class="sec-head">
-    <h2 data-t="h2cap">Habilidades</h2>
+    <h2 data-t="h2ia">Video con inteligencia artificial</h2>
+    <span class="count" data-t="cntIa">Piezas de concepto</span>
   </div>
-  <div class="skills" id="lista-cap"></div>
-  <div class="edu" id="lista-edu"></div>
-  <p class="cursos" data-t="cursos"></p>
+  <p class="hero-lede" style="margin-top:1.1rem;max-width:62ch" data-t="ledeIa"></p>
+  <div class="reels" id="lista-ia"></div>
 </section>
 
 <footer class="contact" id="contacto">
@@ -489,7 +491,7 @@ const V = "assets/video/", I = "assets/img/";
 
 /* ============ textos de interfaz ============ */
 const UI = {
- es:{nav1:"Casos",nav2:"Trayectoria",nav3:"Habilidades",nav4:"Cursos",nav5:"Contacto",
+ es:{heroTools:"Meta Ads · Google Ads · TikTok Ads · Google Analytics · WordPress · Clientify · Edición de video · Inteligencia artificial",nav1:"Casos",nav2:"Trayectoria",nav3:"Habilidades",nav4:"Cursos",nav5:"Contacto",
   cv:"Descargar CV",cvPdf:"Descargar CV en PDF",verCasos:"Ver casos",disponible:"Disponible",navIa:"Video con IA",h2ia:"Video con inteligencia artificial",cntIa:"Piezas de concepto",
   ledeIa:"Estas piezas las generé y las edité con inteligencia artificial. Son ejercicios de concepto. Ninguna está publicada ni tiene un fin comercial.",
   objetivo:"Objetivo",copyPieza:"Texto de la publicación",verPieza:"Ver la pieza",concepto:"Concepto",
@@ -504,7 +506,7 @@ const UI = {
   verCaso:"Ver el caso →",cerrar:"Cerrar",
   scrollShot:"Desplácese dentro del marco para recorrer la página completa",
   titulo:"Michael Alvarez — Social Media Manager"},
- en:{nav1:"Work",nav2:"Career",nav3:"Skills",nav4:"Courses",nav5:"Contact",
+ en:{heroTools:"Meta Ads · Google Ads · TikTok Ads · Google Analytics · WordPress · Clientify · Video editing · Artificial intelligence",nav1:"Work",nav2:"Career",nav3:"Skills",nav4:"Courses",nav5:"Contact",
   cv:"Download CV",cvPdf:"Download CV as PDF",verCasos:"See the work",disponible:"Available",navIa:"AI video",h2ia:"AI-generated video",cntIa:"Concept pieces",
   ledeIa:"I generated and edited these pieces with artificial intelligence. They are concept exercises. None of them has been published or has a commercial purpose.",
   objetivo:"Objective",copyPieza:"Post copy (Spanish)",verPieza:"View the piece",concepto:"Concept",

@@ -497,7 +497,6 @@ figure{margin:0}
       <a href="#reels" data-t="navReels">Muestras</a>
       <a href="#casos" data-t="nav1">Casos</a>
       <a href="#trayectoria" data-t="nav2">Trayectoria</a>
-      <a href="#piezas" data-t="navIa">Video con IA</a>
       <a href="#capacidades" data-t="nav4">Formación</a>
       <a href="#contacto" data-t="nav5">Contacto</a>
     </div>
@@ -571,14 +570,7 @@ figure{margin:0}
   <div class="track" id="lista-track"></div>
 </section>
 
-<section id="piezas" class="wrap">
-  <div class="sec-head">
-    <h2 data-t="h2ia">Video con inteligencia artificial</h2>
-    <span class="count" data-t="cntIa">Piezas de concepto</span>
-  </div>
-  <p class="hero-lede" style="margin-top:1.1rem;max-width:62ch" data-t="ledeIa"></p>
-  <div class="reels" id="lista-ia"></div>
-</section>
+
 
 <footer class="contact" id="contacto">
   <div class="wrap">
@@ -947,11 +939,19 @@ const GRUPOS_DK = [
    A("inf-sincera",{t:"Sincera demente",d:"Producción del equipo de Dirty Kitchen.",tags:["Influencia"]},{t:"Sincera demente",d:"Produced by the Dirty Kitchen team.",tags:["Influence"]},{sq:true}),
    A("inf-adulto",{t:"Adulto contemporáneo",d:"Producción del equipo de Dirty Kitchen.",tags:["Influencia"]},{t:"Adulto contemporáneo",d:"Produced by the Dirty Kitchen team.",tags:["Influence"]},{sq:true})]}
 ];
+const ART_V = (id, es, en, copy) => ({src:V+id+".mp4",poster:V+id+".jpg",es,en,copy});
+const GRUPOS_IA = [
+ {cover:V+"ia-velez.jpg",es:{n:"IA",d:""},en:{n:"AI",d:""},
+  items:[
+   ART_V("ia-velez",{t:"Cartera Vélez",d:"Pieza de concepto para tuplús. Generé las imágenes y el video con inteligencia artificial, edité el montaje y el ritmo, y escribí el texto de la publicación.",tags:["Video con IA","Edición","Texto de la publicación"]},{t:"Vélez handbag",d:"Concept piece for tuplús. I generated the images and video with artificial intelligence, edited the cut and pacing, and wrote the post copy.",tags:["AI video","Editing","Post copy"]},"Cuando estrenas algo que te costó cero pesos pero representa cada café, cada mercado y cada esfuerzo del mes, se cuida con el alma entera\n\nEse bolso Vélez que viste tantas veces en la vitrina ya te lo ganaste con las compras que haces a diario con tus tarjetas de crédito de las entidades del Grupo Aval, ya sea con Banco de Bogotá, Banco de Occidente, Banco Popular o AV Villas.\n\nTus puntos están hechos para disfrutarse hoy, no para dejarlos acumulando polvo en una cuenta olvidada.\n\nDate una vuelta por los canales oficiales de tuplús, revisa tu saldo y llévate ese gusto que ya es tuyo\n\n#Tuplús #CueroVélez #PuntosTuplús #GrupoAval #ModaColombia"),
+   ART_V("ia-jetsmart",{t:"Vuelos y viajes con JetSMART",d:"Pieza de concepto para tuplús que explica cómo usar los puntos para viajar. Generé el video con inteligencia artificial, ajusté el ritmo para que se entendiera en treinta segundos y escribí el texto con la promoción y la fecha límite.",tags:["Video con IA","Edición","Texto de la publicación"]},{t:"Flights and travel with JetSMART",d:"Concept piece for tuplús explaining how to use points to travel. I generated the video with artificial intelligence, tuned the pacing so it lands in thirty seconds and wrote the copy with the promotion and deadline.",tags:["AI video","Editing","Post copy"]},"Ese viaje que vienes aplazando no necesita que te ganes la lotería, solo que te acuerdes de los puntos que tienes ahí guardados\n\nCada vez que haces mercado, pagas una salida o compras con las tarjetas de crédito de Banco de Bogotá, Banco de Occidente, Banco Popular o AV Villas, estás sumando puntos en tuplús. Y esos puntos se convierten en millas, playa y momentos que sí valen la pena.\n\nAprovecha vuelos nacionales desde $50.000 con el cupón PLUS50JA en JetSMART, hasta 70% de descuento en hospedaje y paquetes a 3 cuotas sin interés.\n\nTienes hasta el 30 de septiembre para armar maleta. Entra a los canales de tuplús y mira hasta dónde te llevan hoy tus puntos\n\n#Tuplús #ViajarPorColombia #JetSMARTColombia #PuntosTuplús #GrupoAval")]}
+];
 const BLOQUES = [
  {grupos:GRUPOS,es:{n:"Salitre Plaza",yr:"2024 — 2026",d:"Tuve a cargo la comunicación digital del centro comercial. Escribí todos los textos, diseñé, produje y edité, y trabajé con marcas, artistas y equipos para sacar cada campaña adelante. Las piezas están organizadas por lo que sé hacer."},en:{n:"Salitre Plaza",yr:"2024 — 2026",d:"I ran the mall's digital communication. I wrote every line, designed, produced and edited, and worked with brands, artists and teams to get each campaign out the door. The pieces are organized by what I can do."}},
  {grupos:GRUPOS_DM,es:{n:"Domoticol · QP Technology",yr:"2023 — 2024",d:"Llevé todo el marketing digital de la marca. Con un presupuesto mínimo rediseñé la página y grabé con celular los videos de producto, del guion a la publicación."},en:{n:"Domoticol · QP Technology",yr:"2023 — 2024",d:"I ran all of the brand's digital marketing. On a minimal budget I redesigned the website and shot the product videos on a phone, from script to publishing."}},
  {grupos:GRUPOS_AV,es:{n:"Avan-c Leyendo",yr:"2019 — 2020",d:"Cuando llegué, las publicaciones solo vendían el programa. Le di a la cuenta una personalidad, con memes, referencias del momento y contenido que la gente quería compartir, y empecé a salir en cámara."},en:{n:"Avan-c Leyendo",yr:"2019 — 2020",d:"When I arrived, posts only sold the program. I gave the account a personality, with memes, current references and content people wanted to share, and I started appearing on camera."}},
- {grupos:GRUPOS_DK,es:{n:"Dirty Kitchen · Yeah Baby",yr:"2019",d:"Donde empezó todo. Ahí entendí que el contenido tiene que tener un propósito y conectar con la gente. Una buena idea puede cambiar la forma en que alguien actúa. Desde ahí empieza todo lo que hago."},en:{n:"Dirty Kitchen · Yeah Baby",yr:"2019",d:"Where it all started. That is where I learned content needs a purpose and has to connect with people. A good idea can change the way someone acts. Everything I do starts there."}}
+ {grupos:GRUPOS_DK,es:{n:"Dirty Kitchen · Yeah Baby",yr:"2019",d:"Donde empezó todo. Ahí entendí que el contenido tiene que tener un propósito y conectar con la gente. Una buena idea puede cambiar la forma en que alguien actúa. Desde ahí empieza todo lo que hago."},en:{n:"Dirty Kitchen · Yeah Baby",yr:"2019",d:"Where it all started. That is where I learned content needs a purpose and has to connect with people. A good idea can change the way someone acts. Everything I do starts there."}},
+ {grupos:GRUPOS_IA,es:{n:"En desarrollo · Inteligencia artificial",yr:"Hoy",d:"Hoy me estoy afianzando en crear contenido con inteligencia artificial, con Google Flow y Gemini, y en automatizar tareas con Claude Code. Estas dos piezas son ejercicios de concepto, sin publicar y sin fin comercial."},en:{n:"In progress · Artificial intelligence",yr:"Now",d:"Right now I am deepening my work creating content with artificial intelligence, using Google Flow and Gemini, and automating tasks with Claude Code. These two pieces are concept exercises, unpublished and non-commercial."}}
 ];
 const sel = BLOQUES.map(()=>0);
 /* ============ piezas de video con IA ============ */
@@ -1106,18 +1106,7 @@ function pintar(){
       <span class="go" aria-hidden="true">→</span>
     </button>`).join("");
 
-  document.getElementById("lista-ia").innerHTML = PIEZAS.map(x => `
-    <button class="reel" data-id="${x.id}">
-      <span class="thumb">
-        <img src="${x.poster}" alt="${x[L].name}" loading="lazy">
-        <span class="marca">${t("concepto")}</span>
-        <span class="play"><i>▶</i></span>
-      </span>
-      <span>
-        <span class="tit">${x[L].name}</span>
-        <span class="sub">${x[L].sub}</span>
-      </span>
-    </button>`).join("");
+
 
   document.getElementById("lista-track").innerHTML = TRACK.map(k => `
     <div class="row">

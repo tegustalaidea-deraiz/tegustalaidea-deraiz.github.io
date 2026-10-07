@@ -464,6 +464,15 @@ figure{margin:0}
 .case-link{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;margin:1.2rem 0 0}
 .case-link span{font-size:.85rem;color:var(--muted)}
 @media(max-width:860px){.rv-media.hz{width:100%}}
+.bloque{margin-top:clamp(2.4rem,5vw,3.6rem);padding-top:clamp(1.6rem,3vw,2.2rem);border-top:1px solid var(--line)}
+.bloque:first-of-type{margin-top:2rem}
+.bl-head{display:flex;align-items:baseline;gap:.9rem;flex-wrap:wrap}
+.bl-head h3{font-size:clamp(1.45rem,3vw,2.15rem);margin:0}
+.bl-yr{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;color:var(--acid)}
+.bl-desc{margin:.8rem 0 0;max-width:70ch;color:var(--muted);line-height:1.6}
+.bloque .hl{margin-top:1.3rem}
+.rv-media.sq{aspect-ratio:1/1;height:min(70vh,640px)}
+@media(max-width:860px){.rv-media.sq{height:auto;width:min(100%,420px)}}
 </style>
 </head>
 <body>
@@ -513,9 +522,7 @@ figure{margin:0}
     <span class="count" data-t="cntReels"></span>
   </div>
   <p class="hero-lede reels-lede" data-t="ledeReels"></p>
-  <div class="hl" id="hl" role="tablist" aria-label="Habilidades"></div>
-  <p class="hl-desc" id="hl-desc"></p>
-  <ul class="ig" id="lista-reels" role="tabpanel"></ul>
+  <div id="bloques"></div>
   <p class="ig-more" data-t="masReels"></p>
 </section>
 
@@ -599,7 +606,7 @@ const V = "assets/video/", I = "assets/img/";
 
 /* ============ textos de interfaz ============ */
 const UI = {
- es:{navReels:"Muestras",h2reels:"Muestras de trabajo",cntReels:"22 piezas · organizadas por habilidad",ledeReels:"Escribo, diseño, produzco y edito. Aquí hay una muestra pequeña de dos trabajos. En Salitre Plaza tuve a cargo la comunicación digital durante dos años y trabajé con marcas, artistas y equipos para sacar cada campaña adelante. En Domoticol llevé todo el marketing digital, de la página a los videos. Está organizada por lo que sé hacer.",masReels:"En dos años hubo muchas más campañas, marcas y artistas. Si quiere ver algo en particular, con gusto se lo muestro.",copyPub:"Texto de la publicación, escrito por mí",tipoArte:"Pieza",rvPrev:"Video anterior",rvNext:"Video siguiente",rvClose:"Cerrar video",rvOf:"de",rvTags:"Lo que muestra",heroTools:"Meta Ads · Google Ads · TikTok Ads · Google Analytics · WordPress · Clientify · Edición de video · Inteligencia artificial",nav1:"Casos",nav2:"Trayectoria",nav3:"Habilidades",nav4:"Cursos",nav5:"Contacto",
+ es:{navReels:"Muestras",h2reels:"Muestras de trabajo",cntReels:"4 marcas · de lo más reciente a 2019",ledeReels:"Escribo, diseño, produzco y edito. Aquí está mi recorrido, de lo más reciente hacia donde empezó todo. Cada marca tiene su bloque, y al bajar se ve cómo fue creciendo el trabajo.",masReels:"Detrás de cada marca hay mucho más trabajo. Si quiere ver algo en particular, con gusto se lo muestro.",copyPub:"Texto de la publicación, escrito por mí",tipoArte:"Pieza",rvPrev:"Video anterior",rvNext:"Video siguiente",rvClose:"Cerrar video",rvOf:"de",rvTags:"Lo que muestra",heroTools:"Meta Ads · Google Ads · TikTok Ads · Google Analytics · WordPress · Clientify · Edición de video · Inteligencia artificial",nav1:"Casos",nav2:"Trayectoria",nav3:"Habilidades",nav4:"Cursos",nav5:"Contacto",
   cv:"Descargar CV",cvPdf:"Descargar CV en PDF",verCasos:"Ver casos",disponible:"Disponible",navIa:"Video con IA",h2ia:"Video con inteligencia artificial",cntIa:"Piezas de concepto",
   ledeIa:"Estas piezas las generé y las edité con inteligencia artificial. Son ejercicios de concepto. Ninguna está publicada ni tiene un fin comercial.",
   objetivo:"Objetivo",copyPieza:"Texto de la publicación",verPieza:"Ver la pieza",concepto:"Concepto",
@@ -614,7 +621,7 @@ const UI = {
   verCaso:"Ver el caso →",cerrar:"Cerrar",
   scrollShot:"Desplácese dentro del marco para recorrer la página completa",
   titulo:"Michael Alvarez — Social Media Manager"},
- en:{navReels:"Work",h2reels:"Work samples",cntReels:"22 pieces · organized by skill",ledeReels:"I write, design, produce and edit. This is a small sample from two jobs. At Salitre Plaza I ran digital communication for two years and worked with brands, artists and teams to get each campaign out the door. At Domoticol I ran all of the digital marketing, from the website to the videos. It is organized by what I can do.",masReels:"Two years meant many more campaigns, brands and artists. If you want to see something specific, I am happy to show you.",copyPub:"Post copy, written by me (Spanish)",tipoArte:"Artwork",rvPrev:"Previous video",rvNext:"Next video",rvClose:"Close video",rvOf:"of",rvTags:"What it shows",heroTools:"Meta Ads · Google Ads · TikTok Ads · Google Analytics · WordPress · Clientify · Video editing · Artificial intelligence",nav1:"Work",nav2:"Career",nav3:"Skills",nav4:"Courses",nav5:"Contact",
+ en:{navReels:"Work",h2reels:"Work samples",cntReels:"4 brands · from latest back to 2019",ledeReels:"I write, design, produce and edit. This is my path, from the latest work back to where it all started. Each brand has its own block, and scrolling down shows how the work grew.",masReels:"There is much more work behind each brand. If you want to see something specific, I am happy to show you.",copyPub:"Post copy, written by me (Spanish)",tipoArte:"Artwork",rvPrev:"Previous video",rvNext:"Next video",rvClose:"Close video",rvOf:"of",rvTags:"What it shows",heroTools:"Meta Ads · Google Ads · TikTok Ads · Google Analytics · WordPress · Clientify · Video editing · Artificial intelligence",nav1:"Work",nav2:"Career",nav3:"Skills",nav4:"Courses",nav5:"Contact",
   cv:"Download CV",cvPdf:"Download CV as PDF",verCasos:"See the work",disponible:"Available",navIa:"AI video",h2ia:"AI-generated video",cntIa:"Concept pieces",
   ledeIa:"I generated and edited these pieces with artificial intelligence. They are concept exercises. None of them has been published or has a commercial purpose.",
   objetivo:"Objective",copyPieza:"Post copy (Spanish)",verPieza:"View the piece",concepto:"Concept",
@@ -818,16 +825,6 @@ const GRUPOS = [
   items:[
    A("sp-programacion",{t:"Programación de agosto",d:"Escribí el guion de todo lo que dice el talento, dirigí la grabación y elegí planos en distintos lugares del centro comercial para que el video tuviera movimiento.",tags:["Guion para talento","Dirección de rodaje","Producción en locación"]},{t:"August lineup",d:"I wrote the script for everything the talent says, directed the shoot and chose shots across different spots in the mall to keep the video moving.",tags:["Script for talent","Shoot direction","On-location production"]}),
    A("sp-madre",{t:"Pasarela del Día de la Madre",d:"Estuve en el evento definiendo qué se grababa y de qué manera, para contar la jornada completa en un solo video.",tags:["Dirección en evento","Producción","Relato"]},{t:"Mother's Day runway",d:"I was at the event deciding what to shoot and how, to tell the whole day in a single video.",tags:["On-site direction","Production","Storytelling"]})]},
- {cover:V+"dm-robotina-h.jpg",
-  es:{n:"Producto y tienda en línea",d:"Con un presupuesto mínimo rediseñé la página de Domoticol y grabé con celular los videos de producto, del guion a la publicación."},
-  en:{n:"Product and online store",d:"On a minimal budget I redesigned Domoticol's website and shot the product videos on a phone, from script to publishing."},
-  items:[
-   A("dm-robotina-h",{t:"Robot aspiradora en acción",d:"Grabé con celular en una casa real para mostrar el robot trabajando donde de verdad se usa. Escribí, grabé, edité y publiqué el video.",tags:["Guion","Grabación con celular","Edición","Video de producto"]},{t:"Robot vacuum in action",d:"I shot it on a phone in a real home to show the robot working where it is actually used. I wrote, shot, edited and published the video.",tags:["Script","Shot on a phone","Editing","Product video"]},{hz:true}),
-   A("dm-robotina1",{t:"Robot aspiradora para redes",d:"Versión vertical para redes, escrita, grabada y editada por mí.",tags:["Video vertical","Grabación con celular","Edición"]},{t:"Robot vacuum for social",d:"Vertical cut for social media, written, shot and edited by me.",tags:["Vertical video","Shot on a phone","Editing"]}),
-   A("dm-robotina2",{t:"Robot aspiradora, segunda pieza",d:"Otra pieza vertical del mismo rodaje, pensada para mostrar un uso distinto del producto.",tags:["Video vertical","Producción"]},{t:"Robot vacuum, second piece",d:"Another vertical piece from the same shoot, made to show a different use of the product.",tags:["Vertical video","Production"]}),
-   A("dm-bombillo",{t:"Bombillo inteligente",d:"Mostré cómo se controla desde el celular y cómo cambia un espacio con la luz.",tags:["Guion","Grabación","Edición"]},{t:"Smart bulb",d:"I showed how it is controlled from a phone and how light changes a space.",tags:["Script","Shooting","Editing"]},{hz:true}),
-   A("dm-ipure",{t:"Purificador iPure",d:"Video de producto con el beneficio en pantalla, escrito, grabado y editado por mí.",tags:["Video de producto","Texto en pantalla","Edición"]},{t:"iPure air purifier",d:"Product video with the benefit on screen, written, shot and edited by me.",tags:["Product video","On-screen text","Editing"]},{hz:true}),
-   ART("domoticol-home-art",{t:"domoticol.com",d:"La página que rediseñé casi por completo. Puede verla entera en domoticol.com desde el caso de Domoticol, más abajo.",tags:["Rediseño web","Fotografía de producto","Montajes en Photoshop"]},{t:"domoticol.com",d:"The website I redesigned almost entirely. You can see it in full at domoticol.com from the Domoticol case below.",tags:["Web redesign","Product photography","Photoshop composites"]},null)]},
  {cover:V+"art-corona.jpg",
   es:{n:"Marcas y artistas",d:"Escribí la comunicación de eventos con marcas aliadas y artistas reconocidos. Cada texto tenía que funcionarle al centro comercial, a la marca y al artista al mismo tiempo, y salir aprobado por los tres."},
   en:{n:"Brands and artists",d:"I wrote the communication for events with partner brands and well-known artists. Every line had to work for the mall, the brand and the artist at once, and get approved by all three."},
@@ -864,7 +861,45 @@ const GRUPOS = [
    A("sp-bogota",{t:"Cumpleaños de Bogotá",d:"Sin material propio, armé el video con recursos de bancos de imágenes, texto en pantalla y una canción para Bogotá. La gente lo recibió y lo hizo suyo.",tags:["Recursividad","Texto en pantalla","Bancos de imágenes"]},{t:"Bogotá's birthday",d:"With no footage of our own, I built the video from stock footage and photos, on-screen text and a song for Bogotá. People took it in and made it their own.",tags:["Resourcefulness","On-screen text","Stock footage"]}),
    A("sp-amistad",{t:"Amor y Amistad",d:"Reutilicé material grabado antes y le sumé una voz en off hecha con inteligencia artificial para contar una historia nueva.",tags:["Reutilización de material","Voz en off con IA","Edición"]},{t:"Love and Friendship Day",d:"I reused footage shot earlier and added an AI-generated voice-over to tell a new story.",tags:["Repurposed footage","AI voice-over","Editing"]})]}
 ];
-let grupoSel = 0;
+const GRUPOS_DM = [
+ {cover:V+"dm-robotina-h.jpg",
+  es:{n:"Producto y tienda en línea",d:"Con un presupuesto mínimo rediseñé la página de Domoticol y grabé con celular los videos de producto, del guion a la publicación."},
+  en:{n:"Product and online store",d:"On a minimal budget I redesigned Domoticol's website and shot the product videos on a phone, from script to publishing."},
+  items:[
+   A("dm-robotina-h",{t:"Robot aspiradora en acción",d:"Grabé con celular en una casa real para mostrar el robot trabajando donde de verdad se usa. Escribí, grabé, edité y publiqué el video.",tags:["Guion","Grabación con celular","Edición","Video de producto"]},{t:"Robot vacuum in action",d:"I shot it on a phone in a real home to show the robot working where it is actually used. I wrote, shot, edited and published the video.",tags:["Script","Shot on a phone","Editing","Product video"]},{hz:true}),
+   A("dm-robotina1",{t:"Robot aspiradora para redes",d:"Versión vertical para redes, escrita, grabada y editada por mí.",tags:["Video vertical","Grabación con celular","Edición"]},{t:"Robot vacuum for social",d:"Vertical cut for social media, written, shot and edited by me.",tags:["Vertical video","Shot on a phone","Editing"]}),
+   A("dm-robotina2",{t:"Robot aspiradora, segunda pieza",d:"Otra pieza vertical del mismo rodaje, pensada para mostrar un uso distinto del producto.",tags:["Video vertical","Producción"]},{t:"Robot vacuum, second piece",d:"Another vertical piece from the same shoot, made to show a different use of the product.",tags:["Vertical video","Production"]}),
+   A("dm-bombillo",{t:"Bombillo inteligente",d:"Mostré cómo se controla desde el celular y cómo cambia un espacio con la luz.",tags:["Guion","Grabación","Edición"]},{t:"Smart bulb",d:"I showed how it is controlled from a phone and how light changes a space.",tags:["Script","Shooting","Editing"]},{hz:true}),
+   A("dm-ipure",{t:"Purificador iPure",d:"Video de producto con el beneficio en pantalla, escrito, grabado y editado por mí.",tags:["Video de producto","Texto en pantalla","Edición"]},{t:"iPure air purifier",d:"Product video with the benefit on screen, written, shot and edited by me.",tags:["Product video","On-screen text","Editing"]},{hz:true}),
+   ART("domoticol-home-art",{t:"domoticol.com",d:"La página que rediseñé casi por completo. Puede verla entera en domoticol.com desde el caso de Domoticol, más abajo.",tags:["Rediseño web","Fotografía de producto","Montajes en Photoshop"]},{t:"domoticol.com",d:"The website I redesigned almost entirely. You can see it in full at domoticol.com from the Domoticol case below.",tags:["Web redesign","Product photography","Photoshop composites"]},null)]},
+];
+const GRUPOS_AV = [
+ {cover:V+"av-cuenta.jpg",es:{n:"Avan-c Leyendo",d:""},en:{n:"Avan-c Leyendo",d:""},
+  items:[
+   A("av-cuenta",{t:"La cuenta, antes y después",d:"Un recorrido por la cuenta de Instagram. Antes, las publicaciones solo ofrecían el servicio. Después, el contenido usaba lo que estaba de moda para acercarse a la gente, y la comunidad empezó a reaccionar.",tags:["Personalidad de marca","Contenido de tendencia","Comunidad"]},{t:"The account, before and after",d:"A walk through the Instagram account. Before, posts only offered the service. After, the content used what was trending to get closer to people, and the community started to react.",tags:["Brand personality","Trend-based content","Community"]},{hz:true}),
+   A("av-hemisferios",{t:"Mi primera vez frente a la cámara",d:"Expliqué cómo funciona la lectura avanzada, que usa los dos hemisferios del cerebro para leer más rápido y entender mejor. Fue el comienzo de mostrarme en mi propio contenido. La idea, el guion, la grabación y la edición fueron míos.",tags:["Presentador","Guion","Grabación","Edición"]},{t:"My first time on camera",d:"I explained how advanced reading works, using both hemispheres of the brain to read faster and understand better. It was the start of showing up in my own content. The idea, script, shoot and edit were mine.",tags:["On camera","Script","Shooting","Editing"]},{hz:true}),
+   A("av-cine",{t:"La lectura está en todo",d:"Armé una línea de contenido con escenas de cine para mostrar que la lectura y la comprensión están en todo lo que entendemos. La idea, la curaduría, la edición y la producción fueron mías.",tags:["Curaduría de contenido","Idea propia","Edición"]},{t:"Reading is in everything",d:"I built a content line around film scenes to show that reading and comprehension are part of everything we understand. The idea, curation, editing and production were mine.",tags:["Content curation","Original idea","Editing"]},{sq:true}),
+   A("av-corto",{t:"Pieza corta del programa",d:"Video corto para redes, escrito y editado por mí.",tags:["Edición","Texto en pantalla"]},{t:"Short program piece",d:"Short video for social media, written and edited by me.",tags:["Editing","On-screen text"]},{hz:true}),
+   A("av-venta",{t:"Video de venta",d:"Pieza para invitar a inscribirse al programa, escrita y editada por mí.",tags:["Video de venta","Edición"]},{t:"Sales video",d:"A piece inviting people to sign up for the program, written and edited by me.",tags:["Sales video","Editing"]},{hz:true})]}
+];
+const GRUPOS_DK = [
+ {cover:V+"yb-yeahbaby.jpg",es:{n:"Mi trabajo",d:"Fui el creativo digital de Yeah Baby, un canal de humor sobre ser papás por primera vez que llegó a monetizar."},en:{n:"My work",d:"I was the digital creative for Yeah Baby, a comedy channel about becoming parents for the first time that went on to be monetized."},
+  items:[
+   A("yb-yeahbaby",{t:"Yeah Baby",d:"Pensé ideas, escribí y armé desde cero el proceso creativo del canal.",tags:["Creativo digital","Humor","Guion"]},{t:"Yeah Baby",d:"I came up with ideas, wrote, and built the channel's creative process from scratch.",tags:["Digital creative","Comedy","Script"]},{hz:true,peq:true}),
+   A("yb-paternidad",{t:"Paternidad",d:"Contenido para la cuenta sobre lo que vive uno como papá primerizo.",tags:["Idea","Contenido para redes"]},{t:"Fatherhood",d:"Content for the account about what you go through as a first-time dad.",tags:["Idea","Social content"]}),
+   ART("yb-capturas",{t:"Para la cuenta",d:"Foto tomada para el contenido de la cuenta.",tags:["Fotografía"]},{t:"For the account",d:"A photo taken for the account's content.",tags:["Photography"]},null)]},
+ {cover:V+"inf-adulto.jpg",es:{n:"Influencias",d:"Contenido del equipo de Dirty Kitchen con el que aprendí. No lo produje yo. Lo pongo aquí como referencia de dónde viene mi manera de trabajar."},en:{n:"Influences",d:"Content from the Dirty Kitchen team I learned from. I did not produce it. I include it as a reference for where my way of working comes from."},
+  items:[
+   A("inf-sincera",{t:"Sincera demente",d:"Producción del equipo de Dirty Kitchen.",tags:["Influencia"]},{t:"Sincera demente",d:"Produced by the Dirty Kitchen team.",tags:["Influence"]},{sq:true}),
+   A("inf-adulto",{t:"Adulto contemporáneo",d:"Producción del equipo de Dirty Kitchen.",tags:["Influencia"]},{t:"Adulto contemporáneo",d:"Produced by the Dirty Kitchen team.",tags:["Influence"]},{sq:true})]}
+];
+const BLOQUES = [
+ {grupos:GRUPOS,es:{n:"Salitre Plaza",yr:"2024 — 2026",d:"Tuve a cargo la comunicación digital del centro comercial. Escribí todos los textos, diseñé, produje y edité, y trabajé con marcas, artistas y equipos para sacar cada campaña adelante. Las piezas están organizadas por lo que sé hacer."},en:{n:"Salitre Plaza",yr:"2024 — 2026",d:"I ran the mall's digital communication. I wrote every line, designed, produced and edited, and worked with brands, artists and teams to get each campaign out the door. The pieces are organized by what I can do."}},
+ {grupos:GRUPOS_DM,es:{n:"Domoticol · QP Technology",yr:"2023 — 2024",d:"Llevé todo el marketing digital de la marca. Con un presupuesto mínimo rediseñé la página y grabé con celular los videos de producto, del guion a la publicación."},en:{n:"Domoticol · QP Technology",yr:"2023 — 2024",d:"I ran all of the brand's digital marketing. On a minimal budget I redesigned the website and shot the product videos on a phone, from script to publishing."}},
+ {grupos:GRUPOS_AV,es:{n:"Avan-c Leyendo",yr:"2019 — 2020",d:"Cuando llegué, las publicaciones solo vendían el programa. Le di a la cuenta una personalidad, con memes, referencias del momento y contenido que la gente quería compartir, y empecé a salir en cámara."},en:{n:"Avan-c Leyendo",yr:"2019 — 2020",d:"When I arrived, posts only sold the program. I gave the account a personality, with memes, current references and content people wanted to share, and I started appearing on camera."}},
+ {grupos:GRUPOS_DK,es:{n:"Dirty Kitchen · Yeah Baby",yr:"2019",d:"Donde empezó todo. Ahí entendí que el contenido tiene que tener un propósito y conectar con la gente. Una buena idea puede cambiar la forma en que alguien actúa. Desde ahí empieza todo lo que hago."},en:{n:"Dirty Kitchen · Yeah Baby",yr:"2019",d:"Where it all started. That is where I learned content needs a purpose and has to connect with people. A good idea can change the way someone acts. Everything I do starts there."}}
+];
+const sel = BLOQUES.map(()=>0);
 /* ============ piezas de video con IA ============ */
 const PIEZAS = [
  {id:"ia-velez", ia:true, marca:"tuplús",
@@ -977,17 +1012,24 @@ function pintar(){
   document.querySelectorAll(".lang button").forEach(b =>
     b.setAttribute("aria-pressed", String(b.dataset.lang === L)));
 
-  document.getElementById("hl").innerHTML = GRUPOS.map((g,i) => `
-    <button class="hl-b" type="button" role="tab" data-grupo="${i}" aria-selected="${i===grupoSel}" aria-controls="lista-reels">
-      <span class="hl-ring"><img src="${g.cover}" alt=""></span><span class="lb">${g[L].n}</span>
-    </button>`).join("");
-  document.getElementById("hl-desc").textContent = GRUPOS[grupoSel][L].d;
-  document.getElementById("lista-reels").innerHTML = GRUPOS[grupoSel].items.map((r,i) => `
-    <li><button class="ig-item" type="button" data-reel="${i}" aria-label="${esc(r[L].t)}">
-      <img src="${r.poster}" alt="" loading="lazy">
-      ${r.img ? `<span class="ig-tipo">${t("tipoArte")}</span>` : `<span class="ig-play" aria-hidden="true">▶</span>`}
-      <span class="ig-cap"><span>${r[L].tags[0]}</span><b>${r[L].t}</b></span>
-    </button></li>`).join("");
+  document.getElementById("bloques").innerHTML = BLOQUES.map((bl,bi) => {
+    const gs = bl.grupos, gi = sel[bi], g = gs[gi];
+    const hl = gs.length > 1 ? `<div class="hl" role="tablist" aria-label="${esc(bl[L].n)}">${gs.map((x,i) => `
+      <button class="hl-b" type="button" role="tab" data-grupo="${bi}:${i}" aria-selected="${i===gi}">
+        <span class="hl-ring"><img src="${x.cover}" alt=""></span><span class="lb">${x[L].n}</span>
+      </button>`).join("")}</div>${g[L].d ? `<p class="hl-desc">${g[L].d}</p>` : ""}` : "";
+    return `<div class="bloque">
+      <div class="bl-head"><h3>${bl[L].n}</h3><span class="bl-yr">${bl[L].yr}</span></div>
+      <p class="bl-desc">${bl[L].d}</p>
+      ${hl}
+      <ul class="ig" role="tabpanel">${g.items.map((r,i) => `
+        <li><button class="ig-item" type="button" data-reel="${bi}:${gi}:${i}" aria-label="${esc(r[L].t)}">
+          <img src="${r.poster}" alt="" loading="lazy">
+          ${r.img ? `<span class="ig-tipo">${t("tipoArte")}</span>` : `<span class="ig-play" aria-hidden="true">▶</span>`}
+          <span class="ig-cap"><span>${r[L].tags[0]}</span><b>${r[L].t}</b></span>
+        </button></li>`).join("")}</ul>
+    </div>`;
+  }).join("");
   if (rvAbierto) pintarReel(false);
 
   document.getElementById("lista-cap").innerHTML = CAP.map(c => `
@@ -1097,11 +1139,12 @@ function cerrar(){
 
 /* ============ visor de reels ============ */
 const rv = document.getElementById("rv"), rvVideo = document.getElementById("rv-video"), rvImg = document.getElementById("rv-img");
-let rvIdx = 0, rvAbierto = false, rvFoco = null;
-const items = () => GRUPOS[grupoSel].items;
+let rvIdx = 0, rvAbierto = false, rvFoco = null, rvB = 0, rvG = 0;
+const items = () => BLOQUES[rvB].grupos[rvG].items;
 function pintarReel(cargar){
   const lista = items(), r = lista[rvIdx], d = r[L];
-  document.getElementById("rv-n").textContent = `${GRUPOS[grupoSel][L].n} · ${rvIdx+1} ${t("rvOf")} ${lista.length}`;
+  const gn = BLOQUES[rvB].grupos.length > 1 ? " · " + BLOQUES[rvB].grupos[rvG][L].n : "";
+  document.getElementById("rv-n").textContent = `${BLOQUES[rvB][L].n}${gn} · ${rvIdx+1} ${t("rvOf")} ${lista.length}`;
   document.getElementById("rv-title").textContent = d.t;
   document.getElementById("rv-desc").textContent = d.d;
   document.getElementById("rv-tags-h").textContent = t("rvTags");
@@ -1116,7 +1159,7 @@ function pintarReel(cargar){
   document.getElementById("rv-close").setAttribute("aria-label", t("rvClose"));
   if (cargar !== false){
     const m = document.getElementById("rv-media");
-    m.classList.toggle("peq", !!r.peq); m.classList.toggle("hz", !!r.hz); document.querySelector(".rv-in").classList.toggle("hz", !!r.hz);
+    m.classList.toggle("peq", !!r.peq); m.classList.toggle("hz", !!r.hz); m.classList.toggle("sq", !!r.sq); document.querySelector(".rv-in").classList.toggle("hz", !!r.hz);
     if (r.img){
       rvVideo.pause(); rvVideo.removeAttribute("src"); rvVideo.load(); rvVideo.hidden = true;
       rvImg.src = r.img; rvImg.alt = d.t; rvImg.hidden = false;
@@ -1128,7 +1171,8 @@ function pintarReel(cargar){
     }
   }
 }
-function abrirReel(i){
+function abrirReel(code){
+  const [b,g,i] = code.split(":").map(Number); rvB = b; rvG = g;
   rvFoco = document.activeElement; rvIdx = i; rvAbierto = true;
   rv.hidden = false; document.body.style.overflow = "hidden";
   pintarReel(); document.getElementById("rv-close").focus();
@@ -1169,17 +1213,19 @@ document.addEventListener("keydown", e => {
     else if (!e.shiftKey && i === f.length-1){ e.preventDefault(); f[0].focus(); }
   }
 });
-document.getElementById("hl").addEventListener("keydown", e => {
-  if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
-  const n = (grupoSel + (e.key === "ArrowRight" ? 1 : -1) + GRUPOS.length) % GRUPOS.length;
-  grupoSel = n; pintar(); document.querySelector(`[data-grupo="${n}"]`).focus();
+document.getElementById("bloques").addEventListener("keydown", e => {
+  const hb = e.target.closest("[data-grupo]");
+  if (!hb || (e.key !== "ArrowRight" && e.key !== "ArrowLeft")) return;
+  const [bi,gi] = hb.dataset.grupo.split(":").map(Number), n = BLOQUES[bi].grupos.length;
+  sel[bi] = (gi + (e.key === "ArrowRight" ? 1 : -1) + n) % n; pintar();
+  document.querySelector(`[data-grupo="${bi}:${sel[bi]}"]`).focus();
 });
 
 document.addEventListener("click", e => {
   const gb = e.target.closest("[data-grupo]");
-  if (gb) { grupoSel = +gb.dataset.grupo; pintar(); return; }
+  if (gb) { const [bi,gi] = gb.dataset.grupo.split(":").map(Number); sel[bi] = gi; pintar(); document.querySelector(`[data-grupo="${bi}:${gi}"]`).focus(); return; }
   const rb = e.target.closest("[data-reel]");
-  if (rb) { abrirReel(+rb.dataset.reel); return; }
+  if (rb) { abrirReel(rb.dataset.reel); return; }
   const b = e.target.closest("[data-id]");
   if (b) { abrir(b.dataset.id); return; }
   const f = e.target.closest(".skill");

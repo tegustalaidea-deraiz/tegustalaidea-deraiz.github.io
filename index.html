@@ -414,7 +414,7 @@ figure{margin:0}
 .rv[hidden]{display:none}
 .rv-in{display:grid;grid-template-columns:auto minmax(0,330px);gap:clamp(1.4rem,4vw,3rem);align-items:center;max-width:980px;width:100%}
 .rv-stage{position:relative;justify-self:center}
-.rv-stage video{display:block;height:min(84vh,780px);aspect-ratio:9/16;max-width:100%;background:#000;border-radius:18px}
+
 .rv-bars{position:absolute;top:.7rem;left:.8rem;right:.8rem;display:flex;gap:4px;z-index:3;pointer-events:none}
 .rv-bars i{flex:1;height:3px;background:rgba(255,255,255,.28);border-radius:3px;overflow:hidden}
 .rv-bars i b{display:block;height:100%;width:0;background:var(--acid)}
@@ -433,12 +433,31 @@ figure{margin:0}
 @media(max-width:860px){
   .rv{align-items:flex-start;padding:4rem 1rem 2rem}
   .rv-in{grid-template-columns:1fr;gap:1.2rem}
-  .rv-stage video{height:auto;width:min(100%,420px);max-height:70vh}
   .rv-prev{left:.4rem}.rv-next{right:.4rem}
   .rv-nav{background:rgba(10,12,10,.7)}
   .rv-info{max-width:420px;justify-self:center;width:100%}
 }
 @media(prefers-reduced-motion:reduce){.ig-item img{transition:none}}
+
+/* ---------- destacadas ---------- */
+.hl{display:flex;gap:1.1rem;margin-top:1.8rem;overflow-x:auto;padding:.3rem .2rem .6rem;scrollbar-width:thin}
+.hl-b{flex:none;background:none;border:0;padding:0;cursor:pointer;color:var(--muted);font:inherit;display:flex;flex-direction:column;align-items:center;gap:.55rem;width:92px}
+.hl-ring{width:78px;height:78px;border-radius:50%;padding:3px;background:var(--line);display:block;transition:background .25s}
+.hl-ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:3px solid var(--ink);display:block}
+.hl-b span.lb{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.04em;text-align:center;line-height:1.35}
+.hl-b[aria-selected="true"] .hl-ring{background:var(--acid)}
+.hl-b[aria-selected="true"] span.lb{color:var(--paper)}
+.hl-b:focus-visible{outline:2px solid var(--acid);outline-offset:4px;border-radius:12px}
+@media(hover:hover){.hl-b:hover .hl-ring{background:var(--acid-deep)}}
+.hl-desc{margin:1.2rem 0 0;max-width:70ch;color:var(--paper);font-size:1rem;line-height:1.6;border-left:2px solid var(--acid);padding-left:1rem}
+.ig-more{margin-top:1.2rem;color:var(--muted);font-size:.9rem}
+.ig-tipo{position:absolute;top:.75rem;right:.75rem;z-index:2;font-family:var(--f-mono);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;background:rgba(10,12,10,.72);color:var(--paper);padding:.3rem .5rem;border-radius:999px}
+.rv-media{display:block;height:min(84vh,780px);aspect-ratio:9/16;max-width:100%;background:#000;border-radius:18px;overflow:hidden;position:relative}
+.rv-media video,.rv-media img{width:100%;height:100%;object-fit:contain;display:block;background:#000;border-radius:0}
+.rv-media.peq{height:min(62vh,600px)}
+.rv-media [hidden]{display:none!important}
+.rv-copy{margin-top:1rem;background:var(--ink-2);border:1px solid var(--line);border-radius:12px;padding:.9rem 1rem;font-size:.86rem;line-height:1.55;white-space:pre-line;max-height:30vh;overflow:auto;color:var(--paper)}
+@media(max-width:860px){.rv-media{height:auto;width:min(100%,420px);max-height:70vh}.rv-media.peq{width:min(80%,320px)}.rv-copy{max-height:none}}
 </style>
 </head>
 <body>
@@ -447,7 +466,7 @@ figure{margin:0}
   <div class="nav-in">
     <a class="brand" href="#top">Michael Alvarez<span>.</span></a>
     <div class="nav-links">
-      <a href="#reels" data-t="navReels">Reels</a>
+      <a href="#reels" data-t="navReels">Muestras</a>
       <a href="#casos" data-t="nav1">Casos</a>
       <a href="#capacidades" data-t="nav3">Habilidades</a>
       <a href="#trayectoria" data-t="nav2">Trayectoria</a>
@@ -484,11 +503,14 @@ figure{margin:0}
 
 <section id="reels" class="wrap">
   <div class="sec-head">
-    <h2 data-t="h2reels">Reels</h2>
+    <h2 data-t="h2reels">Muestras de trabajo</h2>
     <span class="count" data-t="cntReels"></span>
   </div>
   <p class="hero-lede reels-lede" data-t="ledeReels"></p>
-  <ul class="ig" id="lista-reels"></ul>
+  <div class="hl" id="hl" role="tablist" aria-label="Habilidades"></div>
+  <p class="hl-desc" id="hl-desc"></p>
+  <ul class="ig" id="lista-reels" role="tabpanel"></ul>
+  <p class="ig-more" data-t="masReels"></p>
 </section>
 
 <section id="casos" class="wrap">
@@ -547,7 +569,7 @@ figure{margin:0}
     <div class="rv-stage">
       <div class="rv-bars" id="rv-bars" aria-hidden="true"></div>
       <button class="rv-nav rv-prev" id="rv-prev" type="button">‹</button>
-      <video id="rv-video" playsinline controls preload="metadata"></video>
+      <div class="rv-media" id="rv-media"><video id="rv-video" playsinline controls preload="metadata"></video><img id="rv-img" alt="" hidden></div>
       <button class="rv-nav rv-next" id="rv-next" type="button">›</button>
     </div>
     <div class="rv-info">
@@ -556,6 +578,7 @@ figure{margin:0}
       <p class="rv-desc" id="rv-desc"></p>
       <h5 id="rv-tags-h"></h5>
       <ul class="rv-tags" id="rv-tags"></ul>
+      <div id="rv-copy-w" hidden><h5 id="rv-copy-h"></h5><div class="rv-copy" id="rv-copy"></div></div>
     </div>
   </div>
 </div>
@@ -570,7 +593,7 @@ const V = "assets/video/", I = "assets/img/";
 
 /* ============ textos de interfaz ============ */
 const UI = {
- es:{navReels:"Reels",h2reels:"Reels",cntReels:"05 videos · Salitre Plaza · toque uno para verlo",ledeReels:"Durante dos años escribí, produje y dirigí el contenido en video de Salitre Plaza. Estos cinco muestran cada parte del trabajo, del guion a la edición.",rvPrev:"Video anterior",rvNext:"Video siguiente",rvClose:"Cerrar video",rvOf:"de",rvTags:"Lo que muestra este video",heroTools:"Meta Ads · Google Ads · TikTok Ads · Google Analytics · WordPress · Clientify · Edición de video · Inteligencia artificial",nav1:"Casos",nav2:"Trayectoria",nav3:"Habilidades",nav4:"Cursos",nav5:"Contacto",
+ es:{navReels:"Muestras",h2reels:"Muestras de trabajo",cntReels:"16 piezas · organizadas por habilidad",ledeReels:"Durante dos años tuve a cargo la comunicación digital de Salitre Plaza. Escribí todos los textos de las piezas, de las publicaciones y de los impresos, diseñé, produje y edité, y trabajé con marcas, artistas y equipos para sacar cada campaña adelante. Esto es una muestra pequeña, organizada por lo que sé hacer.",masReels:"En dos años hubo muchas más campañas, marcas y artistas. Si quiere ver algo en particular, con gusto se lo muestro.",copyPub:"Texto de la publicación, escrito por mí",tipoArte:"Pieza",rvPrev:"Video anterior",rvNext:"Video siguiente",rvClose:"Cerrar video",rvOf:"de",rvTags:"Lo que muestra",heroTools:"Meta Ads · Google Ads · TikTok Ads · Google Analytics · WordPress · Clientify · Edición de video · Inteligencia artificial",nav1:"Casos",nav2:"Trayectoria",nav3:"Habilidades",nav4:"Cursos",nav5:"Contacto",
   cv:"Descargar CV",cvPdf:"Descargar CV en PDF",verCasos:"Ver casos",disponible:"Disponible",navIa:"Video con IA",h2ia:"Video con inteligencia artificial",cntIa:"Piezas de concepto",
   ledeIa:"Estas piezas las generé y las edité con inteligencia artificial. Son ejercicios de concepto. Ninguna está publicada ni tiene un fin comercial.",
   objetivo:"Objetivo",copyPieza:"Texto de la publicación",verPieza:"Ver la pieza",concepto:"Concepto",
@@ -585,7 +608,7 @@ const UI = {
   verCaso:"Ver el caso →",cerrar:"Cerrar",
   scrollShot:"Desplácese dentro del marco para recorrer la página completa",
   titulo:"Michael Alvarez — Social Media Manager"},
- en:{navReels:"Reels",h2reels:"Reels",cntReels:"05 videos · Salitre Plaza · tap one to watch",ledeReels:"For two years I wrote, produced and directed Salitre Plaza's video content. These five show each part of the work, from script to edit.",rvPrev:"Previous video",rvNext:"Next video",rvClose:"Close video",rvOf:"of",rvTags:"What this video shows",heroTools:"Meta Ads · Google Ads · TikTok Ads · Google Analytics · WordPress · Clientify · Video editing · Artificial intelligence",nav1:"Work",nav2:"Career",nav3:"Skills",nav4:"Courses",nav5:"Contact",
+ en:{navReels:"Work",h2reels:"Work samples",cntReels:"16 pieces · organized by skill",ledeReels:"For two years I was in charge of Salitre Plaza's digital communication. I wrote every line in the pieces, posts and print materials, designed, produced and edited, and worked with brands, artists and teams to get each campaign out the door. This is a small sample, organized by what I can do.",masReels:"Two years meant many more campaigns, brands and artists. If you want to see something specific, I am happy to show you.",copyPub:"Post copy, written by me (Spanish)",tipoArte:"Artwork",rvPrev:"Previous video",rvNext:"Next video",rvClose:"Close video",rvOf:"of",rvTags:"What it shows",heroTools:"Meta Ads · Google Ads · TikTok Ads · Google Analytics · WordPress · Clientify · Video editing · Artificial intelligence",nav1:"Work",nav2:"Career",nav3:"Skills",nav4:"Courses",nav5:"Contact",
   cv:"Download CV",cvPdf:"Download CV as PDF",verCasos:"See the work",disponible:"Available",navIa:"AI video",h2ia:"AI-generated video",cntIa:"Concept pieces",
   ledeIa:"I generated and edited these pieces with artificial intelligence. They are concept exercises. None of them has been published or has a commercial purpose.",
   objetivo:"Objective",copyPieza:"Post copy (Spanish)",verPieza:"View the piece",concepto:"Concept",
@@ -771,25 +794,53 @@ const CASOS = [
 
 
 
-/* ============ reels ============ */
-const REELS = [
- {src:V+"sp-programacion.mp4",poster:V+"sp-programacion.jpg",
-  es:{t:"Programación de agosto",d:"Escribí el guion de todo lo que dice el talento, dirigí la grabación y elegí planos en distintos lugares del centro comercial para que el video tuviera movimiento.",tags:["Guion para talento","Dirección de rodaje","Producción en locación"]},
-  en:{t:"August lineup",d:"I wrote the script for everything the talent says, directed the shoot and chose shots across different spots in the mall to keep the video moving.",tags:["Script for talent","Shoot direction","On-location production"]}},
- {src:V+"sp-liga.mp4",poster:V+"sp-liga.jpg",
-  es:{t:"Jornada con la Liga Colombiana Contra el Cáncer",d:"Durante todo el día hice las preguntas, decidí qué se grababa y armé el relato mientras el evento pasaba. Este video es una parte. Toda la comunicación digital alrededor de la jornada, en cada canal de Salitre Plaza, pasó por mí.",tags:["Cubrimiento en vivo","Entrevistas","Relato del evento","Comunicación en todos los canales"]},
-  en:{t:"Health day with the Colombian League Against Cancer",d:"All day long I asked the questions, decided what to shoot and built the story while the event unfolded. This video is one piece. All the digital communication around the event, across every Salitre Plaza channel, went through me.",tags:["Live coverage","Interviews","Event storytelling","Communication across every channel"]}},
- {src:V+"sp-madre.mp4",poster:V+"sp-madre.jpg",
-  es:{t:"Pasarela del Día de la Madre",d:"Estuve en el evento definiendo qué se grababa y de qué manera, para contar la jornada completa en un solo video.",tags:["Dirección en evento","Producción","Relato"]},
-  en:{t:"Mother's Day runway",d:"I was at the event deciding what to shoot and how, to tell the whole day in a single video.",tags:["On-site direction","Production","Storytelling"]}},
- {src:V+"sp-bogota.mp4",poster:V+"sp-bogota.jpg",
-  es:{t:"Cumpleaños de Bogotá",d:"Sin material propio, armé el video con recursos de bancos de imágenes, texto en pantalla y una canción para Bogotá. La gente lo recibió y lo hizo suyo.",tags:["Recursividad","Texto en pantalla","Bancos de imágenes"]},
-  en:{t:"Bogotá's birthday",d:"With no footage of our own, I built the video from stock footage and photos, on-screen text and a song for Bogotá. People took it in and made it their own.",tags:["Resourcefulness","On-screen text","Stock footage"]}},
- {src:V+"sp-amistad.mp4",poster:V+"sp-amistad.jpg",
-  es:{t:"Amor y Amistad",d:"Reutilicé material grabado antes y le sumé una voz en off hecha con inteligencia artificial para contar una historia nueva.",tags:["Reutilización de material","Voz en off con IA","Edición"]},
-  en:{t:"Love and Friendship Day",d:"I reused footage shot earlier and added an AI-generated voice-over to tell a new story.",tags:["Repurposed footage","AI voice-over","Editing"]}}
+/* ============ muestras por habilidad ============ */
+const A = (id, es, en, extra) => Object.assign({src:V+id+".mp4",poster:V+id+".jpg",es,en}, extra||{});
+const ART = (id, es, en, copy) => ({img:V+id+".jpg",poster:V+id+".jpg",es,en,copy});
+const GRUPOS = [
+ {cover:V+"sp-programacion.jpg",
+  es:{n:"Guion y rodaje",d:"Escribo lo que dice el talento, elijo los planos y dirijo la grabación en el lugar."},
+  en:{n:"Script and shoot",d:"I write what the talent says, choose the shots and direct the shoot on location."},
+  items:[
+   A("sp-programacion",{t:"Programación de agosto",d:"Escribí el guion de todo lo que dice el talento, dirigí la grabación y elegí planos en distintos lugares del centro comercial para que el video tuviera movimiento.",tags:["Guion para talento","Dirección de rodaje","Producción en locación"]},{t:"August lineup",d:"I wrote the script for everything the talent says, directed the shoot and chose shots across different spots in the mall to keep the video moving.",tags:["Script for talent","Shoot direction","On-location production"]}),
+   A("sp-madre",{t:"Pasarela del Día de la Madre",d:"Estuve en el evento definiendo qué se grababa y de qué manera, para contar la jornada completa en un solo video.",tags:["Dirección en evento","Producción","Relato"]},{t:"Mother's Day runway",d:"I was at the event deciding what to shoot and how, to tell the whole day in a single video.",tags:["On-site direction","Production","Storytelling"]})]},
+ {cover:V+"art-corona.jpg",
+  es:{n:"Marcas y artistas",d:"Escribí la comunicación de eventos con marcas aliadas y artistas reconocidos. Cada texto tenía que funcionarle al centro comercial, a la marca y al artista al mismo tiempo, y salir aprobado por los tres."},
+  en:{n:"Brands and artists",d:"I wrote the communication for events with partner brands and well-known artists. Every line had to work for the mall, the brand and the artist at once, and get approved by all three."},
+  items:[
+   ART("art-migao",{t:"Corona y Ducales con Tulio Recomienda",d:"Escribí el texto de la pieza y el de la publicación, que salió compartida con las marcas.",tags:["Texto de la pieza","Texto de la publicación","Publicación con marcas"]},{t:"Corona and Ducales with Tulio Recomienda",d:"I wrote the artwork copy and the post copy, published jointly with the brands.",tags:["Artwork copy","Post copy","Joint brand post"]},
+    "¡CON CORONA Y DUCALES EL MIGAO ESTÁ PEGAO! 🍫✨\nAcompáñanos a una experiencia gastronómica junto a @tuliorecomienda. Un experto que sabe lo que es bueno deleitará con una degustación del mejor migao. ¡Invita a tu familia y amigos a disfrutar de esta delicia!\n\nSábado 25 de enero - 5:00 p.m.\nPlaza del Sol y Plaza de las Delicias\nCupos limitados hasta agotar existencias.\n#salitreplaza #chocolatecorona #ducales #migao #bogota"),
+   A("sp-migao",{t:"El migao con Tulio, en video",d:"Estuve en el evento definiendo qué se grababa para contar la experiencia con la marca y el talento.",tags:["Producción en evento","Contenido con talento"]},{t:"The migao with Tulio, on video",d:"I was at the event deciding what to shoot to tell the experience with the brand and the talent.",tags:["On-site production","Content with talent"]}),
+   ART("art-corona",{t:"Corona con Tatán y Maleja",d:"Escribí el texto de la pieza y el de la publicación del pódcast en vivo, publicada junto con Chocolate Corona.",tags:["Texto de la pieza","Texto de la publicación","Publicación con marcas"]},{t:"Corona with Tatán and Maleja",d:"I wrote the artwork copy and the post copy for the live podcast, published together with Chocolate Corona.",tags:["Artwork copy","Post copy","Joint brand post"]},
+    "Hay momentos que saben a conexión 💚\nConversaciones que nos acercan, sabores que se disfrutan despacio y personas que siempre nos hacen sentir en casa.\n\nEste sábado nos encontraremos en Conecta con lo que quieres, el podcast en vivo de @tatanmejia y @maleja_restrepo junto a @chocolatecorona ✨\nUn espacio para compartir, disfrutar y saborear juntos lo que de verdad nos une.\n\nVen y vive una experiencia con degustación de 4.000 chocolates Corona con toppings.\n\nPlaza del Sol y Plaza de las Delicias\nSábado 8 de noviembre – 5:00 p. m.\nDegustación válida hasta agotar existencias.\n\n#conectarseconloquequieres #salitreplaza #chocolatecorona #momentosqueunen #bogotá #juntos 💚"),
+   A("sp-corona",{t:"Pódcast en vivo con Corona, en video",d:"Acompañé el evento y definí qué se grababa para contar el encuentro.",tags:["Producción en evento","Contenido con talento"]},{t:"Live podcast with Corona, on video",d:"I was at the event and decided what to shoot to tell the story of the gathering.",tags:["On-site production","Content with talent"]})]},
+ {cover:V+"sp-liga.jpg",
+  es:{n:"Causas sociales",d:"Contenido para convocar a la gente, acompañar el día del evento y mostrar lo que se logró."},
+  en:{n:"Social causes",d:"Content to bring people in, cover the day of the event and show what was achieved."},
+  items:[
+   A("sp-liga",{t:"Jornada con la Liga Colombiana Contra el Cáncer",d:"Durante todo el día hice las preguntas, decidí qué se grababa y armé el relato mientras el evento pasaba. Este video es una parte. Toda la comunicación digital alrededor de la jornada, en cada canal de Salitre Plaza, pasó por mí.",tags:["Cubrimiento en vivo","Entrevistas","Relato del evento","Comunicación en todos los canales"]},{t:"Health day with the Colombian League Against Cancer",d:"All day long I asked the questions, decided what to shoot and built the story while the event unfolded. This video is one piece. All the digital communication around the event, across every Salitre Plaza channel, went through me.",tags:["Live coverage","Interviews","Event storytelling","Communication across every channel"]}),
+   ART("art-concierto",{t:"Música por la Infancia",d:"Escribí el texto de la pieza y el de la publicación para invitar a la gente a donar útiles escolares.",tags:["Texto de la pieza","Texto de la publicación","Convocatoria"]},{t:"Music for Childhood",d:"I wrote the artwork copy and the post copy to invite people to donate school supplies.",tags:["Artwork copy","Post copy","Call to action"]},
+    "La música nos une y la solidaridad nos mueve 🎶\n\nCreemos en el poder de ayudar. Por eso, queremos invitarte a Música por la Infancia, acércate ya y dona colores, cuadernos, maletas o cualquier útil escolar 🎒✏️ para apoyar a la Fundación @fucipac en los puntos de atención del Salitre Plaza.\n\nTe invitamos al concierto con @los50dejoselito @camilocuervo_ @ivanysusbamband @sebastiancamposoficial. Ellos pondrán el ritmo y tú pondrás el corazón. 💚\n¡Juntos, podemos hacer que más niños y niñas comiencen su año escolar con todo lo que necesitan!\n8 de febrero\n5:00 p.m.\nPlaza del Sol – Salitre Plaza\n\n¡Ven a disfrutar y a regalar sonrisas! 💚🎶"),
+   A("sp-concierto",{t:"Concierto solidario, en video",d:"Antes del concierto moví la participación con distintos contenidos. Ese día dirigí la grabación para mostrar lo que se recogió, y fui al colegio a registrar a los niños, de comunidades afrodescendientes, que recibieron los útiles.",tags:["Convocatoria","Dirección en evento","Mostrar resultados"]},{t:"Charity concert, on video",d:"Before the concert I drove participation with different pieces of content. On the day I directed the shoot to show what was collected, and I went to the school to film the children, from Afro-Colombian communities, who received the supplies.",tags:["Call to action","On-site direction","Showing results"]})]},
+ {cover:V+"art-mulata.jpg",
+  es:{n:"Cultura y entretenimiento",d:"Humor, música y dinámicas con la gente. Pienso la idea, la escribo y la pongo a producir."},
+  en:{n:"Culture and entertainment",d:"Comedy, music and activities with people. I come up with the idea, write it and get it produced."},
+  items:[
+   ART("art-mono",{t:"Recárguese de risa con el Mono Sánchez",d:"Escribí el texto de la pieza y el de la publicación para el show del mes del padre.",tags:["Texto de la pieza","Texto de la publicación","Humor"]},{t:"Recharge with laughter, with Mono Sánchez",d:"I wrote the artwork copy and the post copy for the Father's Day comedy show.",tags:["Artwork copy","Post copy","Comedy"]},
+    "Este 14 de junio nos recargamos de risa con papá 😂🎉\nEl Mono Sánchez llega con todo su show para que celebremos juntos con carcajadas, buena vibra y familia 💙👨‍👧\n¡Te esperamos a las 8:00 p. m. en la Plaza del Sol! 🎭✨\n\n#junioensalitre #mesdelpapá #elmonosánchez #humor #conelcorazónllenoexperienciayamor"),
+   A("sp-mono",{t:"El show del Mono Sánchez, en video",d:"Contenido de humor del evento, pensado para que la gente lo compartiera.",tags:["Humor","Producción en evento"]},{t:"Mono Sánchez's show, on video",d:"Comedy content from the event, made for people to share.",tags:["Comedy","On-site production"]},{peq:true}),
+   ART("art-mulata",{t:"Bullerengue con María Mulata",d:"Escribí el texto de la pieza y el de la publicación para el mes de la colombianidad.",tags:["Texto de la pieza","Texto de la publicación","Cultura colombiana"]},{t:"Bullerengue with María Mulata",d:"I wrote the artwork copy and the post copy for the month celebrating Colombian culture.",tags:["Artwork copy","Post copy","Colombian culture"]},
+    "@lamariamulata y su grupo de tambores llegan a encender nuestro corazón con bullerengue, cumbia y folclor colombiano.\n\nNos vemos el 5 de julio a las 7 p.m. en el escenario Las Delicias ✨\n\n#maríamulata #bullerengue #cumbia #folclor #salitreplaza #eventosbogotá #somoscultura #dondebogotátieneelcorazón"),
+   A("sp-cultura",{t:"Mes de la colombianidad",d:"Contenido para celebrar la cultura colombiana en julio y agosto, los meses de la colombianidad.",tags:["Cultura colombiana","Producción"]},{t:"Colombian culture month",d:"Content celebrating Colombian culture in July and August, the months devoted to it.",tags:["Colombian culture","Production"]},{peq:true}),
+   A("sp-dinamica",{t:"¿Qué tan colombiano es usted?",d:"La idea fue mía. Escribí la dinámica, estuve en la grabación y le preguntamos a la gente qué asocia con cada canción colombiana, para que el centro comercial se sintiera unido con su comunidad en el mes de la colombianidad.",tags:["Idea propia","Dinámica con la gente","Guion","Producción"]},{t:"How Colombian are you?",d:"The idea was mine. I wrote the activity, was at the shoot and we asked people what they associate with each Colombian song, so the mall would feel united with its community during the month of Colombian culture.",tags:["Original idea","Street activity","Script","Production"]},{peq:true})]},
+ {cover:V+"sp-bogota.jpg",
+  es:{n:"Recursividad",d:"Cuando no hay material grabado, lo armo con lo que hay, ya sean bancos de imágenes, texto en pantalla o voz en off hecha con inteligencia artificial."},
+  en:{n:"Resourcefulness",d:"When there is no footage, I build it with what is available, whether stock footage, on-screen text or AI-generated voice-over."},
+  items:[
+   A("sp-bogota",{t:"Cumpleaños de Bogotá",d:"Sin material propio, armé el video con recursos de bancos de imágenes, texto en pantalla y una canción para Bogotá. La gente lo recibió y lo hizo suyo.",tags:["Recursividad","Texto en pantalla","Bancos de imágenes"]},{t:"Bogotá's birthday",d:"With no footage of our own, I built the video from stock footage and photos, on-screen text and a song for Bogotá. People took it in and made it their own.",tags:["Resourcefulness","On-screen text","Stock footage"]}),
+   A("sp-amistad",{t:"Amor y Amistad",d:"Reutilicé material grabado antes y le sumé una voz en off hecha con inteligencia artificial para contar una historia nueva.",tags:["Reutilización de material","Voz en off con IA","Edición"]},{t:"Love and Friendship Day",d:"I reused footage shot earlier and added an AI-generated voice-over to tell a new story.",tags:["Repurposed footage","AI voice-over","Editing"]})]}
 ];
-
+let grupoSel = 0;
 /* ============ piezas de video con IA ============ */
 const PIEZAS = [
  {id:"ia-velez", ia:true, marca:"tuplús",
@@ -902,11 +953,15 @@ function pintar(){
   document.querySelectorAll(".lang button").forEach(b =>
     b.setAttribute("aria-pressed", String(b.dataset.lang === L)));
 
-  document.getElementById("lista-reels").innerHTML = REELS.map((r,i) => `
+  document.getElementById("hl").innerHTML = GRUPOS.map((g,i) => `
+    <button class="hl-b" type="button" role="tab" data-grupo="${i}" aria-selected="${i===grupoSel}" aria-controls="lista-reels">
+      <span class="hl-ring"><img src="${g.cover}" alt=""></span><span class="lb">${g[L].n}</span>
+    </button>`).join("");
+  document.getElementById("hl-desc").textContent = GRUPOS[grupoSel][L].d;
+  document.getElementById("lista-reels").innerHTML = GRUPOS[grupoSel].items.map((r,i) => `
     <li><button class="ig-item" type="button" data-reel="${i}" aria-label="${esc(r[L].t)}">
       <img src="${r.poster}" alt="" loading="lazy">
-      <span class="ig-num" aria-hidden="true">0${i+1}</span>
-      <span class="ig-play" aria-hidden="true">▶</span>
+      ${r.img ? `<span class="ig-tipo">${t("tipoArte")}</span>` : `<span class="ig-play" aria-hidden="true">▶</span>`}
       <span class="ig-cap"><span>${r[L].tags[0]}</span><b>${r[L].t}</b></span>
     </button></li>`).join("");
   if (rvAbierto) pintarReel(false);
@@ -1016,23 +1071,36 @@ function cerrar(){
 
 
 /* ============ visor de reels ============ */
-const rv = document.getElementById("rv"), rvVideo = document.getElementById("rv-video");
+const rv = document.getElementById("rv"), rvVideo = document.getElementById("rv-video"), rvImg = document.getElementById("rv-img");
 let rvIdx = 0, rvAbierto = false, rvFoco = null;
+const items = () => GRUPOS[grupoSel].items;
 function pintarReel(cargar){
-  const r = REELS[rvIdx], d = r[L];
-  document.getElementById("rv-n").textContent = `Salitre Plaza · ${rvIdx+1} ${t("rvOf")} ${REELS.length}`;
+  const lista = items(), r = lista[rvIdx], d = r[L];
+  document.getElementById("rv-n").textContent = `${GRUPOS[grupoSel][L].n} · ${rvIdx+1} ${t("rvOf")} ${lista.length}`;
   document.getElementById("rv-title").textContent = d.t;
   document.getElementById("rv-desc").textContent = d.d;
   document.getElementById("rv-tags-h").textContent = t("rvTags");
   document.getElementById("rv-tags").innerHTML = d.tags.map(x=>`<li>${esc(x)}</li>`).join("");
-  document.getElementById("rv-bars").innerHTML = REELS.map((_,i)=>`<i class="${i<rvIdx?'done':''}"><b></b></i>`).join("");
+  const cw = document.getElementById("rv-copy-w");
+  if (r.copy){ cw.hidden = false; document.getElementById("rv-copy-h").textContent = t("copyPub"); document.getElementById("rv-copy").textContent = r.copy; }
+  else cw.hidden = true;
+  document.getElementById("rv-bars").innerHTML = lista.map((_,i)=>`<i class="${i<rvIdx?'done':''}"><b></b></i>`).join("");
   const pv = document.getElementById("rv-prev"), nx = document.getElementById("rv-next");
-  pv.disabled = rvIdx === 0; nx.disabled = rvIdx === REELS.length-1;
+  pv.disabled = rvIdx === 0; nx.disabled = rvIdx === lista.length-1;
   pv.setAttribute("aria-label", t("rvPrev")); nx.setAttribute("aria-label", t("rvNext"));
   document.getElementById("rv-close").setAttribute("aria-label", t("rvClose"));
   if (cargar !== false){
-    rvVideo.poster = r.poster; rvVideo.src = r.src;
-    rvVideo.play().catch(()=>{});
+    const m = document.getElementById("rv-media");
+    m.classList.toggle("peq", !!r.peq);
+    if (r.img){
+      rvVideo.pause(); rvVideo.removeAttribute("src"); rvVideo.load(); rvVideo.hidden = true;
+      rvImg.src = r.img; rvImg.alt = d.t; rvImg.hidden = false;
+      const b = document.querySelectorAll("#rv-bars i b")[rvIdx]; if (b) b.style.width = "100%";
+    } else {
+      rvImg.hidden = true; rvImg.removeAttribute("src");
+      rvVideo.hidden = false; rvVideo.poster = r.poster; rvVideo.src = r.src;
+      rvVideo.play().catch(()=>{});
+    }
   }
 }
 function abrirReel(i){
@@ -1046,14 +1114,14 @@ function cerrarReel(){
   if (rvFoco) rvFoco.focus();
 }
 function moverReel(p){
-  const n = rvIdx + p; if (n < 0 || n >= REELS.length) return;
+  const n = rvIdx + p; if (n < 0 || n >= items().length) return;
   rvIdx = n; pintarReel();
 }
 rvVideo.addEventListener("timeupdate", () => {
   const bar = document.querySelectorAll("#rv-bars i b")[rvIdx];
   if (bar && rvVideo.duration) bar.style.width = (rvVideo.currentTime / rvVideo.duration * 100) + "%";
 });
-rvVideo.addEventListener("ended", () => { if (rvIdx < REELS.length-1) moverReel(1); });
+rvVideo.addEventListener("ended", () => { if (rvIdx < items().length-1) moverReel(1); });
 document.getElementById("rv-prev").addEventListener("click", () => moverReel(-1));
 document.getElementById("rv-next").addEventListener("click", () => moverReel(1));
 document.getElementById("rv-close").addEventListener("click", cerrarReel);
@@ -1070,14 +1138,21 @@ document.addEventListener("keydown", e => {
   else if (e.key === "ArrowRight") moverReel(1);
   else if (e.key === "ArrowLeft") moverReel(-1);
   else if (e.key === "Tab"){
-    const f = [...rv.querySelectorAll("button:not([disabled]),video")];
+    const f = [...rv.querySelectorAll("button:not([disabled]),video:not([hidden])")];
     const i = f.indexOf(document.activeElement);
     if (e.shiftKey && i <= 0){ e.preventDefault(); f[f.length-1].focus(); }
     else if (!e.shiftKey && i === f.length-1){ e.preventDefault(); f[0].focus(); }
   }
 });
+document.getElementById("hl").addEventListener("keydown", e => {
+  if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+  const n = (grupoSel + (e.key === "ArrowRight" ? 1 : -1) + GRUPOS.length) % GRUPOS.length;
+  grupoSel = n; pintar(); document.querySelector(`[data-grupo="${n}"]`).focus();
+});
 
 document.addEventListener("click", e => {
+  const gb = e.target.closest("[data-grupo]");
+  if (gb) { grupoSel = +gb.dataset.grupo; pintar(); return; }
   const rb = e.target.closest("[data-reel]");
   if (rb) { abrirReel(+rb.dataset.reel); return; }
   const b = e.target.closest("[data-id]");

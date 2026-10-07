@@ -321,7 +321,10 @@ section{scroll-margin-top:66px}
 
 /* ---------- contacto ---------- */
 .contact{background:var(--acid);color:var(--on-acid);margin-top:clamp(3.5rem,8vw,7rem);padding:clamp(2.8rem,7vw,5rem) 0 calc(clamp(2.8rem,7vw,5rem) + env(safe-area-inset-bottom))}
-.contact h2{max-width:18ch;margin-top:1.1rem}
+.contact h2{max-width:20ch;margin-top:1.1rem}
+.contact-sub{margin-top:1rem;max-width:52ch;font-size:1.08rem;line-height:1.55;color:rgba(10,12,10,.8)}
+.contact .btn.btn-wa{background:var(--on-acid);color:var(--acid)}
+@media(hover:hover){.contact .btn.btn-wa:hover{background:transparent;color:var(--on-acid)}}
 .contact-links{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.9rem}
 .contact .btn{border-color:var(--on-acid);color:var(--on-acid)}
 @media(hover:hover){.contact .btn:hover{background:var(--on-acid);color:var(--acid)}}
@@ -473,13 +476,14 @@ figure{margin:0}
 .bloque .hl{margin-top:1.3rem}
 .rv-media.sq{aspect-ratio:1/1;height:min(70vh,640px)}
 @media(max-width:860px){.rv-media.sq{height:auto;width:min(100%,420px)}}
-.skl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin-top:1.8rem}
+.skl{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1rem;margin-top:1.8rem}
 .skl-c{background:var(--ink-2);border:1px solid var(--line);border-radius:16px;padding:1.2rem 1.15rem 1.3rem}
 .skl-c h3{font-family:var(--f-mono);font-weight:500;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--acid);margin:0 0 .9rem;display:flex;align-items:center;gap:.55rem;line-height:1.3}
 .skl-c h3 svg{width:20px;height:20px;flex:none}
 .skl-c ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.4rem}
 .skl-c li{font-size:.8rem;line-height:1.2;border:1px solid var(--line);border-radius:999px;padding:.38rem .65rem;color:var(--paper);background:var(--ink)}
-@media(max-width:1000px){.skl{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:1200px){.skl{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:860px){.skl{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.skl{grid-template-columns:1fr}}
 .cert-ic{width:42px;height:42px;border-radius:12px;background:var(--ink-2);border:1px solid var(--line);display:grid;place-items:center;color:var(--acid);margin-bottom:.9rem}
 .cert-ic svg{width:22px;height:22px}
@@ -576,9 +580,10 @@ figure{margin:0}
   <div class="wrap">
     <p class="eyebrow" data-t="contactoEyebrow">Contacto</p>
     <h2 data-t="contactoH2"></h2>
+    <p class="contact-sub" data-t="contactoSub"></p>
     <div class="contact-links">
+      <a class="btn btn-wa" id="wa-btn" href="https://wa.me/573164051727" target="_blank" rel="noopener" data-t="waBtn">Escribirme por WhatsApp</a>
       <a class="btn" href="mailto:tegustalaidea@gmail.com">tegustalaidea@gmail.com</a>
-      <a class="btn" href="https://wa.me/573164051727" target="_blank" rel="noopener">WhatsApp 316 405 1727</a>
       <a class="btn" href="Michael-Alvarez-CV-2026.pdf" download data-t="cv">Descargar CV</a>
     </div>
     <div class="foot">
@@ -627,7 +632,7 @@ const UI = {
   heroLede:"Aquí está el trabajo detrás de mi hoja de vida. Cada caso cuenta qué había que resolver, qué hice y qué pasó, con el material publicado para que usted lo vea.",
   h2casos:"Casos",cntCasos:"06 proyectos · toque cada uno para abrirlo",h2tray:"Trayectoria",
   cursos:"<b>Cursos en Platzi</b> · Copywriting con storytelling · Planeación y medición de campañas digitales · Facebook Ads · Email marketing · Las 5 leyes de UX/UI para startups",
-  contactoEyebrow:"Contacto",contactoH2:"Si está buscando social media manager, escríbame.",
+  contactoEyebrow:"Contacto",contactoH2:"Si llegó hasta aquí, algo de mi trabajo le hizo clic.",contactoSub:"Estoy disponible desde ya y pendiente de mi WhatsApp. Escríbame y le respondo el mismo día.",waBtn:"Escribirme por WhatsApp",waTxt:"Hola, Michael. Vi su portafolio y me gustaría hablar con usted.",
   footRol:"Michael Alvarez · Social media manager y estratega de contenido digital",
   elReto:"El reto",queHice:"Qué hice",resultado:"Resultado",material:"Material",
   verCaso:"Ver el caso →",cerrar:"Cerrar",
@@ -642,7 +647,7 @@ const UI = {
   heroLede:"This is the work behind my résumé. Each case shows what had to be solved, what I did and what happened, with the published material so you can see it for yourself.",
   h2casos:"Selected work",cntCasos:"06 projects · tap each one to open it",h2tray:"Career",
   cursos:"<b>Platzi courses</b> · Copywriting with storytelling · Digital campaign planning and measurement · Facebook Ads · Email marketing · The 5 laws of UX/UI for startups",
-  contactoEyebrow:"Contact",contactoH2:"If you are looking for a social media manager, write to me.",
+  contactoEyebrow:"Contact",contactoH2:"If you made it this far, something in my work clicked.",contactoSub:"I am available right away and keep an eye on my WhatsApp. Write to me and I will get back to you the same day.",waBtn:"Message me on WhatsApp",waTxt:"Hi Michael, I saw your portfolio and would like to talk with you.",
   footRol:"Michael Alvarez · Social media manager and digital content strategist",
   elReto:"The challenge",queHice:"What I did",resultado:"Results",material:"Material",
   verCaso:"See the case →",cerrar:"Close",
@@ -668,7 +673,7 @@ const IC = {
  video:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3"/></svg>',
  web:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8h18M8 13l-2 2 2 2M16 13l2 2-2 2"/></svg>'
 };
-const CAP_IC = [IC.pluma, IC.grafica, IC.comunidad, IC.web];
+const CAP_IC = [IC.pluma, IC.grafica, IC.comunidad, IC.video, IC.web];
 const CERTS = [
  ["Jun 2024",IC.ux,["Las 5 leyes de UX/UI para startups","Diseño de flujos y jerarquía visual a partir de cómo decide el usuario."],["The 5 laws of UX/UI for startups","Flow design and visual hierarchy based on how users decide."]],
  ["Ago 2022",IC.titular,["Hacks para redactar titulares","Titulares que ganan el primer segundo de atención."],["Headline writing hacks","Headlines that win the first second of attention."]],
@@ -692,6 +697,8 @@ const CAP = [
   en:["Paid media and measurement",["Meta Ads","Google Ads","TikTok Ads","Budget management","Google Analytics","Google Search Console","Hotjar","SEO"]]},
  {es:["Comunidad, CRM y email",["Community management","Monitoreo de marca","Manejo de crisis","Meta Business Suite","Buffer","Clientify (CRM)","Email marketing con segmentación y automatización"]],
   en:["Community, CRM and email",["Community management","Brand monitoring","Crisis management","Meta Business Suite","Buffer","Clientify (CRM)","Email marketing with segmentation and automation"]]},
+ {es:["Diseño y edición",["Photoshop","Illustrator","Premiere","After Effects","CapCut","Canva"]],
+  en:["Design and editing",["Photoshop","Illustrator","Premiere","After Effects","CapCut","Canva"]]},
  {es:["Páginas web y producción",["WordPress y Elementor","WooCommerce y Odoo","HTML y CSS","Experiencia de usuario (UX)","Velocidad de carga","Grabación y edición de video","Fotografía de producto","Video con inteligencia artificial"]],
   en:["Websites and production",["WordPress and Elementor","WooCommerce and Odoo","HTML and CSS","User experience (UX)","Page speed","Video shooting and editing","Product photography","AI-generated video"]]}
 ];
@@ -1066,6 +1073,7 @@ function pintar(){
   document.querySelectorAll(".lang button").forEach(b =>
     b.setAttribute("aria-pressed", String(b.dataset.lang === L)));
 
+  document.getElementById("wa-btn").href = "https://wa.me/573164051727?text=" + encodeURIComponent(t("waTxt"));
   document.getElementById("bloques").innerHTML = BLOQUES.map((bl,bi) => {
     const gs = bl.grupos, gi = sel[bi], g = gs[gi];
     const hl = gs.length > 1 ? `<div class="hl" role="tablist" aria-label="${esc(bl[L].n)}">${gs.map((x,i) => `

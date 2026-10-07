@@ -389,6 +389,56 @@ figure{margin:0}
 .cursos{margin-top:1.8rem;color:var(--muted);font-size:.92rem;line-height:1.6;max-width:90ch}
 .cursos b{color:var(--paper);font-weight:700}
 .hero-tools{margin-top:1.4rem;font-family:var(--f-mono);font-size:.74rem;letter-spacing:.03em;color:var(--muted);line-height:1.7;max-width:62ch}
+
+/* ---------- reels estilo Instagram ---------- */
+.reels-lede{margin-top:1.1rem;max-width:62ch}
+.ig{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.9rem;margin-top:1.8rem;list-style:none;padding:0}
+.ig li{margin:0}
+.ig-item{position:relative;display:block;width:100%;aspect-ratio:9/16;border:0;padding:0;margin:0;background:var(--ink-2);overflow:hidden;border-radius:16px;cursor:pointer;color:var(--paper);text-align:left;font:inherit;box-shadow:inset 0 0 0 1px var(--line)}
+.ig-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.ig-item::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.88));pointer-events:none}
+.ig-play{position:absolute;top:.75rem;right:.75rem;z-index:2;width:34px;height:34px;border-radius:50%;background:var(--acid);color:var(--on-acid);display:grid;place-items:center;font-size:.72rem;padding-left:2px}
+.ig-num{position:absolute;top:.85rem;left:.85rem;z-index:2;font-family:var(--f-mono);font-size:.64rem;letter-spacing:.08em;color:var(--paper);opacity:.85}
+.ig-cap{position:absolute;left:.85rem;right:.85rem;bottom:.9rem;z-index:2;display:flex;flex-direction:column;gap:.35rem}
+.ig-cap b{font-family:var(--f-display);font-weight:800;font-size:1.02rem;line-height:1.15;letter-spacing:-.02em}
+.ig-cap span{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.07em;text-transform:uppercase;color:var(--acid);line-height:1.4}
+.ig-item:focus-visible{outline:2px solid var(--acid);outline-offset:3px}
+@media(hover:hover){.ig-item:hover img{transform:scale(1.05)}.ig-item:hover{box-shadow:inset 0 0 0 2px var(--acid)}}
+@media(max-width:960px){
+  .ig{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:40%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:.6rem;scrollbar-width:thin}
+  .ig li{scroll-snap-align:start}
+}
+@media(max-width:560px){.ig{grid-auto-columns:64%}}
+
+.rv{position:fixed;inset:0;z-index:90;background:rgba(5,6,5,.95);display:flex;align-items:center;justify-content:center;padding:1.2rem;overflow-y:auto}
+.rv[hidden]{display:none}
+.rv-in{display:grid;grid-template-columns:auto minmax(0,330px);gap:clamp(1.4rem,4vw,3rem);align-items:center;max-width:980px;width:100%}
+.rv-stage{position:relative;justify-self:center}
+.rv-stage video{display:block;height:min(84vh,780px);aspect-ratio:9/16;max-width:100%;background:#000;border-radius:18px}
+.rv-bars{position:absolute;top:.7rem;left:.8rem;right:.8rem;display:flex;gap:4px;z-index:3;pointer-events:none}
+.rv-bars i{flex:1;height:3px;background:rgba(255,255,255,.28);border-radius:3px;overflow:hidden}
+.rv-bars i b{display:block;height:100%;width:0;background:var(--acid)}
+.rv-bars i.done b{width:100%}
+.rv-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--ink-2);color:var(--paper);font-size:1.3rem;cursor:pointer;display:grid;place-items:center;z-index:3}
+.rv-prev{left:-62px}.rv-next{right:-62px}
+.rv-nav[disabled]{opacity:.3;cursor:default}
+.rv-nav:focus-visible,.rv-close:focus-visible{outline:2px solid var(--acid);outline-offset:2px}
+.rv-info .eyebrow{margin:0 0 .6rem}
+.rv-info h3{font-size:clamp(1.4rem,2.6vw,1.9rem);margin:0}
+.rv-info p.rv-desc{color:var(--muted);margin:1rem 0 0;line-height:1.6}
+.rv-info h5{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--acid);margin:1.5rem 0 .6rem;font-weight:500}
+.rv-tags{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.45rem}
+.rv-tags li{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.04em;border:1px solid var(--acid);color:var(--acid);border-radius:999px;padding:.38rem .7rem;line-height:1.2}
+.rv-close{position:fixed;top:1rem;right:1rem;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--ink-2);color:var(--paper);font-size:1rem;cursor:pointer;z-index:95}
+@media(max-width:860px){
+  .rv{align-items:flex-start;padding:4rem 1rem 2rem}
+  .rv-in{grid-template-columns:1fr;gap:1.2rem}
+  .rv-stage video{height:auto;width:min(100%,420px);max-height:70vh}
+  .rv-prev{left:.4rem}.rv-next{right:.4rem}
+  .rv-nav{background:rgba(10,12,10,.7)}
+  .rv-info{max-width:420px;justify-self:center;width:100%}
+}
+@media(prefers-reduced-motion:reduce){.ig-item img{transition:none}}
 </style>
 </head>
 <body>
@@ -397,6 +447,7 @@ figure{margin:0}
   <div class="nav-in">
     <a class="brand" href="#top">Michael Alvarez<span>.</span></a>
     <div class="nav-links">
+      <a href="#reels" data-t="navReels">Reels</a>
       <a href="#casos" data-t="nav1">Casos</a>
       <a href="#capacidades" data-t="nav3">Habilidades</a>
       <a href="#trayectoria" data-t="nav2">Trayectoria</a>
@@ -430,6 +481,15 @@ figure{margin:0}
     </div>
   </div>
 </header>
+
+<section id="reels" class="wrap">
+  <div class="sec-head">
+    <h2 data-t="h2reels">Reels</h2>
+    <span class="count" data-t="cntReels"></span>
+  </div>
+  <p class="hero-lede reels-lede" data-t="ledeReels"></p>
+  <ul class="ig" id="lista-reels"></ul>
+</section>
 
 <section id="casos" class="wrap">
   <div class="sec-head">
@@ -481,6 +541,25 @@ figure{margin:0}
   </div>
 </footer>
 
+<div class="rv" id="rv" role="dialog" aria-modal="true" aria-labelledby="rv-title" hidden>
+  <button class="rv-close" id="rv-close" type="button">✕</button>
+  <div class="rv-in">
+    <div class="rv-stage">
+      <div class="rv-bars" id="rv-bars" aria-hidden="true"></div>
+      <button class="rv-nav rv-prev" id="rv-prev" type="button">‹</button>
+      <video id="rv-video" playsinline controls preload="metadata"></video>
+      <button class="rv-nav rv-next" id="rv-next" type="button">›</button>
+    </div>
+    <div class="rv-info">
+      <p class="eyebrow" id="rv-n"></p>
+      <h3 id="rv-title"></h3>
+      <p class="rv-desc" id="rv-desc"></p>
+      <h5 id="rv-tags-h"></h5>
+      <ul class="rv-tags" id="rv-tags"></ul>
+    </div>
+  </div>
+</div>
+
 <div class="scrim" id="scrim"></div>
 <aside class="panel" id="panel" role="dialog" aria-modal="true" aria-labelledby="panel-title" tabindex="-1">
   <div class="panel-in" id="panel-in"></div>
@@ -491,7 +570,7 @@ const V = "assets/video/", I = "assets/img/";
 
 /* ============ textos de interfaz ============ */
 const UI = {
- es:{heroTools:"Meta Ads · Google Ads · TikTok Ads · Google Analytics · WordPress · Clientify · Edición de video · Inteligencia artificial",nav1:"Casos",nav2:"Trayectoria",nav3:"Habilidades",nav4:"Cursos",nav5:"Contacto",
+ es:{navReels:"Reels",h2reels:"Reels",cntReels:"05 videos · Salitre Plaza · toque uno para verlo",ledeReels:"Durante dos años escribí, produje y dirigí el contenido en video de Salitre Plaza. Estos cinco muestran cada parte del trabajo, del guion a la edición.",rvPrev:"Video anterior",rvNext:"Video siguiente",rvClose:"Cerrar video",rvOf:"de",rvTags:"Lo que muestra este video",heroTools:"Meta Ads · Google Ads · TikTok Ads · Google Analytics · WordPress · Clientify · Edición de video · Inteligencia artificial",nav1:"Casos",nav2:"Trayectoria",nav3:"Habilidades",nav4:"Cursos",nav5:"Contacto",
   cv:"Descargar CV",cvPdf:"Descargar CV en PDF",verCasos:"Ver casos",disponible:"Disponible",navIa:"Video con IA",h2ia:"Video con inteligencia artificial",cntIa:"Piezas de concepto",
   ledeIa:"Estas piezas las generé y las edité con inteligencia artificial. Son ejercicios de concepto. Ninguna está publicada ni tiene un fin comercial.",
   objetivo:"Objetivo",copyPieza:"Texto de la publicación",verPieza:"Ver la pieza",concepto:"Concepto",
@@ -506,7 +585,7 @@ const UI = {
   verCaso:"Ver el caso →",cerrar:"Cerrar",
   scrollShot:"Desplácese dentro del marco para recorrer la página completa",
   titulo:"Michael Alvarez — Social Media Manager"},
- en:{heroTools:"Meta Ads · Google Ads · TikTok Ads · Google Analytics · WordPress · Clientify · Video editing · Artificial intelligence",nav1:"Work",nav2:"Career",nav3:"Skills",nav4:"Courses",nav5:"Contact",
+ en:{navReels:"Reels",h2reels:"Reels",cntReels:"05 videos · Salitre Plaza · tap one to watch",ledeReels:"For two years I wrote, produced and directed Salitre Plaza's video content. These five show each part of the work, from script to edit.",rvPrev:"Previous video",rvNext:"Next video",rvClose:"Close video",rvOf:"of",rvTags:"What this video shows",heroTools:"Meta Ads · Google Ads · TikTok Ads · Google Analytics · WordPress · Clientify · Video editing · Artificial intelligence",nav1:"Work",nav2:"Career",nav3:"Skills",nav4:"Courses",nav5:"Contact",
   cv:"Download CV",cvPdf:"Download CV as PDF",verCasos:"See the work",disponible:"Available",navIa:"AI video",h2ia:"AI-generated video",cntIa:"Concept pieces",
   ledeIa:"I generated and edited these pieces with artificial intelligence. They are concept exercises. None of them has been published or has a commercial purpose.",
   objetivo:"Objective",copyPieza:"Post copy (Spanish)",verPieza:"View the piece",concepto:"Concept",
@@ -551,7 +630,10 @@ const CASOS = [
    reto:"Salitre Plaza compite por la atención de la gente con todo lo que ofrece Bogotá un fin de semana. La comunicación tenía un trabajo concreto, que la gente registrara sus facturas en el programa de fidelización y volviera.",
    hice:["Manejé la comunicación digital del centro comercial en su página web, Facebook, Instagram, LinkedIn y TikTok.",
     "Planeé y escribí la comunicación de las rifas, premios y actividades que invitaban a registrar las facturas.",
-    "Cambié las publicaciones fijas por reels y fotografía propia, y escribí los guiones de los videos.",
+    "Escribí durante dos años los guiones de todo el contenido del centro comercial, incluido lo que dice el talento en cámara.",
+    "Dirigí las grabaciones. Elegí los lugares, los planos y lo que se grababa en cada evento.",
+    "Cambié las publicaciones fijas por reels y fotografía propia.",
+    "Cuando no había material grabado, armé contenido con texto en pantalla, bancos de imágenes y voz en off hecha con inteligencia artificial.",
     "Escribí cada mes la idea gráfica de la campaña y los textos de los eventos, para redes, impresos y las pantallas del centro comercial.",
     "Dirigí la pauta hacia Fontibón, Puente Aranda y los barrios vecinos. En la campaña de aniversario, la de más presupuesto del año, manejé 5.000.000 de pesos.",
     "Desde la misma agencia escribí para Positiva Seguros parrillas de quince correos al mes sobre riesgo laboral, revisadas por un profesional en seguridad y salud en el trabajo."],
@@ -563,15 +645,20 @@ const CASOS = [
    reto:"Salitre Plaza competes for people's attention with everything Bogotá has to offer on a weekend. Communication had a concrete job, getting people to register their receipts in the loyalty program and come back.",
    hice:["I ran the mall's digital communication across its website, Facebook, Instagram, LinkedIn and TikTok.",
     "I planned and wrote the communication for the raffles, prizes and activities that invited people to register their receipts.",
-    "I replaced static posts with reels and original photography, and wrote the video scripts.",
+    "For two years I wrote the scripts for all of the mall's content, including what the talent says on camera.",
+    "I directed the shoots. I chose the locations, the shots and what was recorded at each event.",
+    "I replaced static posts with reels and original photography.",
+    "When there was no footage, I built content with on-screen text, stock footage and AI-generated voice-over.",
     "Every month I wrote the campaign's visual concept and the copy for each event, for social media, print and the mall's screens.",
     "I targeted paid media at Fontibón, Puente Aranda and the surrounding neighborhoods. For the anniversary campaign, the largest budget of the year, I managed COP 5,000,000.",
     "From the same agency I wrote fifteen emails a month on occupational risk for Positiva Seguros, reviewed by an occupational health and safety professional."],
    res:[["27,000 → 53,000","Instagram followers"],
     ["300 → 46,000","TikTok followers"],
     ["COP 5,000,000","in paid media for the anniversary campaign"]]},
-  media:[{t:"video",src:V+"salitre.mp4",poster:V+"salitre.jpg",
-   cap:{es:"Recorrido por el contenido publicado para Salitre Plaza",en:"A walk through the content published for Salitre Plaza"}}]},
+  media:[{t:"video",vert:true,src:V+"sp-programacion.mp4",poster:V+"sp-programacion.jpg",cap:{es:"Programación de agosto. Guion para el talento y dirección de la grabación",en:"August lineup. Script for the talent and shoot direction"}},
+   {t:"video",vert:true,src:V+"sp-madre.mp4",poster:V+"sp-madre.jpg",cap:{es:"Pasarela del Día de la Madre. Dirección en el evento",en:"Mother's Day runway. On-site direction"}},
+   {t:"video",vert:true,src:V+"sp-bogota.mp4",poster:V+"sp-bogota.jpg",cap:{es:"Cumpleaños de Bogotá. Contenido con recursos de bancos de imágenes",en:"Bogotá's birthday. Content built from stock footage"}},
+   {t:"video",vert:true,src:V+"sp-amistad.mp4",poster:V+"sp-amistad.jpg",cap:{es:"Amor y Amistad. Material reutilizado con voz en off hecha con IA",en:"Love and Friendship Day. Repurposed footage with AI voice-over"}}]},
 
  {id:"cancer",
   es:{yr:"Febrero 2026",name:"Día Mundial contra el Cáncer",role:"Líder digital de la campaña · Salitre Plaza",
@@ -580,7 +667,8 @@ const CASOS = [
    hice:["Lideré la comunicación digital de la jornada, junto a la Liga Colombiana Contra el Cáncer, Profamilia y La Roche-Posay.",
     "Escribí los guiones y produje las piezas de convocatoria, conmemoración y cierre.",
     "Coordiné el contenido con los artistas invitados para llevar el mensaje a gente que no seguía al centro comercial.",
-    "Trabajé con los medios en la difusión. La jornada tuvo cubrimiento en directo de Citytv y la presentamos a los Premios CLIC."],
+    "Trabajé con los medios en la difusión. La jornada tuvo cubrimiento en directo de Citytv y la presentamos a los Premios CLIC.",
+    "Durante el evento hice las preguntas, decidí qué se grababa y armé el relato mientras la jornada pasaba. Toda la comunicación digital del proyecto, en cada canal de Salitre Plaza, pasó por mí."],
    res:[["3.478","reproducciones del reel de Lina Uribe, con 67,3% de alcance en no seguidores"],
     ["2.620","reproducciones del reel de Juan Gabriel, con 42,8% de alcance en no seguidores"],
     ["3.428","reproducciones del video resumen, compartido 16 veces"],
@@ -591,15 +679,13 @@ const CASOS = [
    hice:["I led the event's digital communication, alongside the Colombian League Against Cancer, Profamilia and La Roche-Posay.",
     "I wrote the scripts and produced the announcement, commemoration and closing pieces.",
     "I coordinated content with the guest artists to carry the message to people who did not follow the mall.",
-    "I worked with the media on getting the word out. The event had live coverage on Citytv and we entered it in the CLIC Awards."],
+    "I worked with the media on getting the word out. The event had live coverage on Citytv and we entered it in the CLIC Awards.",
+    "During the event I asked the questions, decided what to shoot and built the story as the day unfolded. All of the project's digital communication, across every Salitre Plaza channel, went through me."],
    res:[["3,478","views on Lina Uribe's reel, with 67.3% reach among non-followers"],
     ["2,620","views on Juan Gabriel's reel, with 42.8% reach among non-followers"],
     ["3,428","views on the recap video, shared 16 times"],
     ["Citytv","live coverage on the show Bravísimo"]]},
-  media:[{t:"video",src:V+"campana-inicio.mp4",poster:V+"campana-inicio.jpg",cap:{es:"Inicio de campaña",en:"Campaign launch"}},
-   {t:"video",src:V+"campana-conmemoracion.mp4",poster:V+"campana-conmemoracion.jpg",cap:{es:"Pieza de conmemoración",en:"Commemoration piece"}},
-   {t:"video",src:V+"campana-mujeres.mp4",poster:V+"campana-mujeres.jpg",cap:{es:"Carrete de las sobrevivientes",en:"Survivors' reel"}},
-   {t:"video",src:V+"campana-cierre.mp4",poster:V+"campana-cierre.jpg",cap:{es:"Cierre de campaña",en:"Campaign closing"}}]},
+  media:[{t:"video",vert:true,src:V+"sp-liga.mp4",poster:V+"sp-liga.jpg",cap:{es:"Jornada con la Liga Colombiana Contra el Cáncer. Preguntas, registro y relato durante el evento",en:"Health day with the Colombian League Against Cancer. Questions, coverage and storytelling during the event"}}]},
 
  {id:"domoticol",
   es:{yr:"2023 — 2024",name:"Domoticol",role:"Estratega digital y tienda en línea · QP Technology",
@@ -683,6 +769,26 @@ const CASOS = [
   media:[{t:"video",src:V+"yeah-baby.mp4",poster:V+"yeah-baby.jpg",cap:{es:"Contenido de la cuenta Yeah Baby",en:"Content from the Yeah Baby account"}}]}
 ];
 
+
+
+/* ============ reels ============ */
+const REELS = [
+ {src:V+"sp-programacion.mp4",poster:V+"sp-programacion.jpg",
+  es:{t:"Programación de agosto",d:"Escribí el guion de todo lo que dice el talento, dirigí la grabación y elegí planos en distintos lugares del centro comercial para que el video tuviera movimiento.",tags:["Guion para talento","Dirección de rodaje","Producción en locación"]},
+  en:{t:"August lineup",d:"I wrote the script for everything the talent says, directed the shoot and chose shots across different spots in the mall to keep the video moving.",tags:["Script for talent","Shoot direction","On-location production"]}},
+ {src:V+"sp-liga.mp4",poster:V+"sp-liga.jpg",
+  es:{t:"Jornada con la Liga Colombiana Contra el Cáncer",d:"Durante todo el día hice las preguntas, decidí qué se grababa y armé el relato mientras el evento pasaba. Este video es una parte. Toda la comunicación digital alrededor de la jornada, en cada canal de Salitre Plaza, pasó por mí.",tags:["Cubrimiento en vivo","Entrevistas","Relato del evento","Comunicación en todos los canales"]},
+  en:{t:"Health day with the Colombian League Against Cancer",d:"All day long I asked the questions, decided what to shoot and built the story while the event unfolded. This video is one piece. All the digital communication around the event, across every Salitre Plaza channel, went through me.",tags:["Live coverage","Interviews","Event storytelling","Communication across every channel"]}},
+ {src:V+"sp-madre.mp4",poster:V+"sp-madre.jpg",
+  es:{t:"Pasarela del Día de la Madre",d:"Estuve en el evento definiendo qué se grababa y de qué manera, para contar la jornada completa en un solo video.",tags:["Dirección en evento","Producción","Relato"]},
+  en:{t:"Mother's Day runway",d:"I was at the event deciding what to shoot and how, to tell the whole day in a single video.",tags:["On-site direction","Production","Storytelling"]}},
+ {src:V+"sp-bogota.mp4",poster:V+"sp-bogota.jpg",
+  es:{t:"Cumpleaños de Bogotá",d:"Sin material propio, armé el video con recursos de bancos de imágenes, texto en pantalla y una canción para Bogotá. La gente lo recibió y lo hizo suyo.",tags:["Recursividad","Texto en pantalla","Bancos de imágenes"]},
+  en:{t:"Bogotá's birthday",d:"With no footage of our own, I built the video from stock footage and photos, on-screen text and a song for Bogotá. People took it in and made it their own.",tags:["Resourcefulness","On-screen text","Stock footage"]}},
+ {src:V+"sp-amistad.mp4",poster:V+"sp-amistad.jpg",
+  es:{t:"Amor y Amistad",d:"Reutilicé material grabado antes y le sumé una voz en off hecha con inteligencia artificial para contar una historia nueva.",tags:["Reutilización de material","Voz en off con IA","Edición"]},
+  en:{t:"Love and Friendship Day",d:"I reused footage shot earlier and added an AI-generated voice-over to tell a new story.",tags:["Repurposed footage","AI voice-over","Editing"]}}
+];
 
 /* ============ piezas de video con IA ============ */
 const PIEZAS = [
@@ -796,6 +902,15 @@ function pintar(){
   document.querySelectorAll(".lang button").forEach(b =>
     b.setAttribute("aria-pressed", String(b.dataset.lang === L)));
 
+  document.getElementById("lista-reels").innerHTML = REELS.map((r,i) => `
+    <li><button class="ig-item" type="button" data-reel="${i}" aria-label="${esc(r[L].t)}">
+      <img src="${r.poster}" alt="" loading="lazy">
+      <span class="ig-num" aria-hidden="true">0${i+1}</span>
+      <span class="ig-play" aria-hidden="true">▶</span>
+      <span class="ig-cap"><span>${r[L].tags[0]}</span><b>${r[L].t}</b></span>
+    </button></li>`).join("");
+  if (rvAbierto) pintarReel(false);
+
   document.getElementById("lista-cap").innerHTML = CAP.map(c => `
     <div><h4>${c[L][0]}</h4><ul>${c[L][1].map(i=>`<li>${i}</li>`).join("")}</ul></div>`).join("");
 
@@ -899,7 +1014,72 @@ function cerrar(){
   if (ultimoFoco) ultimoFoco.focus();
 }
 
+
+/* ============ visor de reels ============ */
+const rv = document.getElementById("rv"), rvVideo = document.getElementById("rv-video");
+let rvIdx = 0, rvAbierto = false, rvFoco = null;
+function pintarReel(cargar){
+  const r = REELS[rvIdx], d = r[L];
+  document.getElementById("rv-n").textContent = `Salitre Plaza · ${rvIdx+1} ${t("rvOf")} ${REELS.length}`;
+  document.getElementById("rv-title").textContent = d.t;
+  document.getElementById("rv-desc").textContent = d.d;
+  document.getElementById("rv-tags-h").textContent = t("rvTags");
+  document.getElementById("rv-tags").innerHTML = d.tags.map(x=>`<li>${esc(x)}</li>`).join("");
+  document.getElementById("rv-bars").innerHTML = REELS.map((_,i)=>`<i class="${i<rvIdx?'done':''}"><b></b></i>`).join("");
+  const pv = document.getElementById("rv-prev"), nx = document.getElementById("rv-next");
+  pv.disabled = rvIdx === 0; nx.disabled = rvIdx === REELS.length-1;
+  pv.setAttribute("aria-label", t("rvPrev")); nx.setAttribute("aria-label", t("rvNext"));
+  document.getElementById("rv-close").setAttribute("aria-label", t("rvClose"));
+  if (cargar !== false){
+    rvVideo.poster = r.poster; rvVideo.src = r.src;
+    rvVideo.play().catch(()=>{});
+  }
+}
+function abrirReel(i){
+  rvFoco = document.activeElement; rvIdx = i; rvAbierto = true;
+  rv.hidden = false; document.body.style.overflow = "hidden";
+  pintarReel(); document.getElementById("rv-close").focus();
+}
+function cerrarReel(){
+  rvVideo.pause(); rvVideo.removeAttribute("src"); rvVideo.load();
+  rv.hidden = true; rvAbierto = false; document.body.style.overflow = "";
+  if (rvFoco) rvFoco.focus();
+}
+function moverReel(p){
+  const n = rvIdx + p; if (n < 0 || n >= REELS.length) return;
+  rvIdx = n; pintarReel();
+}
+rvVideo.addEventListener("timeupdate", () => {
+  const bar = document.querySelectorAll("#rv-bars i b")[rvIdx];
+  if (bar && rvVideo.duration) bar.style.width = (rvVideo.currentTime / rvVideo.duration * 100) + "%";
+});
+rvVideo.addEventListener("ended", () => { if (rvIdx < REELS.length-1) moverReel(1); });
+document.getElementById("rv-prev").addEventListener("click", () => moverReel(-1));
+document.getElementById("rv-next").addEventListener("click", () => moverReel(1));
+document.getElementById("rv-close").addEventListener("click", cerrarReel);
+rv.addEventListener("click", e => { if (e.target === rv) cerrarReel(); });
+let rvX = null;
+rv.addEventListener("touchstart", e => { rvX = e.touches[0].clientX; }, {passive:true});
+rv.addEventListener("touchend", e => {
+  if (rvX === null) return; const dx = e.changedTouches[0].clientX - rvX; rvX = null;
+  if (Math.abs(dx) > 50) moverReel(dx < 0 ? 1 : -1);
+});
+document.addEventListener("keydown", e => {
+  if (!rvAbierto) return;
+  if (e.key === "Escape") cerrarReel();
+  else if (e.key === "ArrowRight") moverReel(1);
+  else if (e.key === "ArrowLeft") moverReel(-1);
+  else if (e.key === "Tab"){
+    const f = [...rv.querySelectorAll("button:not([disabled]),video")];
+    const i = f.indexOf(document.activeElement);
+    if (e.shiftKey && i <= 0){ e.preventDefault(); f[f.length-1].focus(); }
+    else if (!e.shiftKey && i === f.length-1){ e.preventDefault(); f[0].focus(); }
+  }
+});
+
 document.addEventListener("click", e => {
+  const rb = e.target.closest("[data-reel]");
+  if (rb) { abrirReel(+rb.dataset.reel); return; }
   const b = e.target.closest("[data-id]");
   if (b) { abrir(b.dataset.id); return; }
   const f = e.target.closest(".skill");
@@ -912,7 +1092,7 @@ document.addEventListener("click", e => {
   }
 });
 scrim.addEventListener("click", cerrar);
-document.addEventListener("keydown", e => { if (e.key === "Escape" && panel.classList.contains("on")) cerrar(); });
+document.addEventListener("keydown", e => { if (!rvAbierto && e.key === "Escape" && panel.classList.contains("on")) cerrar(); });
 
 (function inicio(){
   let g = null;

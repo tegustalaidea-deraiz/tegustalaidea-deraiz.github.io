@@ -458,6 +458,12 @@ figure{margin:0}
 .rv-media [hidden]{display:none!important}
 .rv-copy{margin-top:1rem;background:var(--ink-2);border:1px solid var(--line);border-radius:12px;padding:.9rem 1rem;font-size:.86rem;line-height:1.55;white-space:pre-line;max-height:30vh;overflow:auto;color:var(--paper)}
 @media(max-width:860px){.rv-media{height:auto;width:min(100%,420px);max-height:70vh}.rv-media.peq{width:min(80%,320px)}.rv-copy{max-height:none}}
+.rv-media.hz{aspect-ratio:16/9;height:auto;width:min(100%,960px,calc(62vh*16/9))}
+.rv-in.hz{grid-template-columns:1fr;max-width:960px;gap:1.2rem}
+.rv-in.hz .rv-info{max-width:960px}
+.case-link{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;margin:1.2rem 0 0}
+.case-link span{font-size:.85rem;color:var(--muted)}
+@media(max-width:860px){.rv-media.hz{width:100%}}
 </style>
 </head>
 <body>
@@ -593,7 +599,7 @@ const V = "assets/video/", I = "assets/img/";
 
 /* ============ textos de interfaz ============ */
 const UI = {
- es:{navReels:"Muestras",h2reels:"Muestras de trabajo",cntReels:"16 piezas · organizadas por habilidad",ledeReels:"Durante dos años tuve a cargo la comunicación digital de Salitre Plaza. Escribí todos los textos de las piezas, de las publicaciones y de los impresos, diseñé, produje y edité, y trabajé con marcas, artistas y equipos para sacar cada campaña adelante. Esto es una muestra pequeña, organizada por lo que sé hacer.",masReels:"En dos años hubo muchas más campañas, marcas y artistas. Si quiere ver algo en particular, con gusto se lo muestro.",copyPub:"Texto de la publicación, escrito por mí",tipoArte:"Pieza",rvPrev:"Video anterior",rvNext:"Video siguiente",rvClose:"Cerrar video",rvOf:"de",rvTags:"Lo que muestra",heroTools:"Meta Ads · Google Ads · TikTok Ads · Google Analytics · WordPress · Clientify · Edición de video · Inteligencia artificial",nav1:"Casos",nav2:"Trayectoria",nav3:"Habilidades",nav4:"Cursos",nav5:"Contacto",
+ es:{navReels:"Muestras",h2reels:"Muestras de trabajo",cntReels:"22 piezas · organizadas por habilidad",ledeReels:"Escribo, diseño, produzco y edito. Aquí hay una muestra pequeña de dos trabajos. En Salitre Plaza tuve a cargo la comunicación digital durante dos años y trabajé con marcas, artistas y equipos para sacar cada campaña adelante. En Domoticol llevé todo el marketing digital, de la página a los videos. Está organizada por lo que sé hacer.",masReels:"En dos años hubo muchas más campañas, marcas y artistas. Si quiere ver algo en particular, con gusto se lo muestro.",copyPub:"Texto de la publicación, escrito por mí",tipoArte:"Pieza",rvPrev:"Video anterior",rvNext:"Video siguiente",rvClose:"Cerrar video",rvOf:"de",rvTags:"Lo que muestra",heroTools:"Meta Ads · Google Ads · TikTok Ads · Google Analytics · WordPress · Clientify · Edición de video · Inteligencia artificial",nav1:"Casos",nav2:"Trayectoria",nav3:"Habilidades",nav4:"Cursos",nav5:"Contacto",
   cv:"Descargar CV",cvPdf:"Descargar CV en PDF",verCasos:"Ver casos",disponible:"Disponible",navIa:"Video con IA",h2ia:"Video con inteligencia artificial",cntIa:"Piezas de concepto",
   ledeIa:"Estas piezas las generé y las edité con inteligencia artificial. Son ejercicios de concepto. Ninguna está publicada ni tiene un fin comercial.",
   objetivo:"Objetivo",copyPieza:"Texto de la publicación",verPieza:"Ver la pieza",concepto:"Concepto",
@@ -608,7 +614,7 @@ const UI = {
   verCaso:"Ver el caso →",cerrar:"Cerrar",
   scrollShot:"Desplácese dentro del marco para recorrer la página completa",
   titulo:"Michael Alvarez — Social Media Manager"},
- en:{navReels:"Work",h2reels:"Work samples",cntReels:"16 pieces · organized by skill",ledeReels:"For two years I was in charge of Salitre Plaza's digital communication. I wrote every line in the pieces, posts and print materials, designed, produced and edited, and worked with brands, artists and teams to get each campaign out the door. This is a small sample, organized by what I can do.",masReels:"Two years meant many more campaigns, brands and artists. If you want to see something specific, I am happy to show you.",copyPub:"Post copy, written by me (Spanish)",tipoArte:"Artwork",rvPrev:"Previous video",rvNext:"Next video",rvClose:"Close video",rvOf:"of",rvTags:"What it shows",heroTools:"Meta Ads · Google Ads · TikTok Ads · Google Analytics · WordPress · Clientify · Video editing · Artificial intelligence",nav1:"Work",nav2:"Career",nav3:"Skills",nav4:"Courses",nav5:"Contact",
+ en:{navReels:"Work",h2reels:"Work samples",cntReels:"22 pieces · organized by skill",ledeReels:"I write, design, produce and edit. This is a small sample from two jobs. At Salitre Plaza I ran digital communication for two years and worked with brands, artists and teams to get each campaign out the door. At Domoticol I ran all of the digital marketing, from the website to the videos. It is organized by what I can do.",masReels:"Two years meant many more campaigns, brands and artists. If you want to see something specific, I am happy to show you.",copyPub:"Post copy, written by me (Spanish)",tipoArte:"Artwork",rvPrev:"Previous video",rvNext:"Next video",rvClose:"Close video",rvOf:"of",rvTags:"What it shows",heroTools:"Meta Ads · Google Ads · TikTok Ads · Google Analytics · WordPress · Clientify · Video editing · Artificial intelligence",nav1:"Work",nav2:"Career",nav3:"Skills",nav4:"Courses",nav5:"Contact",
   cv:"Download CV",cvPdf:"Download CV as PDF",verCasos:"See the work",disponible:"Available",navIa:"AI video",h2ia:"AI-generated video",cntIa:"Concept pieces",
   ledeIa:"I generated and edited these pieces with artificial intelligence. They are concept exercises. None of them has been published or has a commercial purpose.",
   objetivo:"Objective",copyPieza:"Post copy (Spanish)",verPieza:"View the piece",concepto:"Concept",
@@ -711,24 +717,33 @@ const CASOS = [
   media:[{t:"video",vert:true,src:V+"sp-liga.mp4",poster:V+"sp-liga.jpg",cap:{es:"Jornada con la Liga Colombiana Contra el Cáncer. Preguntas, registro y relato durante el evento",en:"Health day with the Colombian League Against Cancer. Questions, coverage and storytelling during the event"}}]},
 
  {id:"domoticol",
+  link:{url:"https://domoticol.com",es:{a:"Ver domoticol.com",n:"Se abre en otra pestaña. Su recorrido por este portafolio sigue aquí."},en:{a:"Visit domoticol.com",n:"Opens in a new tab. Your visit to this portfolio stays right here."}},
   es:{yr:"2023 — 2024",name:"Domoticol",role:"Estratega digital y tienda en línea · QP Technology",
-   head:"Página, tienda en línea y redes <b>construidas desde cero</b> con una misma voz.",
-   reto:"Vender en línea productos de domótica que mucha gente todavía no sabe que necesita. Había que explicar la categoría y vender al mismo tiempo.",
-   hice:["Construí desde cero la página con su tienda en línea. Organicé las secciones, escribí los textos y armé el camino de compra.",
-    "Grabé, edité y escribí el contenido de redes, una parte para dar a conocer la marca y otra para vender.",
-    "Produje las piezas de producto y de campaña para todos los canales."],
-   res:[["Desde cero","página y tienda en línea construidas y escritas por mí"]]},
+   head:"Página rediseñada por completo y videos de producto <b>grabados con celular</b>.",
+   reto:"Vender en línea productos de domótica, que hoy están en Panamericana y Homecenter, con videos creíbles y un presupuesto muy bajo. Mucha gente todavía no sabe que los necesita, así que había que mostrar cómo funcionan.",
+   hice:["Rediseñé casi el 100% de la página y la tienda en línea, montadas en Odoo. La versión anterior funcionaba, pero se veía sencilla. La nueva hace que el producto se vea confiable y que valga lo que cuesta.",
+    "Tomé las fotos de producto y armé los montajes en Photoshop, antes de que la inteligencia artificial hiciera ese trabajo.",
+    "Planeé y escribí cada video, y lo grabé con celular en una casa real, para mostrar cómo funciona cada producto en los espacios donde se usa.",
+    "Edité los videos y los publiqué en YouTube, en la página y en redes. Llevé todo el marketing digital de la marca."],
+   res:[["Casi 100%","de la página rediseñada"],
+    ["Hoy","la página sigue funcionando como la dejé"],
+    ["Celular","todos los videos de producto, grabados con teléfono en una casa real"]]},
   en:{yr:"2023 — 2024",name:"Domoticol",role:"Digital strategist and online store · QP Technology",
-   head:"Website, online store and social media <b>built from scratch</b> with one voice.",
-   reto:"Selling home automation products online that many people do not yet know they need. The work had to explain the category and sell at the same time.",
-   hice:["I built the website and its online store from scratch. I organized the sections, wrote the copy and set up the path to purchase.",
-    "I shot, edited and wrote the social content, part of it to make the brand known and part of it to sell.",
-    "I produced the product and campaign pieces for every channel."],
-   res:[["From scratch","website and online store built and written by me"]]},
-  media:[{t:"video",src:V+"domoticol.mp4",poster:V+"domoticol.jpg",cap:{es:"Contenido de redes producido para Domoticol",en:"Social content produced for Domoticol"}},
+   head:"Website fully redesigned and product videos <b>shot on a phone</b>.",
+   reto:"Selling home automation products online, now carried by Panamericana and Homecenter, with believable videos on a very small budget. Many people still do not know they need them, so the job was to show how they work.",
+   hice:["I redesigned almost 100% of the website and online store, built on Odoo. The previous version worked but looked basic. The new one makes the product look trustworthy and worth its price.",
+    "I took the product photos and built the composites in Photoshop, before artificial intelligence did that kind of work.",
+    "I planned and wrote each video and shot it on a phone in a real home, to show how each product works in the spaces where it is used.",
+    "I edited the videos and published them on YouTube, the website and social media. I ran all of the brand's digital marketing."],
+   res:[["Almost 100%","of the website redesigned"],
+    ["Today","the website still runs the way I left it"],
+    ["Phone","every product video, shot on a phone in a real home"]]},
+  media:[{t:"video",src:V+"dm-robotina-h.mp4",poster:V+"dm-robotina-h.jpg",cap:{es:"Robot aspiradora, grabado con celular en una casa real",en:"Robot vacuum, shot on a phone in a real home"}},
+   {t:"video",src:V+"dm-bombillo.mp4",poster:V+"dm-bombillo.jpg",cap:{es:"Bombillo inteligente controlado desde el celular",en:"Smart bulb controlled from a phone"}},
+   {t:"video",src:V+"dm-ipure.mp4",poster:V+"dm-ipure.jpg",cap:{es:"Purificador iPure",en:"iPure air purifier"}},
+   {t:"video",vert:true,src:V+"dm-robotina1.mp4",poster:V+"dm-robotina1.jpg",cap:{es:"Versión vertical para redes",en:"Vertical cut for social media"}},
    {t:"shot",src:I+"domoticol-home.jpg",cap:{es:"domoticol.com — página principal",en:"domoticol.com — home page"}},
-   {t:"shot",src:I+"domoticol-ipure.jpg",cap:{es:"Ficha de producto — línea iPure",en:"Product page — iPure line"}},
-   {t:"shot",src:I+"domoticol-instagram.jpg",cap:{es:"Feed de Instagram",en:"Instagram feed"}}]},
+   {t:"shot",src:I+"domoticol-ipure.jpg",cap:{es:"Ficha de producto — línea iPure",en:"Product page — iPure line"}}]},
 
  {id:"qualiprint",
   es:{yr:"2023 — 2024",name:"Qualiprint",role:"Estratega digital y tienda en línea · QP Technology",
@@ -771,8 +786,7 @@ const CASOS = [
     "I put together the social media, emails and sign-up pages to bring in new students."],
    res:[["From scratch","website written, designed and published"],
     ["More families","at the Open House, the step before enrollment"]]},
-  media:[{t:"video",src:V+"champagnat.mp4",poster:V+"champagnat.jpg",cap:{es:"Contenido de redes producido para el Colegio Champagnat",en:"Social content produced for Colegio Champagnat"}},
-   {t:"shot",src:I+"champagnat.jpg",cap:{es:"Página web del Colegio Champagnat Bogotá",en:"Colegio Champagnat Bogotá website"}}]},
+  media:[{t:"shot",src:I+"champagnat.jpg",cap:{es:"Página web del Colegio Champagnat Bogotá",en:"Colegio Champagnat Bogotá website"}}]},
 
  {id:"yeahbaby",
   es:{yr:"2019",name:"Yeah Baby",role:"Creativo digital · Dirty Kitchen",
@@ -789,7 +803,7 @@ const CASOS = [
     "I built the team's creative process from scratch, and we used it to choose which ideas were worth shooting."],
    res:[["Monetized","the channel earned revenue from its content"],
     ["Community","first-time parents, an audience brands care about"]]},
-  media:[{t:"video",src:V+"yeah-baby.mp4",poster:V+"yeah-baby.jpg",cap:{es:"Contenido de la cuenta Yeah Baby",en:"Content from the Yeah Baby account"}}]}
+  media:[]}
 ];
 
 
@@ -804,6 +818,16 @@ const GRUPOS = [
   items:[
    A("sp-programacion",{t:"Programación de agosto",d:"Escribí el guion de todo lo que dice el talento, dirigí la grabación y elegí planos en distintos lugares del centro comercial para que el video tuviera movimiento.",tags:["Guion para talento","Dirección de rodaje","Producción en locación"]},{t:"August lineup",d:"I wrote the script for everything the talent says, directed the shoot and chose shots across different spots in the mall to keep the video moving.",tags:["Script for talent","Shoot direction","On-location production"]}),
    A("sp-madre",{t:"Pasarela del Día de la Madre",d:"Estuve en el evento definiendo qué se grababa y de qué manera, para contar la jornada completa en un solo video.",tags:["Dirección en evento","Producción","Relato"]},{t:"Mother's Day runway",d:"I was at the event deciding what to shoot and how, to tell the whole day in a single video.",tags:["On-site direction","Production","Storytelling"]})]},
+ {cover:V+"dm-robotina-h.jpg",
+  es:{n:"Producto y tienda en línea",d:"Con un presupuesto mínimo rediseñé la página de Domoticol y grabé con celular los videos de producto, del guion a la publicación."},
+  en:{n:"Product and online store",d:"On a minimal budget I redesigned Domoticol's website and shot the product videos on a phone, from script to publishing."},
+  items:[
+   A("dm-robotina-h",{t:"Robot aspiradora en acción",d:"Grabé con celular en una casa real para mostrar el robot trabajando donde de verdad se usa. Escribí, grabé, edité y publiqué el video.",tags:["Guion","Grabación con celular","Edición","Video de producto"]},{t:"Robot vacuum in action",d:"I shot it on a phone in a real home to show the robot working where it is actually used. I wrote, shot, edited and published the video.",tags:["Script","Shot on a phone","Editing","Product video"]},{hz:true}),
+   A("dm-robotina1",{t:"Robot aspiradora para redes",d:"Versión vertical para redes, escrita, grabada y editada por mí.",tags:["Video vertical","Grabación con celular","Edición"]},{t:"Robot vacuum for social",d:"Vertical cut for social media, written, shot and edited by me.",tags:["Vertical video","Shot on a phone","Editing"]}),
+   A("dm-robotina2",{t:"Robot aspiradora, segunda pieza",d:"Otra pieza vertical del mismo rodaje, pensada para mostrar un uso distinto del producto.",tags:["Video vertical","Producción"]},{t:"Robot vacuum, second piece",d:"Another vertical piece from the same shoot, made to show a different use of the product.",tags:["Vertical video","Production"]}),
+   A("dm-bombillo",{t:"Bombillo inteligente",d:"Mostré cómo se controla desde el celular y cómo cambia un espacio con la luz.",tags:["Guion","Grabación","Edición"]},{t:"Smart bulb",d:"I showed how it is controlled from a phone and how light changes a space.",tags:["Script","Shooting","Editing"]},{hz:true}),
+   A("dm-ipure",{t:"Purificador iPure",d:"Video de producto con el beneficio en pantalla, escrito, grabado y editado por mí.",tags:["Video de producto","Texto en pantalla","Edición"]},{t:"iPure air purifier",d:"Product video with the benefit on screen, written, shot and edited by me.",tags:["Product video","On-screen text","Editing"]},{hz:true}),
+   ART("domoticol-home-art",{t:"domoticol.com",d:"La página que rediseñé casi por completo. Puede verla entera en domoticol.com desde el caso de Domoticol, más abajo.",tags:["Rediseño web","Fotografía de producto","Montajes en Photoshop"]},{t:"domoticol.com",d:"The website I redesigned almost entirely. You can see it in full at domoticol.com from the Domoticol case below.",tags:["Web redesign","Product photography","Photoshop composites"]},null)]},
  {cover:V+"art-corona.jpg",
   es:{n:"Marcas y artistas",d:"Escribí la comunicación de eventos con marcas aliadas y artistas reconocidos. Cada texto tenía que funcionarle al centro comercial, a la marca y al artista al mismo tiempo, y salir aprobado por los tres."},
   en:{n:"Brands and artists",d:"I wrote the communication for events with partner brands and well-known artists. Every line had to work for the mall, the brand and the artist at once, and get approved by all three."},
@@ -906,7 +930,7 @@ const TRACK = [
      "I ran the account's organic content and paid media.",
      "I answered comments and health questions within what was allowed."],
     res:[["Within the rules","sustained sales communication with no health claims"]]},
-   media:[{t:"video",src:V+"pharmaris.mp4",poster:V+"pharmaris.jpg",cap:{es:"Contenido de redes para Grupo Pharmaris",en:"Social content for Grupo Pharmaris"}}]}},
+   media:[]}},
 
  {yr:"2021",
   es:{name:"Grupo Gesth",role:"Community manager",
@@ -932,7 +956,7 @@ const TRACK = [
      "I built a content line around memes and cultural references that kept the conversation going beyond the program.",
      "I reviewed the numbers every month and adjusted the plan."],
     res:[["Community","sustained conversation around the habit of reading"]]},
-   media:[{t:"video",src:V+"avanc.mp4",poster:V+"avanc.jpg",cap:{es:"Contenido de redes para Avan-c Leyendo",en:"Social content for Avan-c Leyendo"}}]}},
+   media:[]}},
 
  {yr:"2018",
   es:{name:"Universidad Sergio Arboleda",role:"Auxiliar de marketing",
@@ -1045,11 +1069,12 @@ function abrir(id, conHash){
     <p class="eyebrow">${d.yr}</p>
     <h3 id="panel-title">${d.name}</h3>
     <p class="meta">${d.role}</p>
+    ${c.link ? `<p class="case-link"><a class="btn" href="${c.link.url}" target="_blank" rel="noopener">${c.link[L].a}</a><span>${c.link[L].n}</span></p>` : ""}
     <div class="block"><h5>${c.ia ? t("objetivo") : t("elReto")}</h5><p>${d.reto}</p></div>
     <div class="block"><h5>${t("queHice")}</h5><ul>${d.hice.map(h=>`<li>${h}</li>`).join("")}</ul></div>
     ${d.res ? `<div class="block"><h5>${t("resultado")}</h5><ul class="results">${d.res.map(r=>`<li><b>${r[0]}</b><span>${r[1]}</span></li>`).join("")}</ul></div>` : ""}
     ${d.copy ? `<div class="block"><h5>${t("copyPieza")}</h5><p class="copy-pieza">${d.copy}</p><p class="tags">${d.tags}</p></div>` : ""}
-    <div class="block"><h5>${t("material")}</h5><div class="media">${c.media.map(mediaHTML).join("")}</div></div>`;
+    ${c.media && c.media.length ? `<div class="block"><h5>${t("material")}</h5><div class="media">${c.media.map(mediaHTML).join("")}</div></div>` : ""}`;
   panel.classList.add("on");
   scrim.classList.add("on");
   document.body.style.overflow = "hidden";
@@ -1091,7 +1116,7 @@ function pintarReel(cargar){
   document.getElementById("rv-close").setAttribute("aria-label", t("rvClose"));
   if (cargar !== false){
     const m = document.getElementById("rv-media");
-    m.classList.toggle("peq", !!r.peq);
+    m.classList.toggle("peq", !!r.peq); m.classList.toggle("hz", !!r.hz); document.querySelector(".rv-in").classList.toggle("hz", !!r.hz);
     if (r.img){
       rvVideo.pause(); rvVideo.removeAttribute("src"); rvVideo.load(); rvVideo.hidden = true;
       rvImg.src = r.img; rvImg.alt = d.t; rvImg.hidden = false;
